@@ -6,8 +6,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbAdmin:dbAdmin@cluster0-vaxrd.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true }, );
-
-
+//const db = new MongoClient().getDB("PortDB");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,8 +21,16 @@ client.connect(err => {
     if (err)
         throw err;
     console.log('Connection works!');
-});
+    var db1 = client.db("PortDB");
+    //console.log(db1.collection("PortDB").find());
+    var dbo= client.db("PortDB");
+    dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris"} , { projection: { firsName: 1, lastName: 1} }).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
 
+      });
+});
+ 
 
 app.use('/JavaScript', express.static('JavaScript'));
 app.use('/img', express.static('img'));
@@ -38,10 +45,6 @@ app.get('/user', (req, res) => {
 
 app.get('/admin', (req, res) => {
     res.sendFile(__dirname + '/admin.html');
-});
-
-app.get('/create-user', (req, res) => {
-    res.sendFile(__dirname + '/create-user.html');
 });
 
 app.get('/GetUser', (req, res) => {

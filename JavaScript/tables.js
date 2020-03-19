@@ -78,3 +78,17 @@ function validatePassword(pass) {
         alert("The length is too small.");
     }
 }
+
+
+const db = client.db("test");
+myCursor = db.PortDB.find( { Users: { firsName: "Dacian", lastName: "Maris" } } );
+
+function iterateFunc(doc) {
+console.log(JSON.stringify(doc, null, 4));
+}
+
+function errorFunc(error) {
+console.log(error);
+}
+
+myCursor.forEach(iterateFunc, errorFunc);
