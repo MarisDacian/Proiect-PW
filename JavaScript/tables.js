@@ -95,13 +95,13 @@ function errorFunc(error) {
 
 $("#createUser").click(function(e) {
     e.preventDefault();
-    let email = document.getElementById("inputEmail").value;
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let cnp = document.getElementById("cnp").value;
+    let userName = document.getElementById("userName").value;
+    let inputEmail = document.getElementById("inputEmail").value;
     let inputPassword = document.getElementById("inputPassword").value;
-    let inputCNP = document.getElementById("inputCNP").value;
-    let inputAddress = document.getElementById("inputAddress").value;
-    let inputCity = document.getElementById("inputCity").value;
-    let inputState = document.getElementById("inputState").value;
-    let inputZip = document.getElementById("inputZip").value;
+    let reenterPass = document.getElementById("reenterPass").value;
 
-    console.log(email + " " + inputPassword + " " + inputCNP);
+    console.log(firstname + " " + lastname + " " + cnp);
 });
