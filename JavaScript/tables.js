@@ -80,15 +80,29 @@ function validatePassword(pass) {
 }
 
 
-const db = client.db("test");
-myCursor = db.PortDB.find( { Users: { firsName: "Dacian", lastName: "Maris" } } );
+//const db = client.db("test");
+//myCursor = db.PortDB.find({ Users: { firsName: "Dacian", lastName: "Maris" } });
 
 function iterateFunc(doc) {
-console.log(JSON.stringify(doc, null, 4));
+    console.log(JSON.stringify(doc, null, 4));
 }
 
 function errorFunc(error) {
-console.log(error);
+    console.log(error);
 }
 
-myCursor.forEach(iterateFunc, errorFunc);
+//myCursor.forEach(iterateFunc, errorFunc);
+
+
+$("#createUser").click(function(e) {
+    e.preventDefault();
+    let email = document.getElementById("inputEmail").value;
+    let inputPassword = document.getElementById("inputPassword").value;
+    let inputCNP = document.getElementById("inputCNP").value;
+    let inputAddress = document.getElementById("inputAddress").value;
+    let inputCity = document.getElementById("inputCity").value;
+    let inputState = document.getElementById("inputState").value;
+    let inputZip = document.getElementById("inputZip").value;
+
+    console.log(email + " " + inputPassword + " " + inputCNP);
+});
