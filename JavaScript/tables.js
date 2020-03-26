@@ -93,6 +93,10 @@ function errorFunc(error) {
 
 //myCursor.forEach(iterateFunc, errorFunc);
 
+function createUser2Function(){
+    inputEmail = document.getElementById("inputEmail").value;
+    console.log(inputEmail);
+}
 
 $("#createUser").click(function(e) {
     e.preventDefault();
