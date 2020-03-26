@@ -21,8 +21,6 @@ client.connect(err => {
     if (err)
         throw err;
     console.log('Connection works!');
-    var db1 = client.db("PortDB");
-    //console.log(db1.collection("PortDB").find());
     var dbo= client.db("PortDB");
     dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris"} , { projection: { firsName: 1, lastName: 1} }).toArray(function(err, result) {
         if (err) throw err;
