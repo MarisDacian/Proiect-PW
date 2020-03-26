@@ -7,8 +7,10 @@ module.exports = {
                 collection.insertOne({  
                     firsName:data[0],
                     lastName:data[1],
-                    email:data[2],
-                    password:data[4],
+                    cnp:data[2],
+                    userName:data[3],
+                    email:data[4],
+                    password:data[5],
                    },function(err,res){
                     if(err)
                         throw err;

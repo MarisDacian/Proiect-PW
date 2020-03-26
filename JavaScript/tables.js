@@ -80,9 +80,6 @@ function validatePassword(pass) {
 }
 
 
-//const db = client.db("test");
-//myCursor = db.PortDB.find({ Users: { firsName: "Dacian", lastName: "Maris" } });
-
 function iterateFunc(doc) {
     console.log(JSON.stringify(doc, null, 4));
 }
@@ -95,13 +92,21 @@ function errorFunc(error) {
 
 $("#createUser").click(function(e) {
     e.preventDefault();
-    let firstname = document.getElementById("firstname").value;
-    let lastname = document.getElementById("lastname").value;
-    let cnp = document.getElementById("cnp").value;
-    let userName = document.getElementById("userName").value;
-    let inputEmail = document.getElementById("inputEmail").value;
-    let inputPassword = document.getElementById("inputPassword").value;
-    let reenterPass = document.getElementById("reenterPass").value;
+     createUser[0] = document.getElementById("firstname").value;
+     createUser[1] = document.getElementById("lastname").value;
+     createUser[2] = document.getElementById("cnp").value;
+     createUser[3] = document.getElementById("userName").value;
+     createUser[4] = document.getElementById("inputEmail").value;
+     createUser[5] = document.getElementById("inputPassword").value;
+     createUser[6] = document.getElementById("reenterPass").value;
 
+    $.ajax({
+        type: "POST",
+        url: "/createUser",
+        data: { user: createUser },
+        success: function(data) {
+             console.log(data);
+        }
+    });
     console.log(firstname + " " + lastname + " " + cnp);
 });
