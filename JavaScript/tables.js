@@ -51,7 +51,7 @@ function createUserFunction() {
     createUser[4] = document.getElementById("createPsw").value;
     createUser[5] = document.getElementById("re-enterPsw").value;
 
-    validatePassword(createUser[4]);
+   // validatePassword(createUser[4]);
     // if (createUser[4] != createUser[5]) {
     //     alert("Password does not match.");
     // }
@@ -70,13 +70,40 @@ function createUserFunction() {
     console.log(createUser);
 }
 
-function validatePassword(pass) {
+function validatePassword(pass,rePass) {
     let psw = pass.length;
-    console.log(psw);
     if (psw < 6) {
-        alert("The length is too small."); //litera mare si o cifra, parola este egala cu cea de a doua
-    }else {
+        alert("The length of password is too small."); //litera mare si o cifra, parola este egala cu cea de a doua
+    }else { 
+    let contorPass=false;
+        if(pass==rePass){
+            contorPass=true;
         
+             let  contorBigCaracter=false;
+             let  contorNumber=false;
+            for(i=0;i<pass.length;i++){
+
+                if(pass[i]>='A' && pass[i]<='Z'){
+                    contorBigCaracter=true;
+                }else{
+                    if(i+1==pass.length && contorBigCaracter==false){
+                    alert("The password don't have big caracter. A-Z");
+                }
+                }
+                if(pass[i]>='0' && pass[i]<='9'){
+                    contorNumber=true;
+                }else{ if(i+1==pass.length && contorNumber==false){
+                    alert("The password don't have number. 0-9");
+                    }
+                }
+                if(contorBigCaracter==true && contorNumber==true && contorPass==true){
+                   i=pass.length;
+                return 1;
+                }
+            }
+        }else{
+            alert("The reentered password is not equel.");
+        }
     }
 }
 
@@ -84,9 +111,9 @@ function valdiCNP(cNP){
 
     let cnpLength=cNP.length;
     if(cNP.length<13){
-        alert("The length is too small.");
+        alert("The length of CNP is too small.");
     }else if( cNP.length>13){
-        alert("The length is too long.");
+        alert("The length of CNP is too long.");
     }else{
         birthDay(cNP);
     }
@@ -164,9 +191,9 @@ $("#createUser").click(function(e) {
      createUser[6] = document.getElementById("reenterPass").value;
 
 
-   
+     
      valdiCNP(createUser[2]);
-
+    if(validatePassword(createUser[5],createUser[6])==1){
     $.ajax({
         type: "POST",
         url: "/createUser",
@@ -174,6 +201,6 @@ $("#createUser").click(function(e) {
         success: function(data) {
              console.log(data);
         }
-    });
+    });}
    // console.log(firstname + " " + lastname + " " + cnp);
 });
