@@ -11,6 +11,8 @@ module.exports = {
                     userName:data[3],
                     email:data[4],
                     password:data[5],
+                    birthday:data[7],
+                    sex:data[8],
                    },function(err,res){
                     if(err)
                         throw err;
