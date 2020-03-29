@@ -21,12 +21,7 @@ client.connect(err => {
     if (err)
         throw err;
     console.log('Connection works!');
-    var dbo = client.db("PortDB");
-    dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris" }, { projection: { firsName: 1, lastName: 1 } }).toArray(function(err, result) {
-        if (err) throw err;
-        console.log(result);
-
-    });
+ 
 });
 
 
@@ -59,8 +54,9 @@ app.get('/GetUser', (req, res) => {
 });
 
 app.get('/GetOneUser', function(req, res) {
-    console.log(req.query.createUser);
+    
     api.getOneUser(client, req.query.createUser, res);
+
 });
 
 app.post('/createUser', function(req, res) {

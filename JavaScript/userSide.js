@@ -119,16 +119,16 @@ if(cNP[0]=='0' || cNP[0]=='9'){
 
 
 function getOneUser(createUser){
+    existentUser;
     $.ajax({
         type: "GET",
         url: "/GetOneUser",
         data: { createUser: createUser },
         success: function(data) {
-            for (i = 0; i < data.length; i++) {
-                console.log(data[i]);
-            }
+            existentUser=data;
         }
     });
+    return existentUser;
 }
 $("#createUser").click(function(e) {
     e.preventDefault();
