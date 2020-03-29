@@ -15,13 +15,13 @@ app.listen(3000, () => {
     console.log('listening on 3000');
 });
 
-
+var dbo;
 client.connect(err => {
     // perform actions on the collection object
     if (err)
         throw err;
     console.log('Connection works!');
-    var dbo= client.db("PortDB");
+    dbo= client.db("PortDB");
     dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris"} , { projection: { firsName: 1, lastName: 1} }).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
@@ -47,6 +47,10 @@ app.get('/admin', (req, res) => {
 
 app.get('/GetUser', (req, res) => {
     api.getUsers(client, res);
+});
+
+app.get('/GetOneUser', function(req, res) {
+    api.getOneUser(client, req.body.user, res);
 });
 
 app.post('/createUser', function(req, res) {

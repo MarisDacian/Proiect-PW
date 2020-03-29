@@ -17,5 +17,9 @@ module.exports={
         /**to add save seats functionality */
         get.getUsers(client,obj);
     },
+    getOneUser: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getOneUser(client,obj,res);
+    },
    
 }

@@ -180,6 +180,20 @@ function errorFunc(error) {
 
 //myCursor.forEach(iterateFunc, errorFunc);
 
+
+
+function getOneUser(createUser){
+    $.ajax({
+        type: "GET",
+        url: "/GetOneUser",
+        data: { user: createUser },
+        success: function(data) {
+            for (i = 0; i < data.length; i++) {
+                console.log(data[i]);
+            }
+        }
+    });
+}
 $("#createUser").click(function(e) {
     e.preventDefault();
      createUser[0] = document.getElementById("firstname").value;
@@ -191,9 +205,12 @@ $("#createUser").click(function(e) {
      createUser[6] = document.getElementById("reenterPass").value;
 
 
-     
-     valdiCNP(createUser[2]);
-    if(validatePassword(createUser[5],createUser[6])==1){
+    //------Validare comentata pentru a testa mai usor------
+
+
+   //  valdiCNP(createUser[2]);
+   // if(validatePassword(createUser[5],createUser[6])==1){
+    getOneUser(createUser[3],createUser[6]);
     $.ajax({
         type: "POST",
         url: "/createUser",
@@ -201,6 +218,7 @@ $("#createUser").click(function(e) {
         success: function(data) {
              console.log(data);
         }
-    });}
+    });
+//}
    // console.log(firstname + " " + lastname + " " + cnp);
 });
