@@ -21,14 +21,18 @@ client.connect(err => {
     if (err)
         throw err;
     console.log('Connection works!');
-    var dbo= client.db("PortDB");
-    dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris"} , { projection: { firsName: 1, lastName: 1} }).toArray(function(err, result) {
+    var dbo = client.db("PortDB");
+    dbo.collection("Users").find({ firsName: "Dacian", lastName: "Maris" }, { projection: { firsName: 1, lastName: 1 } }).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
 
-      });
+    });
 });
- 
+
+
+app.use('/bower_components', express.static('bower_components'));
+app.use('/css', express.static('css'));
+
 
 app.use('/JavaScript', express.static('JavaScript'));
 app.use('/img', express.static('img'));
@@ -43,6 +47,11 @@ app.get('/user', (req, res) => {
 
 app.get('/admin', (req, res) => {
     res.sendFile(__dirname + '/admin.html');
+});
+
+
+app.get('/create-user', (req, res) => {
+    res.sendFile(__dirname + '/create-user.html');
 });
 
 app.get('/GetUser', (req, res) => {

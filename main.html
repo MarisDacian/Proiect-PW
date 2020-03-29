@@ -3,80 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Spatiu Restaurant</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="css" href="/Spatiu-Restaurant-master/tableDraw/tables.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-
-    <button type="button" class="MenuButton" id="save" onclick="SaveUser()">Create User test</button>
-    <button type="button" class="MenuButton" id="getData" onclick="getUsers()">Get Users Data</button>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <form action="" method="post">
-                    <div class="container">
-                        <label for="uname"><b>Username</b></label><br>
-                        <input id="idUser" type="text" placeholder="Enter Username" name="uname" required><br>
-
-                        <label for="psw"><b>Password</b></label><br>
-                        <input id="userPassword" type="password" placeholder="Enter Password" name="psw" required><br><br>
-                        <button type="button" id="submitButton" onclick="SaveUser()">Login</button>
-                    </div>
-                </form>
+    <div class="logInBox log-in">
+        <form id="existingAccount " action=" " method="post ">
+            <div class="form-group">
+                <label for="exampleDropdownFormEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
             </div>
-            <div class="col">
-                <form action="" method="post">
-                    <div class="container">
-                        <label for="firstname"><b>First name</b></label><br>
-                        <input id="firstName" type="text" placeholder="Enter First Name" name="firstname" required><br>
-
-                        <label for="secondname"><b>Second name</b></label><br>
-                        <input id="secondName" type="text" placeholder="Enter Second Name" name="secondname" required><br>
-
-                        <label for="email"><b>E-mail</b></label><br>
-                        <input id="userEmail" type="email" placeholder="Enter E-mail" name="email" required><br>
-
-                        <label for="cars"><b>Choose the type of vehicler:</b></label><br>
-
-                        <select id="vehicle">
-                            <option value="car">Car</option>
-                            <option value="saab">Truck</option>
-                            <option value="opel">Ship</option>
-                        </select><br>
-
-                        <label for="createPsw"><b>Password</b></label><br>
-                        <input id="createPsw" type="password" placeholder="Enter Password" name="createPsw" required><br>
-
-                        <label for="createPsw"><b>Re-enter Password</b></label><br>
-                        <input id="re-enterPsw" type="password" placeholder="Re-Enter Password" name="createPsw" required><br><br>
-
-                        <button type="button" id="buttonCreateUser"  onClick="createUserFunction()">Create User</button>
-                    </div>
-                </form>
+            <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
             </div>
-        </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                  Remember me
+                </label>
+            </div>
+            <div class="mb-4">
+                <a href="#">Create a new account!</a><br>
+                <a href="#">You are already an admin?</a>
+            </div>
+            <button type="button " class="MenuButton " id="save " onclick="SaveUser() ">Log In</button>
+        </form>
     </div>
+    <script type="text/javascript " src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
-
-    <!--
-
-TODO
-Trebuie facuta conecsiunea cu o baza de date;
-
-Implementare Jquery seat chart;
-
-Construirea unui mod de desenare a peretilor si a spatiului interior, probabil extensie;
-
-Un mod de modificare a meselor(cate sunt si unde se afla);(Maris Dacian)
--->
-    <script type="text/javascript" src="/JavaScript/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="JavaScript/tables.js"></script>
 
 </body>
 
