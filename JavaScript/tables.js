@@ -196,7 +196,6 @@ function getOneUser(createUser){
 }
 $("#createUser").click(function(e) {
     e.preventDefault();
-<<<<<<< Updated upstream
      createUser[0] = document.getElementById("firstname").value;
      createUser[1] = document.getElementById("lastname").value;
      createUser[2] = document.getElementById("cnp").value;
@@ -222,15 +221,4 @@ $("#createUser").click(function(e) {
     });
 //}
    // console.log(firstname + " " + lastname + " " + cnp);
-=======
-    let firstname = document.getElementById("firstname").value;
-    let lastname = document.getElementById("lastname").value;
-    let cnp = document.getElementById("cnp").value;\\\
-    let userName = document.getElementById("userName").value;
-    let inputEmail = document.getElementById("inputEmail").value;
-    let inputPassword = document.getElementById("inputPassword").value;
-    let reenterPass = document.getElementById("reenterPass").value;
-
-    console.log(firstname + " " + lastname + " " + cnp);
->>>>>>> Stashed changes
 });
