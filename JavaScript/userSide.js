@@ -118,14 +118,15 @@ if(cNP[0]=='0' || cNP[0]=='9'){
 }
 
 
-function getOneUser(createUser){
-    existentUser;
+function getOneUserUsername(createUser){
+    existentUser=0;
     $.ajax({
         type: "GET",
-        url: "/GetOneUser",
+        url: "/GetOneUserUsername",
         data: { createUser: createUser },
         success: function(data) {
             existentUser=data;
+            console.log(existentUser);
         }
     });
     return existentUser;
@@ -146,7 +147,7 @@ $("#createUser").click(function(e) {
 
    //  valdiCNP(createUser[2]);
    // if(validatePassword(createUser[5],createUser[6])==1){
-    getOneUser(createUser);
+    x= getOneUser(createUser);
     $.ajax({
         type: "POST",
         url: "/createUser",

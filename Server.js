@@ -53,12 +53,21 @@ app.get('/GetUser', (req, res) => {
     api.getUsers(client, res);
 });
 
-app.get('/GetOneUser', function(req, res) {
+app.get('/GetOneUserUsername', function(req, res) {
     
-    api.getOneUser(client, req.query.createUser, res);
+    api.getOneUserUsername(client, req.query.createUser, res);
 
 });
+app.get('/GetOneUserEmail', function(req, res) {
+    
+    api.getOneUserEmail(client, req.query.createUser, res);
 
+});
+app.get('/GetOneUserCNP', function(req, res) {
+    
+    api.getOneUserCNP(client, req.query.createUser, res);
+
+});
 app.post('/createUser', function(req, res) {
     
     api.createUser(client, req.body.user, res);
