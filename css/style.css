@@ -1,5 +1,5 @@
 .logInBox {
-  max-width: 350px;
+  max-width: 420px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16,11 +16,12 @@
           box-shadow: 10;
   -webkit-box-shadow: 5px 19px 20px 0px #b5adad96;
           box-shadow: 5px 19px 20px 0px #b5adad96;
+  position: relative;
 }
 
 .log-in {
   min-height: 26em;
-  margin-top: 120pt;
+  margin-top: 160pt;
 }
 
 .create-user {
@@ -33,5 +34,27 @@
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
+}
+
+#loginUser {
+  position: absolute;
+  top: -150px;
+  height: 250px;
+}
+
+#existingAccount {
+  padding-top: 70px;
+}
+
+#existingAccount .form-group .col-sm-5 {
+  padding-right: 0;
+}
+
+#existingAccount .form-group .col-sm-7 {
+  padding-left: 0;
+}
+
+#logInButton {
+  padding: .30rem;
 }
 /*# sourceMappingURL=style.css.map */

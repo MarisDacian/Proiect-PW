@@ -1,5 +1,5 @@
 .logInBox {
-    max-width: 350px;
+    max-width: 420px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -8,11 +8,12 @@
     border-radius: 5px;
     box-shadow: 10;
     box-shadow: 5px 19px 20px 0px #b5adad96;
+    position: relative;
 }
 
 .log-in {
     min-height: 26em;
-    margin-top: 120pt;
+    margin-top: 160pt;
 }
 
 .create-user {
@@ -23,4 +24,26 @@
 .form-check-input {
     margin-left: 0rem !important;
     flex: none;
+}
+
+#loginUser {
+    position: absolute;
+    top: -150px;
+    height: 250px;
+}
+
+#existingAccount {
+    padding-top: 70px;
+    .form-group {
+        .col-sm-5 {
+            padding-right: 0;
+        }
+        .col-sm-7 {
+            padding-left: 0;
+        }
+    }
+}
+
+#logInButton {
+    padding: .30rem;
 }
