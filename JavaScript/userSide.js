@@ -1,19 +1,7 @@
 let userAdded = new Array();
 let createUser = new Array();
-userAdded[0] = "0";
-userAdded[1] = "0";
-// $(document).ready(function () {
-//     $.ajax({
-//         type: "GET",
-//         url: "/updateTable",
-//         success: function (data) {
-//             for (i = 0; i < data.length; i++) {
-//                 makeTable(data[i].x, data[i].y, data[i].nr);
-//             }
-//         }
-//     });
-//     reDrawTables();
-// });
+
+
 function getUsers() {
 
     $.ajax({
@@ -28,46 +16,6 @@ function getUsers() {
 
     //console.log(userAdded);
 
-}
-
-function SaveUser() {
-    userAdded[0] = document.getElementById("idUser").value;
-    userAdded[1] = document.getElementById("userPassword").value;
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/SaveUser",
-    //     data: {user:userAdded},
-    //     success: function(data) {
-    //        // console.log(data);
-    //     }
-    // });
-}
-
-function createUserFunction() {
-    createUser[0] = document.getElementById("firstName").value;
-    createUser[1] = document.getElementById("secondName").value;
-    createUser[2] = document.getElementById("userEmail").value;
-    createUser[3] = document.getElementById("vehicle").value;
-    createUser[4] = document.getElementById("createPsw").value;
-    createUser[5] = document.getElementById("re-enterPsw").value;
-
-   // validatePassword(createUser[4]);
-    // if (createUser[4] != createUser[5]) {
-    //     alert("Password does not match.");
-    // }
-
-
-
-    $.ajax({
-        type: "POST",
-        url: "/createUser",
-        data: { user: createUser },
-        success: function(data) {
-            // console.log(data);
-        }
-    });
-
-    console.log(createUser);
 }
 
 function validatePassword(pass,rePass) {
@@ -109,7 +57,6 @@ function validatePassword(pass,rePass) {
 
 function valdiCNP(cNP){
 
-    let cnpLength=cNP.length;
     if(cNP.length<13){
         alert("The length of CNP is too small.");
     }else if( cNP.length>13){
@@ -169,17 +116,6 @@ if(cNP[0]=='0' || cNP[0]=='9'){
 
 
 }
-
-function iterateFunc(doc) {
-    console.log(JSON.stringify(doc, null, 4));
-}
-
-function errorFunc(error) {
-    console.log(error);
-}
-
-//myCursor.forEach(iterateFunc, errorFunc);
-
 
 
 function getOneUser(createUser){

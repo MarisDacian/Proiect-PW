@@ -42,11 +42,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/user', (req, res) => {
-    res.sendFile(__dirname + '/user.html');
+    res.sendFile(__dirname + '/userPage/user.html');
 });
 
 app.get('/admin', (req, res) => {
-    res.sendFile(__dirname + '/admin.html');
+    res.sendFile(__dirname + '/adminPage/admin.html');
 });
 
 
@@ -59,7 +59,6 @@ app.get('/GetUser', (req, res) => {
 });
 
 app.get('/GetOneUser', function(req, res) {
-   // console.log(req.query);
     console.log(req.query.createUser);
     api.getOneUser(client, req.query.createUser, res);
 });
