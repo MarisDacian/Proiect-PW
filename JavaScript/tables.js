@@ -186,7 +186,7 @@ function getOneUser(createUser){
     $.ajax({
         type: "GET",
         url: "/GetOneUser",
-        data: { user: createUser },
+        data: { createUser: createUser },
         success: function(data) {
             for (i = 0; i < data.length; i++) {
                 console.log(data[i]);
@@ -210,7 +210,7 @@ $("#createUser").click(function(e) {
 
    //  valdiCNP(createUser[2]);
    // if(validatePassword(createUser[5],createUser[6])==1){
-    getOneUser(createUser[3],createUser[6]);
+    getOneUser(createUser);
     $.ajax({
         type: "POST",
         url: "/createUser",

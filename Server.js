@@ -59,10 +59,13 @@ app.get('/GetUser', (req, res) => {
 });
 
 app.get('/GetOneUser', function(req, res) {
-    api.getOneUser(client, req.body.user, res);
+   // console.log(req.query);
+    console.log(req.query.createUser);
+    api.getOneUser(client, req.query.createUser, res);
 });
 
 app.post('/createUser', function(req, res) {
+    
     api.createUser(client, req.body.user, res);
     res.send("Save was successful!");
 });
