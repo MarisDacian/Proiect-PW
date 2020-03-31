@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Spatiu Restaurant</title>
-    <script src="bower_components/tether/dist/js/tether.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -15,23 +13,49 @@
 
     <!-- <button type="button" class="MenuButton" id="getData" onclick="getUsers()">Get Users Data</button> -->
     <div class="logInBox create-user">
-        <form id="existingAccount " action=" " method="post ">
+        <form>
             <div class="row">
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" placeholder="First Name">
+                <div class="col-md-6">
+                    <label for="firstname">First Name</label>
+                    <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" placeholder="Last Name">
+                <div class="col-md-6">
+                    <label for="lastname">Last Name</label>
+                    <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
                 </div>
             </div>
-            <button type="button " class="MenuButton " id="save ">Create User</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="cnp">CNP</label>
+                    <input type="cnp" class="form-control" id="cnp" placeholder="CNP">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="userName">User Name</label>
+                    <input type="userName" class="form-control" id="userName" placeholder="User Name">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="col-md-6">
+                    <label for="reenterPass">Password</label>
+                    <input type="reenterPass" class="form-control" id="reenterPass" placeholder="Re-enter password">
+                </div>
+            </div><br>
+            <button type="button" id="logInButton" class="btn btn-primary btn-lg btn-block">Create Account</button>
         </form>
     </div>
     <script type="text/javascript " src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
+    <script type="text/javascript " src="/JavaScript/jquery-3.4.1.min.js "></script>
+    <script type="text/javascript " src="JavaScript/tables.js "></script>
 </body>
 
 </html>

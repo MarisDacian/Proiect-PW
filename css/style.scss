@@ -1,5 +1,4 @@
 .logInBox {
-    max-width: 420px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -12,13 +11,15 @@
 }
 
 .log-in {
+    max-width: 420px;
     min-height: 26em;
     margin-top: 160pt;
 }
 
 .create-user {
-    min-height: 44em;
-    margin-top: 20pt;
+    margin-top: 70pt;
+    max-width: 800px;
+    padding: 100px;
 }
 
 .form-check-input {
