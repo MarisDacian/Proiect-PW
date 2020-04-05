@@ -18,118 +18,134 @@ function getUsers() {
 
 }
 
-function validatePassword(pass,rePass) {
+function validatePassword(pass, rePass) {
     let psw = pass.length;
     if (psw < 6) {
         alert("The length of password is too small."); //litera mare si o cifra, parola este egala cu cea de a doua
-    }else { 
-    let contorPass=false;
-        if(pass==rePass){
-            contorPass=true;
-        
-             let  contorBigCaracter=false;
-             let  contorNumber=false;
-            for(i=0;i<pass.length;i++){
+    } else {
+        let contorPass = false;
+        if (pass == rePass) {
+            contorPass = true;
 
-                if(pass[i]>='A' && pass[i]<='Z'){
-                    contorBigCaracter=true;
-                }else{
-                    if(i+1==pass.length && contorBigCaracter==false){
-                    alert("The password don't have big caracter. A-Z");
-                }
-                }
-                if(pass[i]>='0' && pass[i]<='9'){
-                    contorNumber=true;
-                }else{ if(i+1==pass.length && contorNumber==false){
-                    alert("The password don't have number. 0-9");
+            let contorBigCaracter = false;
+            let contorNumber = false;
+            for (i = 0; i < pass.length; i++) {
+
+                if (pass[i] >= 'A' && pass[i] <= 'Z') {
+                    contorBigCaracter = true;
+                } else {
+                    if (i + 1 == pass.length && contorBigCaracter == false) {
+                        alert("The password don't have big caracter. A-Z");
                     }
                 }
-                if(contorBigCaracter==true && contorNumber==true && contorPass==true){
-                   i=pass.length;
-                return 1;
+                if (pass[i] >= '0' && pass[i] <= '9') {
+                    contorNumber = true;
+                } else {
+                    if (i + 1 == pass.length && contorNumber == false) {
+                        alert("The password don't have number. 0-9");
+                    }
+                }
+                if (contorBigCaracter == true && contorNumber == true && contorPass == true) {
+                    i = pass.length;
+                    return 1;
                 }
             }
-        }else{
+        } else {
             alert("The reentered password is not equel.");
         }
     }
 }
 
-function valdiCNP(cNP){
+function valdiCNP(cNP) {
 
-    if(cNP.length<13){
+    if (cNP.length < 13) {
         alert("The length of CNP is too small.");
-    }else if( cNP.length>13){
+    } else if (cNP.length > 13) {
         alert("The length of CNP is too long.");
-    }else{
+    } else {
         birthDay(cNP);
     }
 
 }
 
-function birthDay(cNP){
-    let sex="";
-    let foreign="";
-    let totalbirthDaySum="";
-if(cNP[0]=='0' || cNP[0]=='9'){
-    alert("The CNP is incorect.");
-}else{ 
+function birthDay(cNP) {
+    let sex = "";
+    let foreign = "";
+    let totalbirthDaySum = "";
+    if (cNP[0] == '0' || cNP[0] == '9') {
+        alert("The CNP is incorect.");
+    } else {
 
-    if(cNP[0]=='7' || cNP[0]=='8'){
-        foreign="Strain";
+        if (cNP[0] == '7' || cNP[0] == '8') {
+            foreign = "Strain";
 
-    
-    if(parseInt(cNP[0])%2==1){
-        sex="Masculin";
-        }else{
-        sex="Feminin";
+
+            if (parseInt(cNP[0]) % 2 == 1) {
+                sex = "Masculin";
+            } else {
+                sex = "Feminin";
+            }
+            createUser[7] = foreign;
+            createUser[8] = sex;
+        } else {
+
+            let totalbirthDay = cNP;
+
+
+            let year = totalbirthDay[1] + totalbirthDay[2];
+            let mounth = totalbirthDay[3] + totalbirthDay[4];
+            let day = totalbirthDay[5] + totalbirthDay[6];
+            let sex = "";
+            if (cNP[0] == '1' || cNP[0] == '2') {
+                totalbirthDaySum = "19" + year + "." + mounth + "." + day;
+            } else if (cNP[0] == '5' || cNP[0] == '6') {
+                totalbirthDaySum = "20" + year + "." + mounth + "." + day;
+            }
+
+            if (parseInt(cNP[0]) % 2 == 1) {
+                sex = "Masculin";
+            } else {
+                sex = "Feminin";
+            }
+            createUser[7] = totalbirthDaySum;
+            createUser[8] = sex;
         }
-        createUser[7] =foreign ;
-        createUser[8] =sex ;
-    }
-    else{
-
-     let totalbirthDay=cNP;
-   
-     
-   let year=totalbirthDay[1]+totalbirthDay[2];
-   let mounth=totalbirthDay[3]+totalbirthDay[4];
-   let day=totalbirthDay[5]+totalbirthDay[6];
-   let sex="";
-        if(cNP[0]=='1' || cNP[0]=='2'){
-            totalbirthDaySum="19"+year+"."+mounth+"."+day;
-        }else if(cNP[0]=='5' || cNP[0]=='6'){
-            totalbirthDaySum="20"+year+"."+mounth+"."+day;
-        }
-
-        if(parseInt(cNP[0])%2==1){
-        sex="Masculin";
-        }else{
-        sex="Feminin";
-        }
+<<<<<<< Updated upstream
         createUser[7] =totalbirthDaySum ;
         createUser[8] =sex ;
    }
  } 
+=======
+    }
+
+
+
+
+>>>>>>> Stashed changes
 }
 
 
-function getOneUserUsername(createUser){
-    existentUser=new Array;
+function getOneUserUsername(createUser) {
+    existentUser = new Array;
     $.ajax({
         type: "GET",
         url: "/GetOneUserUsername",
         data: { createUser: createUser },
         success: function(data) {
-            existentUser=data;
+            existentUser = data;
             console.log(existentUser);
         }
     });
     return existentUser;
 }
 
+<<<<<<< Updated upstream
 async function CheckCNP(createUser){
     let promise = new Promise((res,rej) => {
+=======
+function CheckCNP(createUser) {
+    existentUser = new Array;
+>>>>>>> Stashed changes
     $.ajax({
         type: "GET",
         url: "/GetOneUserCNP",
@@ -137,7 +153,13 @@ async function CheckCNP(createUser){
         success: function(data) {
             setTimeout(500);     
             console.log(data);
+<<<<<<< Updated upstream
             res(data);
+=======
+            existentUser = data;
+            console.log(existentUser);
+
+>>>>>>> Stashed changes
         }
     });
 });
@@ -148,19 +170,19 @@ console.log(result);
     return result;
 }
 
-function CheckMail(createUser){
-    existentUser=new Array;
+function CheckMail(createUser) {
+    existentUser = new Array;
     $.ajax({
         type: "GET",
         url: "/GetOneUserEmail",
         data: { createUser: createUser },
         success: function(data) {
-            existentUser=data;
+            existentUser = data;
             console.log(existentUser);
 
-            if(existentUser==null){
-              return true;
-            }else{
+            if (existentUser == null) {
+                return true;
+            } else {
                 alert("The CNP is is already existing!");
                 return false;
             }
@@ -202,14 +224,48 @@ async function firstAsync(createUser) {
 
 $("#createUser").click(async function(e) {
     e.preventDefault();
-     createUser[0] = document.getElementById("firstname").value;
-     createUser[1] = document.getElementById("lastname").value;
-     createUser[2] = document.getElementById("cnp").value;
-     createUser[3] = document.getElementById("userName").value;
-     createUser[4] = document.getElementById("inputEmail").value;
-     createUser[5] = document.getElementById("inputPassword").value;
-     createUser[6] = document.getElementById("reenterPass").value;
+    createUser[0] = document.getElementById("firstname").value;
+    createUser[1] = document.getElementById("lastname").value;
+    createUser[2] = document.getElementById("cnp").value;
+    createUser[3] = document.getElementById("userName").value;
+    createUser[4] = document.getElementById("inputEmail").value;
+    createUser[5] = document.getElementById("inputPassword").value;
+    createUser[6] = document.getElementById("reenterPass").value;
 
+<<<<<<< Updated upstream
      firstAsync(createUser);
     
+=======
+
+    //------Validare comentata pentru a testa mai usor------
+
+    console.log(createUser);
+    valdiCNP(createUser[2]);
+
+
+
+    if (CheckCNP(createUser) == null) {
+        console.log("Nu exista");
+    } else {
+        console.log("Exista");
+    }
+
+    if (validatePassword(createUser[5], createUser[6]) == 1) {
+        console.log(createUser);
+        $.ajax({
+            type: "POST",
+            url: "/createUser",
+            data: { user: createUser },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    }
+    // console.log(firstname + " " + lastname + " " + cnp);
+});
+
+
+$("#checkAdminBk").click(function(e) {
+
+>>>>>>> Stashed changes
 });

@@ -21,11 +21,11 @@
 .log-in {
   max-width: 420px;
   min-height: 26em;
-  margin-top: 160pt;
+  margin-top: 200pt;
 }
 
 .create-user {
-  margin-top: 70pt;
+  margin-top: 60pt;
   max-width: 800px;
   padding: 100px;
 }
@@ -69,5 +69,37 @@
 
 #search {
   border-right: 1px solid #cecece;
+}
+
+#loginAdmin {
+  position: absolute;
+  left: -117px;
+  top: -75px;
+  height: 450px;
+}
+
+.log-in-admin {
+  max-width: 420px;
+  min-height: 21em;
+  margin-top: 200pt;
+  padding-left: 20px;
+}
+
+body {
+  background-image: url("/img/bk1.png");
+  background-size: cover;
+}
+
+.searchUserbyCNP {
+  margin-top: 130px;
+}
+
+.createUserAdmin {
+  margin-top: 80px;
+}
+
+#box {
+  height: 550px;
+  margin-top: -180px;
 }
 /*# sourceMappingURL=style.css.map */

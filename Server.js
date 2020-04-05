@@ -21,7 +21,7 @@ client.connect(err => {
     if (err)
         throw err;
     console.log('Connection works!');
- 
+
 });
 
 
@@ -44,6 +44,10 @@ app.get('/admin', (req, res) => {
     res.sendFile(__dirname + '/adminPage/admin.html');
 });
 
+app.get('/checkAdmin', (req, res) => {
+    res.sendFile(__dirname + '/checkAdmin.html');
+});
+
 
 app.get('/create-user', (req, res) => {
     res.sendFile(__dirname + '/create-user.html');
@@ -54,28 +58,28 @@ app.get('/GetUser', (req, res) => {
 });
 
 app.get('/GetOneUserUsername', function(req, res) {
-    
+
     api.getOneUserUsername(client, req.query.createUser, res);
 
 });
 app.get('/GetOneUserEmail', function(req, res) {
-    
+
     api.getOneUserEmail(client, req.query.createUser, res);
 
 });
 app.get('/GetOneUserCNP', function(req, res) {
 
     api.getOneUserCNP(client, req.query.createUser, res);
-    
+
 
 });
 app.get('/GetOneUserUsernameOnly', function(req, res) {
-    
+
     api.getOneUserUsernameOnly(client, req.query.createUser, res);
 
 });
 app.post('/createUser', function(req, res) {
-    
+
     api.createUser(client, req.body.user, res);
     res.send("Save was successful!");
 });

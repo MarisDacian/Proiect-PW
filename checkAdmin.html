@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<html id="checkAdminBk">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Log In Page</title>
+    <title>Check Admin</title>
     <script src="bower_components/tether/dist/js/tether.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -12,9 +11,9 @@
 </head>
 
 <body>
-    <div class="logInBox log-in">
-        <img src="img/user.png" alt="Image not founded" id="loginUser">
-        <form id="existingAccount" action=" " method="post ">
+    <div class="logInBox log-in-admin">
+        <img src="img/admin.png" alt="Image not founded" id="loginAdmin">
+        <form action=" " method="post ">
             <div class="form-group row">
                 <label class="col-sm-5" for="exampleDropdownFormEmail1">User</label>
                 <div class="col-sm-7">
@@ -27,20 +26,9 @@
                     <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                 </div>
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                  Remember me
-                </label>
-            </div>
-            <div class="mb-4">
-                <a href="/create-user">Create a new account!</a><br>
-                <a href="/checkAdmin">You are already an admin?</a>
-            </div>
-            <button type="button" id="logInButton" class="btn btn-primary btn-lg btn-block">Log In</button>
+            <button type="button" id="checkAdminBtn" class="btn btn-primary btn-lg btn-block mt-5">Log In</button>
         </form>
     </div>
-    <script type="text/javascript " src="JavaScript/tables.js "></script>
 </body>
 
 </html>
