@@ -184,8 +184,10 @@ $("#createUser").click(function(e) {
 
     //------Validare comentata pentru a testa mai usor------
 
-
+     console.log(createUser);
      valdiCNP(createUser[2]);
+
+
 
      if(CheckCNP(createUser[2])==null){
          console.log("Nu exista");
