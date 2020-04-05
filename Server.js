@@ -64,8 +64,9 @@ app.get('/GetOneUserEmail', function(req, res) {
 
 });
 app.get('/GetOneUserCNP', function(req, res) {
+
+    api.getOneUserCNP(client, req.query.createUser, res);
     
-    api.getOneUserCNP(client, req.query.variableCheckCNP, res);
 
 });
 app.get('/GetOneUserUsernameOnly', function(req, res) {
