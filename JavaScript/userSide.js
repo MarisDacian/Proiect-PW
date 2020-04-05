@@ -111,10 +111,6 @@ if(cNP[0]=='0' || cNP[0]=='9'){
         createUser[8] =sex ;
    }
  } 
-
-
-
-
 }
 
 
@@ -132,20 +128,24 @@ function getOneUserUsername(createUser){
     return existentUser;
 }
 
-function CheckCNP(createUser){
-    existentUser=new Array;
+async function CheckCNP(createUser){
+    let promise = new Promise((res,rej) => {
     $.ajax({
         type: "GET",
         url: "/GetOneUserCNP",
         data: { createUser: createUser },
         success: function(data) {
+            setTimeout(500);     
             console.log(data);
-            existentUser=data;
-            console.log(existentUser);
-
+            res(data);
         }
     });
-    return existentUser;
+});
+let result;
+
+ result = await promise;
+console.log(result);
+    return result;
 }
 
 function CheckMail(createUser){
@@ -170,9 +170,37 @@ function CheckMail(createUser){
 }
 
 
+async function firstAsync(createUser) {
+    let promise = new Promise((res) => {
+        res(CheckCNP(createUser));
+       
+    });
 
+    let result = await promise; 
+    console.log(result);
+   
+    if(result[0]==null){
+        console.log("Nu exista");
+    }else{
+        console.log(result);
+       console.log("Exista");
+    }
+   
+   if(validatePassword(createUser[5],createUser[6])==1){
+       console.log(createUser);
+   $.ajax({
+       type: "POST",
+       url: "/createUser",
+       data: { user: createUser },
+       success: function(data) {
+            console.log(data);
+       }
+   });
+}
+   
+};
 
-$("#createUser").click(function(e) {
+$("#createUser").click(async function(e) {
     e.preventDefault();
      createUser[0] = document.getElementById("firstname").value;
      createUser[1] = document.getElementById("lastname").value;
@@ -182,30 +210,6 @@ $("#createUser").click(function(e) {
      createUser[5] = document.getElementById("inputPassword").value;
      createUser[6] = document.getElementById("reenterPass").value;
 
-
-    //------Validare comentata pentru a testa mai usor------
-
-     console.log(createUser);
-     valdiCNP(createUser[2]);
-
-
-
-     if(CheckCNP(createUser)==null){
-         console.log("Nu exista");
-     }else{
-        console.log("Exista");
-     }
-
-    if(validatePassword(createUser[5],createUser[6])==1){
-        console.log(createUser);
-    $.ajax({
-        type: "POST",
-        url: "/createUser",
-        data: { user: createUser },
-        success: function(data) {
-             console.log(data);
-        }
-    });
-}
-   // console.log(firstname + " " + lastname + " " + cnp);
+     firstAsync(createUser);
+    
 });
