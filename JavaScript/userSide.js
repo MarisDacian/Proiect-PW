@@ -142,7 +142,6 @@ function CheckCNP(variableCheckCNP){
             existentUser=data;
             console.log(existentUser);
 
-         
         }
     });
     return existentUser;
@@ -187,14 +186,13 @@ $("#createUser").click(function(e) {
 
 
      valdiCNP(createUser[2]);
-     console.log(createUser);
-
 
      if(CheckCNP(createUser[2])==null){
          console.log("Nu exista");
      }else{
         console.log("Exista");
      }
+
     if(validatePassword(createUser[5],createUser[6])==1){
         console.log(createUser);
     $.ajax({
