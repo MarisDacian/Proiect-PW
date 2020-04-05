@@ -31,6 +31,7 @@ module.exports = {
     },
     getOneUserCNP: function(client,data,res){
         dbo= client.db("PortDB");
+        console.log(data);
         dbo.collection("Users").find({ cnp:  data[2]} , { projection: { cnp: 1} }).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);

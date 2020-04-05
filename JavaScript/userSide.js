@@ -132,13 +132,14 @@ function getOneUserUsername(createUser){
     return existentUser;
 }
 
-function CheckCNP(variableCheckCNP){
+function CheckCNP(createUser){
     existentUser=new Array;
     $.ajax({
         type: "GET",
         url: "/GetOneUserCNP",
-        data: { variableCheckCNP: variableCheckCNP },
+        data: { createUser: createUser },
         success: function(data) {
+            console.log(data);
             existentUser=data;
             console.log(existentUser);
 
@@ -189,7 +190,7 @@ $("#createUser").click(function(e) {
 
 
 
-     if(CheckCNP(createUser[2])==null){
+     if(CheckCNP(createUser)==null){
          console.log("Nu exista");
      }else{
         console.log("Exista");
