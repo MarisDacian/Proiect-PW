@@ -57,9 +57,9 @@ app.get('/GetUser', (req, res) => {
     api.getUsers(client, res);
 });
 
-app.get('/GetOneUserUsername', function(req, res) {
+app.get('/GetOneUserLogin', function(req, res) {
 
-    api.getOneUserUsername(client, req.query.createUser, res);
+    api.getOneUserLogin(client, req.query.loginUser, res);
 
 });
 app.get('/GetOneUserEmail', function(req, res) {

@@ -12,9 +12,9 @@ module.exports={
         /**to add save seats functionality */
         get.getUsers(client,obj);
     },
-    getOneUserUsername: function(client,obj,res){
+    getOneUserLogin: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserUsername(client,obj,res);
+        get.getOneUserLogin(client,obj,res);
     },
     getOneUserEmail: function(client,obj,res){
         /**to add save seats functionality */

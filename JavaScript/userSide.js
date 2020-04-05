@@ -1,6 +1,6 @@
 let userAdded = new Array();
 let createUser = new Array();
-
+let loginUser=new Array();
 
 function getUsers() {
 
@@ -110,19 +110,11 @@ function birthDay(cNP) {
             createUser[7] = totalbirthDaySum;
             createUser[8] = sex;
         }
-<<<<<<< Updated upstream
         createUser[7] =totalbirthDaySum ;
         createUser[8] =sex ;
    }
  } 
-=======
-    }
 
-
-
-
->>>>>>> Stashed changes
-}
 
 
 function getOneUserUsername(createUser) {
@@ -139,13 +131,8 @@ function getOneUserUsername(createUser) {
     return existentUser;
 }
 
-<<<<<<< Updated upstream
 async function CheckCNP(createUser){
     let promise = new Promise((res,rej) => {
-=======
-function CheckCNP(createUser) {
-    existentUser = new Array;
->>>>>>> Stashed changes
     $.ajax({
         type: "GET",
         url: "/GetOneUserCNP",
@@ -153,13 +140,7 @@ function CheckCNP(createUser) {
         success: function(data) {
             setTimeout(500);     
             console.log(data);
-<<<<<<< Updated upstream
             res(data);
-=======
-            existentUser = data;
-            console.log(existentUser);
-
->>>>>>> Stashed changes
         }
     });
 });
@@ -218,9 +199,48 @@ async function firstAsync(createUser) {
             console.log(data);
        }
    });
+}  
 }
+
+function GetOneUserLogin(loginUser)
+{
+var result;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneUserLogin",
+        data: { loginUser: loginUser },
+        success: function(data) {
+           
+            console.log(data);
+            result=data;
+        }
+    });
+console.log(result);
+    return result;
+}
+function getOneUserUsername(loginUser) {
+    existentUser = new Array;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneUserLogin",
+        data: { loginUser: loginUser },
+        success: function(data) {
+            console.log(data);
+            existentUser = data;
+          
+        }
+    });
+    return existentUser;
+}
+
+
+$("#logInButton").click(function(e) {
+
+    loginUser[0] = document.getElementById("user").value;
+    loginUser[1] = document.getElementById("exampleDropdownFormPassword1").value;
+    getOneUserUsername(loginUser);
    
-};
+});
 
 $("#createUser").click(async function(e) {
     e.preventDefault();
@@ -232,40 +252,6 @@ $("#createUser").click(async function(e) {
     createUser[5] = document.getElementById("inputPassword").value;
     createUser[6] = document.getElementById("reenterPass").value;
 
-<<<<<<< Updated upstream
      firstAsync(createUser);
     
-=======
-
-    //------Validare comentata pentru a testa mai usor------
-
-    console.log(createUser);
-    valdiCNP(createUser[2]);
-
-
-
-    if (CheckCNP(createUser) == null) {
-        console.log("Nu exista");
-    } else {
-        console.log("Exista");
-    }
-
-    if (validatePassword(createUser[5], createUser[6]) == 1) {
-        console.log(createUser);
-        $.ajax({
-            type: "POST",
-            url: "/createUser",
-            data: { user: createUser },
-            success: function(data) {
-                console.log(data);
-            }
-        });
-    }
-    // console.log(firstname + " " + lastname + " " + cnp);
-});
-
-
-$("#checkAdminBk").click(function(e) {
-
->>>>>>> Stashed changes
 });
