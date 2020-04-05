@@ -58,4 +58,16 @@
 #logInButton {
   padding: .30rem;
 }
+
+#searchUser {
+  height: 150px;
+}
+
+#searchUserBtn {
+  padding: 6px !important;
+}
+
+#search {
+  border-right: 1px solid #cecece;
+}
 /*# sourceMappingURL=style.css.map */
