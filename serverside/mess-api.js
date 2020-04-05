@@ -24,5 +24,9 @@ module.exports={
         /**to add save seats functionality */
         get.getOneUserCNP(client,obj,res);
     },
+    getOneUserUsernameOnly: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getOneUserUsernameOnly(client,obj,res);
+    },
    
 }

@@ -4,7 +4,7 @@ module.exports = {
         const collection = client.db("PortDB").collection("Users");	
            
                 collection.insertOne({  
-                    firsName:data[0],
+                    firstName:data[0],
                     lastName:data[1],
                     cnp:data[2],
                     userName:data[3],

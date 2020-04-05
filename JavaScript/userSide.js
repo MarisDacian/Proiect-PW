@@ -131,6 +131,47 @@ function getOneUserUsername(createUser){
     });
     return existentUser;
 }
+
+function CheckCNP(variableCheckCNP){
+    existentUser=new Array;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneUserCNP",
+        data: { variableCheckCNP: variableCheckCNP },
+        success: function(data) {
+            existentUser=data;
+            console.log(existentUser);
+
+         
+        }
+    });
+    return existentUser;
+}
+
+function CheckMail(createUser){
+    existentUser=new Array;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneUserEmail",
+        data: { createUser: createUser },
+        success: function(data) {
+            existentUser=data;
+            console.log(existentUser);
+
+            if(existentUser==null){
+              return true;
+            }else{
+                alert("The CNP is is already existing!");
+                return false;
+            }
+        }
+    });
+    return existentUser;
+}
+
+
+
+
 $("#createUser").click(function(e) {
     e.preventDefault();
      createUser[0] = document.getElementById("firstname").value;
@@ -145,9 +186,17 @@ $("#createUser").click(function(e) {
     //------Validare comentata pentru a testa mai usor------
 
 
-   //  valdiCNP(createUser[2]);
-   // if(validatePassword(createUser[5],createUser[6])==1){
-    x= getOneUser(createUser);
+     valdiCNP(createUser[2]);
+     console.log(createUser);
+
+
+     if(CheckCNP(createUser[2])==null){
+         console.log("Nu exista");
+     }else{
+        console.log("Exista");
+     }
+    if(validatePassword(createUser[5],createUser[6])==1){
+        console.log(createUser);
     $.ajax({
         type: "POST",
         url: "/createUser",
@@ -156,6 +205,6 @@ $("#createUser").click(function(e) {
              console.log(data);
         }
     });
-//}
+}
    // console.log(firstname + " " + lastname + " " + cnp);
 });
