@@ -115,22 +115,6 @@ function birthDay(cNP) {
    }
  } 
 
-
-
-function getOneUserUsername(createUser) {
-    existentUser = new Array;
-    $.ajax({
-        type: "GET",
-        url: "/GetOneUserUsername",
-        data: { createUser: createUser },
-        success: function(data) {
-            existentUser = data;
-            console.log(existentUser);
-        }
-    });
-    return existentUser;
-}
-
 async function CheckCNP(createUser){
     let promise = new Promise((res,rej) => {
     $.ajax({
@@ -151,44 +135,87 @@ console.log(result);
     return result;
 }
 
-function CheckMail(createUser) {
-    existentUser = new Array;
+
+async function CheckMail(createUser){
+    let promise = new Promise((res,rej) => {
     $.ajax({
         type: "GET",
         url: "/GetOneUserEmail",
         data: { createUser: createUser },
         success: function(data) {
-            existentUser = data;
-            console.log(existentUser);
-
-            if (existentUser == null) {
-                return true;
-            } else {
-                alert("The CNP is is already existing!");
-                return false;
-            }
+            setTimeout(500);     
+            console.log(data);
+            res(data);
         }
     });
-    return existentUser;
+});
+let result;
+
+ result = await promise;
+console.log(result);
+    return result;
 }
 
-
+async function getOneUserUsername(createUser) {
+    let promise = new Promise((res,rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneUserUsername",
+            data: { createUser: createUser },
+            success: function(data) {
+                setTimeout(500);     
+                console.log(data);
+                res(data);
+            }
+        });
+    });
+    let result;
+    
+     result = await promise;
+    console.log(result);
+        return result;
+}
 async function firstAsync(createUser) {
-    let promise = new Promise((res) => {
+    let promise1 = new Promise((res) => {
         res(CheckCNP(createUser));
        
     });
-
-    let result = await promise; 
-    console.log(result);
-   
-    if(result[0]==null){
-        console.log("Nu exista");
+    let promise2 = new Promise((res) => {
+        res(CheckMail(createUser));
+       
+    });
+    let promise3 = new Promise((res) => {
+        res(getOneUserUsername(createUser));
+       
+    });
+    let result1 = await promise1; 
+    console.log(result1);
+    let result2 = await promise2; 
+    console.log(result2);
+    let result3 = await promise3; 
+    console.log(result3);
+    if(result1[0]==null){
+        console.log("Nu exista1");
     }else{
         console.log(result);
-       console.log("Exista");
+       console.log("Exista1");
     }
-   
+
+    
+    if(result2[0]==null){
+        console.log("Nu exista2");
+    }else{
+        console.log(result);
+       console.log("Exista2");
+    }
+
+
+    if(result3[0]==null){
+        console.log("Nu exista3");
+    }else{
+        console.log(result);
+       console.log("Exista3");
+    }
    if(validatePassword(createUser[5],createUser[6])==1){
        console.log(createUser);
    $.ajax({
