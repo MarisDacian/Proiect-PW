@@ -28,5 +28,9 @@ module.exports={
         /**to add save seats functionality */
         get.getOneUserUsernameOnly(client,obj,res);
     },
+    getOneUserInfo: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getOneUserInfo(client,obj,res);
+    },
    
 }

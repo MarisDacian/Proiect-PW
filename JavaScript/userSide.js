@@ -1,7 +1,7 @@
 let userAdded = new Array();
 let createUser = new Array();
 let loginUser=new Array();
-
+let userData=new Array();
 function getUsers() {
 
     $.ajax({
@@ -245,24 +245,33 @@ var result;
 console.log(result);
     return result;
 }
-function getOneUserUsername(loginUser) {
-    existentUser = new Array;
+
+
+let userFound=false;
+function GetOneUserInfo(userInfo){
+    var result;
     $.ajax({
         type: "GET",
-        url: "/GetOneUserLogin",
-        data: { loginUser: loginUser },
+        url: "/GetOneUserInfo",
+        data: { userInfo: userInfo },
         success: function(data) {
+           
             console.log(data);
-            existentUser = data;
-          
+            result=data;
         }
     });
-    return existentUser;
+console.log(result);
+    return result;
 }
-
-
+$("#searchUserBtn").click(function(e) {
+    e.preventDefault();
+    
+    userData=GetOneUserInfo(document.getElementById("searchUserInfo").value);
+    
+       
+});
 $("#logInButton").click(function(e) {
-
+    e.preventDefault();
     loginUser[0] = document.getElementById("user").value;
     loginUser[1] = document.getElementById("exampleDropdownFormPassword1").value;
     getOneUserUsername(loginUser);

@@ -78,6 +78,11 @@ app.get('/GetOneUserUsernameOnly', function(req, res) {
     api.getOneUserUsernameOnly(client, req.query.createUser, res);
 
 });
+app.get('/GetOneUserInfo', function(req, res) {
+
+    api.getOneUserInfo(client, req.query.userInfo, res);
+
+});
 app.post('/createUser', function(req, res) {
 
     api.createUser(client, req.body.user, res);

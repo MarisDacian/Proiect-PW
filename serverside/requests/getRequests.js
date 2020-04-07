@@ -51,4 +51,16 @@ module.exports = {
           });
       
     },
+    getOneUserInfo: function(client,data,res){
+        dbo= client.db("PortDB");
+        dbo.collection("Users").find({ cnp:  data} , { projection: { 
+            firstName: 1, lastName: 1, cnp: 1, userName: 1,
+            email: 1, password: 1,} }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+    
+          });
+      
+    },
 }
