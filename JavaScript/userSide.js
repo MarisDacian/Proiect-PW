@@ -63,7 +63,7 @@ function stringRecognition(theString){
     var n = theString.indexOf("@");
     var m = theString.indexOf(".");
 
-    if(n!=-1 || m!=-1){
+    if(n!=-1 && m!=-1){
          console.log("Este email");
     }else{
             if(theString.length==13 && theString.match(/^[0-9]+$/) != null){
