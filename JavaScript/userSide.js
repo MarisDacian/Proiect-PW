@@ -139,7 +139,6 @@ function birthDay(cNP) {
         }
         createUser[7] =totalbirthDaySum ;
         createUser[8] =sex ;
-        console.log(sex);
    }
  } 
 
@@ -151,7 +150,6 @@ async function CheckCNP(createUser){
         data: { createUser: createUser },
         success: function(data) {
             setTimeout(500);     
-            console.log(data);
             res(data);
         }
     });
@@ -159,7 +157,6 @@ async function CheckCNP(createUser){
 let result;
 
  result = await promise;
-console.log(result);
     return result;
 }
 
@@ -172,7 +169,6 @@ async function CheckMail(createUser){
         data: { createUser: createUser },
         success: function(data) {
             setTimeout(500);     
-            console.log(data);
             res(data);
         }
     });
@@ -180,7 +176,6 @@ async function CheckMail(createUser){
 let result;
 
  result = await promise;
-console.log(result);
     return result;
 }
 
@@ -192,7 +187,6 @@ async function getOneUserUsername(createUser) {
             data: { createUser: createUser },
             success: function(data) {
                 setTimeout(500);     
-                console.log(data);
                 res(data);
             }
         });
@@ -200,7 +194,6 @@ async function getOneUserUsername(createUser) {
     let result;
     
      result = await promise;
-    console.log(result);
         return result;
 }
 async function firstAsync(createUser) {
@@ -223,35 +216,21 @@ async function firstAsync(createUser) {
     console.log(result2);
     let result3 = await promise3; 
     console.log(result3);
-    if(result1[0]==null){
-        console.log("Nu exista1");
-    }else{
-        console.log(result1);
-       console.log("Exista1");
-       ExistContor=1;
-       alert("The CNP alredy exist");
+    if(result1[0]!=null){
+        ExistContor=1;
+        alert("The CNP alredy exist");
     }
  
-    
-    if(result2[0]==null){
-        console.log("Nu exista2");
-    }else{
-        console.log(result2);
-       console.log("Exista2");
-       ExistContor=1;
-       alert("The Mail alredy exist");
+    if(result2[0]!=null){
+        ExistContor=1;
+        alert("The Mail alredy exist");
     }
 
 
-    if(result3[0]==null){
-        console.log("Nu exista3");
-    }else{
-        console.log(result3);
-       console.log("Exista3");
-       ExistContor=1;
-       alert("The Username alredy exist");
+    if(result3[0]!=null){
+        ExistContor=1;
+        alert("The Username alredy exist");
     }
-
     if( ExistContor!=1){
     if(valdiCNP(createUser[2])!=1){
      if(validatePassword(createUser[5],createUser[6])==1){
