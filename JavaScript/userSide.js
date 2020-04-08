@@ -56,12 +56,24 @@ function validatePassword(pass, rePass) {
     }
 }
 
+
+function stringRecognition(theString){
+
+
+
+
+
+}
+
+
 function valdiCNP(cNP) {
 
     if (cNP.length < 13) {
         alert("The length of CNP is too small.");
+        return 1;
     } else if (cNP.length > 13) {
         alert("The length of CNP is too long.");
+        return 1;
     } else {
         birthDay(cNP);
     }
@@ -102,16 +114,19 @@ function birthDay(cNP) {
                 totalbirthDaySum = "20" + year + "." + mounth + "." + day;
             }
 
-            if (parseInt(cNP[0]) % 2 == 1) {
-                sex = "Masculin";
-            } else {
-                sex = "Feminin";
-            }
             createUser[7] = totalbirthDaySum;
             createUser[8] = sex;
         }
+
+        
+        if (parseInt(cNP[0]) % 2 == 1) {
+            sex = "Masculin";
+        } else {
+            sex = "Feminin";
+        }
         createUser[7] =totalbirthDaySum ;
         createUser[8] =sex ;
+        console.log(sex);
    }
  } 
 
@@ -160,7 +175,7 @@ async function getOneUserUsername(createUser) {
     let promise = new Promise((res,rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserUsername",
+            url: "/GetOneUserUsernameOnly",
             data: { createUser: createUser },
             success: function(data) {
                 setTimeout(500);     
@@ -178,7 +193,7 @@ async function getOneUserUsername(createUser) {
 async function firstAsync(createUser) {
     let promise1 = new Promise((res) => {
         res(CheckCNP(createUser));
-       
+      
     });
     let promise2 = new Promise((res) => {
         res(CheckMail(createUser));
@@ -188,6 +203,7 @@ async function firstAsync(createUser) {
         res(getOneUserUsername(createUser));
        
     });
+    ExistContor=0;
     let result1 = await promise1; 
     console.log(result1);
     let result2 = await promise2; 
@@ -197,36 +213,45 @@ async function firstAsync(createUser) {
     if(result1[0]==null){
         console.log("Nu exista1");
     }else{
-        console.log(result);
+        console.log(result1);
        console.log("Exista1");
+       ExistContor=1;
+       alert("The CNP alredy exist");
     }
-
+ 
     
     if(result2[0]==null){
         console.log("Nu exista2");
     }else{
-        console.log(result);
+        console.log(result2);
        console.log("Exista2");
+       ExistContor=1;
+       alert("The Mail alredy exist");
     }
 
 
     if(result3[0]==null){
         console.log("Nu exista3");
     }else{
-        console.log(result);
+        console.log(result3);
        console.log("Exista3");
+       ExistContor=1;
+       alert("The Username alredy exist");
     }
-   if(validatePassword(createUser[5],createUser[6])==1){
+
+    if( ExistContor!=1){
+    if(valdiCNP(createUser[2])!=1){
+     if(validatePassword(createUser[5],createUser[6])==1){
        console.log(createUser);
-   $.ajax({
-       type: "POST",
-       url: "/createUser",
-       data: { user: createUser },
-       success: function(data) {
-            console.log(data);
-       }
-   });
-}  
+        $.ajax({
+            type: "POST",
+            url: "/createUser",
+            data: { user: createUser },
+            success: function(data) {
+                    console.log(data);
+            }
+        });
+    }  } }
 }
 
 function GetOneUserLogin(loginUser)
