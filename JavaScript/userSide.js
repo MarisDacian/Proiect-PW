@@ -272,28 +272,48 @@ console.log(result);
 }
 
 
+        
 let userFound=false;
-function GetOneUserInfo(userInfo){
-    var result;
-    $.ajax({
-        type: "GET",
-        url: "/GetOneUserInfo",
-        data: { userInfo: userInfo },
-        success: function(data) {
-           
-            console.log(data);
-            result=data;
-        }
+async function GetOneUserInfo(userInfo){
+    let promise = new Promise((res,rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneUserInfo",
+            data: { userInfo: userInfo },
+            success: function(data) {
+                setTimeout(500);     
+                console.log(data);
+                res(data);
+            }
+        });
     });
-console.log(result);
-    return result;
+    let result;
+    
+     result = await promise;
+    console.log(result);
+        return result;
 }
-$("#searchUserBtn").click(function(e) {
-    e.preventDefault();
-    
-    userData=GetOneUserInfo(document.getElementById("searchUserInfo").value);
-    
+
+//**pentru Oana**\\
+//daca vrei sa prelucrezi variabilele din server
+//lucra doar in functia searchByCnp
+async function searchByCnp(cnp)
+{
+    let promise = new Promise((res) => {
+        res(GetOneUserInfo(cnp));
        
+    });
+    ExistContor=0;
+    let result = await promise; 
+    console.log(result);
+    userData=result;
+    let aux=userData[0];
+    console.log(aux.cnp);//asa accesezi parametrii din variabila   
+}
+$("#searchUserBtn").click(async function(e) {
+    e.preventDefault();
+   searchByCnp(document.getElementById("searchUserInfo").value);
+        
 });
 $("#logInButton").click(function(e) {
     e.preventDefault();
