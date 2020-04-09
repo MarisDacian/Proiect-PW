@@ -305,12 +305,13 @@ async function searchByCnp(cnp) {
 
 function oldData() {
     let aux = userData[0];
-    document.getElementById("editFirstName").value = aux.firstName;
-    document.getElementById("editLastName").value = aux.lastName;
-    document.getElementById("editUserName").value = aux.userName;
-    document.getElementById("editEmail").value = aux.email;
-    document.getElementById("editPassword").value = aux.password;
-
+    if (aux != undefined) {
+        document.getElementById("editFirstName").value = aux.firstName;
+        document.getElementById("editLastName").value = aux.lastName;
+        document.getElementById("editUserName").value = aux.userName;
+        document.getElementById("editEmail").value = aux.email;
+        document.getElementById("editPassword").value = aux.password;
+    }
 }
 
 $("#editFName").click(function(e) {
@@ -336,6 +337,17 @@ $("#editMail").click(function(e) {
 $("#editPass").click(function(e) {
     e.preventDefault();
     document.getElementById("editPassword").disabled = false;
+});
+
+$("#searchUserBtn").click(function(e) {
+    e.preventDefault();
+    let v = document.getElementById("searchUserInfo").value;
+    if (v != "") {
+        document.getElementById("saveNewData").disabled = false;
+    } else {
+        document.getElementById("errorBox").style.removeProperty('display');
+    }
+    //mai trebuie sa verific si sa afisez mesaj de eroare daca CNP-ul introdus nu exista
 });
 
 $("#searchUserBtn").click(async function(e) {

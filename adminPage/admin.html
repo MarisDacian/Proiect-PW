@@ -78,6 +78,7 @@
                     <form class="form ml-5 mr-5">
 
                         <input id="searchUserInfo" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <div id="errorBox" style="display: none;">Atentie!<br>Ai uitat sa introduci CNP-ul utilizatorului pe care doresti sa il modifici.</div>
                         <button id="searchUserBtn" class="mb-5 mt-3 btn btn-primary btn-lg btn-block" type="submit">Search</button>
                     </form>
                 </div>
@@ -118,7 +119,7 @@
                             </div>
                             <img id="editPass" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
-                        <button type="button" id="saveNewData" class="btn btn-primary pr-5 pl-5 mt-4">Save</button>
+                        <button type="button" id="saveNewData" class="btn btn-primary pr-5 pl-5 mt-4" disabled>Save</button>
                     </form>
                 </div>
             </div>
