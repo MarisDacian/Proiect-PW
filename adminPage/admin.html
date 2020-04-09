@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+    <title>Admin</title>
     <script src="bower_components/tether/dist/js/tether.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -81,45 +81,44 @@
                         <button id="searchUserBtn" class="mb-5 mt-3 btn btn-primary btn-lg btn-block" type="submit">Search</button>
                     </form>
                 </div>
-                <div class="col-sm-7" id="showUser">
+                <div class="mt-4 col-sm-7" id="showUser">
                     <form class="mt-3 ml-5">
                         <div class="row">
                             <label class="col-md-3" for="firstname">First Name</label>
-                            <div class="col-md-9">
-                                <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
+                            <div class="col-md-8">
+                                <input type="firstname" class="form-control" id="editFirstName" placeholder="First Name" disabled>
                             </div>
+                            <img id="editFName" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <div class="mt-3 row">
                             <label class="col-md-3" for="lastname">Last Name</label>
-                            <div class="col-md-9">
-                                <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
+                            <div class="col-md-8">
+                                <input type="lastname" class="form-control" id="editLastName" placeholder="Last Name" disabled>
                             </div>
+                            <img id="editLName" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <div class="mt-3 row">
                             <label class="col-md-3" for="userName">User Name</label>
-                            <div class="col-md-9">
-                                <input type="userName" class="form-control" id="userName" placeholder="User Name">
+                            <div class="col-md-8">
+                                <input type="userName" class="form-control" id="editUserName" placeholder="User Name" disabled>
                             </div>
+                            <img id="editUName" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <div class="mt-3 row">
                             <label class="col-md-3" for="inputEmail4">Email</label>
-                            <div class="col-md-9">
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" id="editEmail" placeholder="Email" disabled>
                             </div>
+                            <img id="editMail" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <div class="mt-3 row">
                             <label class="col-md-3" for="inputPassword">Password</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="editPassword" placeholder="Password" disabled>
                             </div>
+                            <img id="editPass" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
-                        <div class="mt-3 row">
-                            <label class="col-md-3" for="reenterPass">Password</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" id="reenterPass" placeholder="Re-enter password">
-                            </div>
-                        </div><br>
-                        <button type="button" id="logInButton" class="btn btn-primary pr-5 pl-5">Save</button>
+                        <button type="button" id="saveNewData" class="btn btn-primary pr-5 pl-5 mt-4">Save</button>
                     </form>
                 </div>
             </div>

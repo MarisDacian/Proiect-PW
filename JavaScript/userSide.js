@@ -1,7 +1,8 @@
 let userAdded = new Array();
 let createUser = new Array();
-let loginUser=new Array();
-let userData=new Array();
+let loginUser = new Array();
+let userData = new Array();
+
 function getUsers() {
 
     $.ajax({
@@ -57,22 +58,22 @@ function validatePassword(pass, rePass) {
 }
 
 
-function stringRecognition(theString){
+function stringRecognition(theString) {
 
 
     var n = theString.indexOf("@");
     var m = theString.indexOf(".");
 
-    if(n!=-1 && m!=-1){
-         console.log("Este email");
-    }else{
-            if(theString.length==13 && theString.match(/^[0-9]+$/) != null){
+    if (n != -1 && m != -1) {
+        console.log("Este email");
+    } else {
+        if (theString.length == 13 && theString.match(/^[0-9]+$/) != null) {
 
-                console.log("Este CNP");
+            console.log("Este CNP");
 
-            }else{
-                console.log("Este Username");
-            }
+        } else {
+            console.log("Este Username");
+        }
     }
 
 }
@@ -131,188 +132,223 @@ function birthDay(cNP) {
             createUser[8] = sex;
         }
 
-        
+
         if (parseInt(cNP[0]) % 2 == 1) {
             sex = "Masculin";
         } else {
             sex = "Feminin";
         }
-        createUser[7] =totalbirthDaySum ;
-        createUser[8] =sex ;
-   }
- } 
-
-async function CheckCNP(createUser){
-    let promise = new Promise((res,rej) => {
-    $.ajax({
-        type: "GET",
-        url: "/GetOneUserCNP",
-        data: { createUser: createUser },
-        success: function(data) {
-            setTimeout(500);     
-            res(data);
-        }
-    });
-});
-let result;
-
- result = await promise;
-    return result;
+        createUser[7] = totalbirthDaySum;
+        createUser[8] = sex;
+    }
 }
 
-
-async function CheckMail(createUser){
-    let promise = new Promise((res,rej) => {
-    $.ajax({
-        type: "GET",
-        url: "/GetOneUserEmail",
-        data: { createUser: createUser },
-        success: function(data) {
-            setTimeout(500);     
-            res(data);
-        }
-    });
-});
-let result;
-
- result = await promise;
-    return result;
-}
-
-async function getOneUserUsername(createUser) {
-    let promise = new Promise((res,rej) => {
+async function CheckCNP(createUser) {
+    let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserUsernameOnly",
+            url: "/GetOneUserCNP",
             data: { createUser: createUser },
             success: function(data) {
-                setTimeout(500);     
+                setTimeout(500);
                 res(data);
             }
         });
     });
     let result;
-    
-     result = await promise;
-        return result;
+
+    result = await promise;
+    return result;
+}
+
+
+async function CheckMail(createUser) {
+    let promise = new Promise((res, rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneUserEmail",
+            data: { createUser: createUser },
+            success: function(data) {
+                setTimeout(500);
+                res(data);
+            }
+        });
+    });
+    let result;
+
+    result = await promise;
+    return result;
+}
+
+async function getOneUserUsername(createUser) {
+    let promise = new Promise((res, rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneUserUsernameOnly",
+            data: { createUser: createUser },
+            success: function(data) {
+                setTimeout(500);
+                res(data);
+            }
+        });
+    });
+    let result;
+
+    result = await promise;
+    return result;
 }
 async function firstAsync(createUser) {
     let promise1 = new Promise((res) => {
         res(CheckCNP(createUser));
-      
+
     });
     let promise2 = new Promise((res) => {
         res(CheckMail(createUser));
-       
+
     });
     let promise3 = new Promise((res) => {
         res(getOneUserUsername(createUser));
-       
+
     });
-    ExistContor=0;
-    let result1 = await promise1; 
+    ExistContor = 0;
+    let result1 = await promise1;
     console.log(result1);
-    let result2 = await promise2; 
+    let result2 = await promise2;
     console.log(result2);
-    let result3 = await promise3; 
+    let result3 = await promise3;
     console.log(result3);
-    if(result1[0]!=null){
-        ExistContor=1;
+    if (result1[0] != null) {
+        ExistContor = 1;
         alert("The CNP alredy exist");
     }
- 
-    if(result2[0]!=null){
-        ExistContor=1;
+
+    if (result2[0] != null) {
+        ExistContor = 1;
         alert("The Mail alredy exist");
     }
 
 
-    if(result3[0]!=null){
-        ExistContor=1;
+    if (result3[0] != null) {
+        ExistContor = 1;
         alert("The Username alredy exist");
     }
-    if( ExistContor!=1){
-    if(valdiCNP(createUser[2])!=1){
-     if(validatePassword(createUser[5],createUser[6])==1){
-       console.log(createUser);
-        $.ajax({
-            type: "POST",
-            url: "/createUser",
-            data: { user: createUser },
-            success: function(data) {
-                    console.log(data);
+    if (ExistContor != 1) {
+        if (valdiCNP(createUser[2]) != 1) {
+            if (validatePassword(createUser[5], createUser[6]) == 1) {
+                console.log(createUser);
+                $.ajax({
+                    type: "POST",
+                    url: "/createUser",
+                    data: { user: createUser },
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
             }
-        });
-    }  } }
+        }
+    }
 }
 
-function GetOneUserLogin(loginUser)
-{
-var result;
+function GetOneUserLogin(loginUser) {
+    var result;
     $.ajax({
         type: "GET",
         url: "/GetOneUserLogin",
         data: { loginUser: loginUser },
         success: function(data) {
-           
+
             console.log(data);
-            result=data;
+            result = data;
         }
     });
-console.log(result);
+    console.log(result);
     return result;
 }
 
 
-        
-let userFound=false;
-async function GetOneUserInfo(userInfo){
-    let promise = new Promise((res,rej) => {
+
+let userFound = false;
+async function GetOneUserInfo(userInfo) {
+    let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
             url: "/GetOneUserInfo",
             data: { userInfo: userInfo },
             success: function(data) {
-                setTimeout(500);     
+                setTimeout(500);
                 console.log(data);
                 res(data);
             }
         });
     });
     let result;
-    
-     result = await promise;
+
+    result = await promise;
     console.log(result);
-        return result;
+    return result;
 }
 
 //**pentru Oana**\\
 //daca vrei sa prelucrezi variabilele din server
 //lucra doar in functia searchByCnp
-async function searchByCnp(cnp)
-{
+async function searchByCnp(cnp) {
     let promise = new Promise((res) => {
         res(GetOneUserInfo(cnp));
-       
+
     });
-    ExistContor=0;
-    let result = await promise; 
+    ExistContor = 0;
+    let result = await promise;
     console.log(result);
-    userData=result;
-    let aux=userData[0];
-    console.log(aux.cnp);//asa accesezi parametrii din variabila   
+    userData = result;
+    oldData();
 }
+
+function oldData() {
+    let aux = userData[0];
+    document.getElementById("editFirstName").value = aux.firstName;
+    document.getElementById("editLastName").value = aux.lastName;
+    document.getElementById("editUserName").value = aux.userName;
+    document.getElementById("editEmail").value = aux.email;
+    document.getElementById("editPassword").value = aux.password;
+
+}
+
+$("#editFName").click(function(e) {
+    e.preventDefault();
+    document.getElementById("editFirstName").disabled = false;
+});
+
+$("#editLName").click(function(e) {
+    e.preventDefault();
+    document.getElementById("editLastName").disabled = false;
+});
+
+$("#editUName").click(function(e) {
+    e.preventDefault();
+    document.getElementById("editUserName").disabled = false;
+});
+
+$("#editMail").click(function(e) {
+    e.preventDefault();
+    document.getElementById("editEmail").disabled = false;
+});
+
+$("#editPass").click(function(e) {
+    e.preventDefault();
+    document.getElementById("editPassword").disabled = false;
+});
+
 $("#searchUserBtn").click(async function(e) {
     e.preventDefault();
-   searchByCnp(document.getElementById("searchUserInfo").value);
-        
+    searchByCnp(document.getElementById("searchUserInfo").value);
+
 });
 $("#logInButton").click(function(e) {
     e.preventDefault();
     loginUser[0] = document.getElementById("user").value;
     loginUser[1] = document.getElementById("exampleDropdownFormPassword1").value;
     getOneUserUsername(loginUser);
-   
+
 });
 
 $("#createUser").click(async function(e) {
@@ -325,6 +361,6 @@ $("#createUser").click(async function(e) {
     createUser[5] = document.getElementById("inputPassword").value;
     createUser[6] = document.getElementById("reenterPass").value;
 
-     firstAsync(createUser);
-    
+    firstAsync(createUser);
+
 });

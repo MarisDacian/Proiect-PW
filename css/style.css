@@ -102,4 +102,10 @@ body {
   height: 550px;
   margin-top: -180px;
 }
+
+.editIcon {
+  height: 20px;
+  margin-left: -8px;
+  margin-top: 8px;
+}
 /*# sourceMappingURL=style.css.map */
