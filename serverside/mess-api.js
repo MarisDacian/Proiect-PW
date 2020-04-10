@@ -16,6 +16,14 @@ module.exports={
         /**to add save seats functionality */
         get.getOneUserLogin(client,obj,res);
     },
+    getOneMailLogin: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getOneMailLogin(client,obj,res);
+    },
+    getOneCNPLogin: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getOneCNPLogin(client,obj,res);
+    },
     getOneUserEmail: function(client,obj,res){
         /**to add save seats functionality */
         get.getOneUserEmail(client,obj,res);

@@ -62,6 +62,16 @@ app.get('/GetOneUserLogin', function(req, res) {
     api.getOneUserLogin(client, req.query.loginUser, res);
 
 });
+app.get('/GetOneMailLogin', function(req, res) {
+
+    api.getOneMailLogin(client, req.query.loginUser, res);
+
+});
+app.get('/GetOneCNPLogin', function(req, res) {
+
+    api.getOneCNPLogin(client, req.query.loginUser, res);
+
+});
 app.get('/GetOneUserEmail', function(req, res) {
 
     api.getOneUserEmail(client, req.query.createUser, res);

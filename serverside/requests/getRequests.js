@@ -19,6 +19,26 @@ module.exports = {
           });
       
     },
+    getOneMailLogin: function(client,data,res){
+        dbo= client.db("PortDB");
+        dbo.collection("Users").find({ email:  data[0], password: data[1]} , { projection: { email: 1, password: 1} }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+    
+          });
+      
+    },
+    getOneCNPLogin: function(client,data,res){
+        dbo= client.db("PortDB");
+        dbo.collection("Users").find({ cnp:  data[0], password: data[1]} , { projection: { cnp: 1, password: 1} }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+    
+          });
+      
+    },
     getOneUserEmail: function(client,data,res){
         dbo= client.db("PortDB");
         dbo.collection("Users").find({ email:  data[4]} , { projection: { email: 1} }).toArray(function(err, result) {

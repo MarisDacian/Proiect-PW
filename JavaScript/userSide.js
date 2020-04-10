@@ -208,7 +208,7 @@ async function firstAsync(createUser) {
     let promise3 = new Promise((res) => {
         res(getOneUserUsername(createUser));
        
-    });
+    }); 
     ExistContor=0;
     let result1 = await promise1; 
     console.log(result1);
@@ -263,7 +263,39 @@ console.log(result);
     return result;
 }
 
+function GetOneMailLogin(loginUser)
+{
+var result;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneMailLogin",
+        data: { loginUser: loginUser },
+        success: function(data) {
+           
+            console.log(data);
+            result=data;
+        }
+    });
+console.log(result);
+    return result;
+}
 
+function GetOneCNPLogin(loginUser)
+{
+var result;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneCNPLogin",
+        data: { loginUser: loginUser },
+        success: function(data) {
+           
+            console.log(data);
+            result=data;
+        }
+    });
+console.log(result);
+    return result;
+}
         
 let userFound=false;
 async function GetOneUserInfo(userInfo){
