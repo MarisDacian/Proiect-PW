@@ -92,3 +92,30 @@ body {
     height: 550px;
     margin-top: -180px;
 }
+
+.editIcon {
+    height: 20px;
+    margin-left: -8px;
+    margin-top: 8px;
+}
+
+#errorBox {
+    background-color: red;
+    opacity: 0.5;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 12px;
+    border: 2px solid rgb(100, 45, 45);
+    animation-name: changeOpacity;
+    animation-duration: 4s;
+}
+
+@keyframes changeOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

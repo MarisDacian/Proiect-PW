@@ -102,4 +102,42 @@ body {
   height: 550px;
   margin-top: -180px;
 }
+
+.editIcon {
+  height: 20px;
+  margin-left: -8px;
+  margin-top: 8px;
+}
+
+#errorBox {
+  background-color: red;
+  opacity: 0.5;
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 12px;
+  border: 2px solid #642d2d;
+  -webkit-animation-name: changeOpacity;
+          animation-name: changeOpacity;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+
+@-webkit-keyframes changeOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes changeOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
 /*# sourceMappingURL=style.css.map */

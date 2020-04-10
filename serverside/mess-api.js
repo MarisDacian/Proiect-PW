@@ -8,6 +8,10 @@ module.exports={
         /**to add save seats functionality */
         post.createUser(client,obj);
     },
+    updateUser: function(client,obj,res){
+        /**to add save seats functionality */
+        post.updateUser(client,obj);
+    },
     getUsers: function(client,obj,res){
         /**to add save seats functionality */
         get.getUsers(client,obj);

@@ -98,3 +98,8 @@ app.post('/createUser', function(req, res) {
     api.createUser(client, req.body.user, res);
     res.send("Save was successful!");
 });
+app.post('/updateUser', function(req, res) {
+
+    api.updateUser(client, req.body.editUser, res);
+    res.send("Update was successful!");
+});
