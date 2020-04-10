@@ -22,21 +22,24 @@ module.exports = {
 
     },
 
-    // updateToList: function(client,data,res){
-    //     const collection = client.db("Restaurant").collection("Orders");
-    //     console.log(data);
-    //     var whichOne = { table_id : parseInt(data.table_id) };
-    //     console.log(whichOne);
-    //     console.log(parseInt(data.total_price));
-    //     var newdata = { $set: { food:data.food , total_price: parseInt(data.total_price) } };
-    //     collection.updateOne( whichOne, newdata, function(err){
-    //         if(err)
-    //             throw err;
-    //         else{
-    //             res.send("List was updated!");
-    //         }
-    //     });
-    // },
+    updateUser: function(client,data,res){
+        const collection = client.db("PortDB").collection("Users");	
+        console.log(data);
+        var ObjectId = require('mongodb').ObjectId; 
+        var whichOne = { _id :new ObjectId(data._id) };
+         var newdata = { $set: { firstName:data.firstName ,
+            lastName: data.lastName,cnp:data.cnp ,
+            userName: data.userName,email:data.email ,
+            password: data.password} };
+            console.log(newdata);
+         collection.updateOne( whichOne, newdata, function(err){
+            if(err)
+                throw err;
+            else{
+                console.log("User was updated!");
+            }
+        });
+    },
 
     // insertNewMenu: function(client,data,res){
     //     let collection = client.db("Restaurant").collection("Menus");

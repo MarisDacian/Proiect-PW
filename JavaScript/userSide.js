@@ -313,6 +313,29 @@ function oldData() {
         document.getElementById("editPassword").value = aux.password;
     }
 }
+function updateUser(editUser){
+    var result;
+    $.ajax({
+        type: "POST",
+        url: "/updateUser",
+        data: { editUser: editUser },
+        success: function(data) {
+            result = data;
+        }
+    });
+    return result;
+}
+$("#saveNewData").click(function(e) {
+    e.preventDefault();
+    let aux;
+    userData[0].firstName=document.getElementById("editFirstName").value;
+    userData[0].lastName=document.getElementById("editLastName").value;
+    userData[0].userName=document.getElementById("editUserName").value;
+    userData[0].email=document.getElementById("editEmail").value;
+    userData[0].password=document.getElementById("editPassword").value;
+    aux=userData[0];
+    updateUser(aux);
+});
 
 $("#editFName").click(function(e) {
     e.preventDefault();
