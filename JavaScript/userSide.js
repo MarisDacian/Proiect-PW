@@ -2,7 +2,7 @@ let userAdded = new Array();
 let createUser = new Array();
 let loginUserInfo = new Array();
 let userData = new Array();
-
+let itemData = new Array();
 function getUsers() {
 
     $.ajax({
@@ -324,10 +324,37 @@ function updateUser(editUser){
     return result;
 }
 
+
+
 async function loginUser(loginData) {
 
     let promise = new Promise((res) => {
         res(GetOneUserLogin(loginData));
+
+    });
+    ExistContor = 0;
+    let result = await promise;
+    console.log(result);
+    loginUserInfo=result;
+    
+}
+function insertItemToBd(itemData) {
+    var result;
+    $.ajax({
+        type: "GET",
+        url: "/createItem",
+        data: { itemData: itemData },
+        success: function(data) {
+            result = data;
+        }
+    });
+    console.log(result);
+    return result;
+}
+async function addItem(itemData) {
+
+    let promise = new Promise((res) => {
+        res(GetOneUserLogin(itemData));
 
     });
     ExistContor = 0;

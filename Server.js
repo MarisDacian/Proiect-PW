@@ -85,7 +85,12 @@ app.get('/GetOneUserInfo', function(req, res) {
 });
 app.post('/createUser', function(req, res) {
 
-    api.createUser(client, req.body.user, res);
+    api.createUser(client, req.body.itemData, res);
+    res.send("Save was successful!");
+});
+app.post('/createItem', function(req, res) {
+
+    api.createItem(client, req.body.user, res);
     res.send("Save was successful!");
 });
 app.post('/updateUser', function(req, res) {
