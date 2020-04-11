@@ -1,6 +1,6 @@
 let userAdded = new Array();
 let createUser = new Array();
-let loginUser = new Array();
+let loginUserInfo = new Array();
 let userData = new Array();
 
 function getUsers() {
@@ -256,8 +256,6 @@ function GetOneUserLogin(loginUser) {
         url: "/GetOneUserLogin",
         data: { loginUser: loginUser },
         success: function(data) {
-
-            console.log(data);
             result = data;
         }
     });
@@ -325,6 +323,19 @@ function updateUser(editUser){
     });
     return result;
 }
+
+async function loginUser(loginData) {
+
+    let promise = new Promise((res) => {
+        res(GetOneUserLogin(loginData));
+
+    });
+    ExistContor = 0;
+    let result = await promise;
+    console.log(result);
+    loginUserInfo=result;
+    
+}
 $("#saveNewData").click(function(e) {
     e.preventDefault();
     let aux;
@@ -380,9 +391,10 @@ $("#searchUserBtn").click(async function(e) {
 });
 $("#logInButton").click(function(e) {
     e.preventDefault();
-    loginUser[0] = document.getElementById("user").value;
-    loginUser[1] = document.getElementById("exampleDropdownFormPassword1").value;
-    getOneUserUsername(loginUser);
+    loginUserInfo[0] = document.getElementById("user").value;
+    loginUserInfo[1] = document.getElementById("exampleDropdownFormPassword1").value;
+    loginUser(loginUserInfo);
+    console.log(loginUserInfo);
 
 });
 
