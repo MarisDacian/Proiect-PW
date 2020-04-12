@@ -351,8 +351,8 @@ async function loginWorkers(loginData) {
     ExistContor = 0;
     let result = await promise;
     console.log(result);
-    loginUserInfo=result;
-    
+    loginWorkersInfo=result;
+    return result;
 }
 function insertItemToBd(itemData) {
     var result;
@@ -436,8 +436,9 @@ $("#logInButton").click(function(e) {
     e.preventDefault();
     loginUserInfo[0] = document.getElementById("user").value;
     loginUserInfo[1] = document.getElementById("exampleDropdownFormPassword1").value;
-    loginUser(loginUserInfo);
+      aux= loginWorkers(loginUserInfo);
     console.log(loginUserInfo);
+    console.log(aux);
 
 });
 
