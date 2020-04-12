@@ -65,20 +65,20 @@ function stringRecognition(theString) {
     var m = theString.indexOf(".");
 
     if (n != -1 && m != -1) {
-        console.log("Este email");
+        return 1;
     } else {
         if (theString.length == 13 && theString.match(/^[0-9]+$/) != null) {
 
-            console.log("Este CNP");
+            return 2;
 
         } else {
-            console.log("Este Username");
+            return 3;
         }
     }
 
 }
 
-stringRecognition("MAta@gmail.com");
+
 
 function valdiCNP(cNP) {
 
@@ -269,37 +269,43 @@ async function GetOneWorkersLogin(workers) {
     return result;
 }
 
-function GetOneMailLogin(loginUser)
-{
-var result;
-    $.ajax({
-        type: "GET",
-        url: "/GetOneMailLogin",
-        data: { loginUser: loginUser },
-        success: function(data) {
-           
-            console.log(data);
-            result=data;
-        }
+async function GetOneMailLogin(workers) {
+    let promise = new Promise((res, rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneMailLogin",
+            data: { workers: workers },
+            success: function(data) {
+                setTimeout(500);
+                console.log(data);
+                res(data);
+            }
+        });
     });
-console.log(result);
+    let result;
+
+    result = await promise;
+    console.log(result);
     return result;
 }
 
-function GetOneCNPLogin(loginUser)
-{
-var result;
-    $.ajax({
-        type: "GET",
-        url: "/GetOneCNPLogin",
-        data: { loginUser: loginUser },
-        success: function(data) {
-           
-            console.log(data);
-            result=data;
-        }
+async function GetOneCNPLogin(workers) {
+    let promise = new Promise((res, rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneCNPLogin",
+            data: { workers: workers },
+            success: function(data) {
+                setTimeout(500);
+                console.log(data);
+                res(data);
+            }
+        });
     });
-console.log(result);
+    let result;
+
+    result = await promise;
+    console.log(result);
     return result;
 }
 
@@ -378,6 +384,38 @@ async function loginWorkers(workers) {
     console.log(loginWorkersInfo);
    
 }
+
+
+
+async function loginWorkersMail(workers) {
+
+    let promise = new Promise((res) => {
+        res(GetOneMailLogin(workers));
+    
+    });
+    ExistContor = 0;
+    let result = await promise;
+    console.log(result);
+    loginWorkersInfo=result;
+    console.log(loginWorkersInfo);
+   
+}
+
+async function loginWorkersCNP(workers) {
+
+    let promise = new Promise((res) => {
+        res(GetOneCNPLogin(workers));
+    
+    });
+    ExistContor = 0;
+    let result = await promise;
+    console.log(result);
+    loginWorkersInfo=result;
+    console.log(loginWorkersInfo);
+   
+}
+
+
 function insertItemToBd(itemData) {
     var result;
     $.ajax({
@@ -461,7 +499,18 @@ $("#logInButton").click(function(e) {
     let aux=new Array;
     aux[0] = document.getElementById("user").value;
     aux[1] = document.getElementById("exampleDropdownFormPassword1").value;
-    loginWorkers(aux);
+
+    if(stringRecognition(aux[0])==1){
+        loginWorkersMail(aux);
+}
+    if(stringRecognition(aux[0])==2){
+        loginWorkersCNP(aux);
+}
+    if(stringRecognition(aux[0])==3){
+        loginWorkers(aux);
+}
+
+    
     
   
 

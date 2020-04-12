@@ -64,12 +64,12 @@ app.get('/GetOneWorkersLogin', function(req, res) {
 });
 app.get('/GetOneMailLogin', function(req, res) {
 
-    api.getOneMailLogin(client, req.query.loginUser, res);
+    api.getOneMailLogin(client, req.query.workers, res);
 
 });
 app.get('/GetOneCNPLogin', function(req, res) {
 
-    api.getOneCNPLogin(client, req.query.loginUser, res);
+    api.getOneCNPLogin(client, req.query.workers, res);
 
 });
 app.get('/GetOneWorkersEmail', function(req, res) {
