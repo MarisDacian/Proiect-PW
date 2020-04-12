@@ -54,12 +54,12 @@ app.get('/create-user', (req, res) => {
 });
 
 app.get('/GetUser', (req, res) => {
-    api.getUsers(client, res);
+    api.getWorkers(client, res);
 });
 
 app.get('/GetOneUserLogin', function(req, res) {
 
-    api.getOneUserLogin(client, req.query.loginUser, res);
+    api.getOneWorkersLogin(client, req.query.loginUser, res);
 
 });
 app.get('/GetOneMailLogin', function(req, res) {
@@ -90,16 +90,16 @@ app.get('/GetOneUserUsernameOnly', function(req, res) {
 });
 app.get('/GetOneUserInfo', function(req, res) {
 
-    api.getOneUserInfo(client, req.query.userInfo, res);
+    api.getOneWorkersInfo(client, req.query.userInfo, res);
 
 });
 app.post('/createUser', function(req, res) {
 
-    api.createUser(client, req.body.user, res);
+    api.createWorkers(client, req.body.user, res);
     res.send("Save was successful!");
 });
 app.post('/updateUser', function(req, res) {
 
-    api.updateUser(client, req.body.editUser, res);
+    api.updateWorkers(client, req.body.editUser, res);
     res.send("Update was successful!");
 });

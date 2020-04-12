@@ -4,21 +4,21 @@ const del = require('./requests/deleteRequests');
 
 module.exports={
 
-    createUser: function(client,obj,res){
+    createWorkers: function(client,obj,res){
         /**to add save seats functionality */
-        post.createUser(client,obj);
+        post.createWorkers(client,obj);
     },
-    updateUser: function(client,obj,res){
+    updateWorkers: function(client,obj,res){
         /**to add save seats functionality */
-        post.updateUser(client,obj);
+        post.updateWorkers(client,obj);
     },
-    getUsers: function(client,obj,res){
+    getWorkers: function(client,obj,res){
         /**to add save seats functionality */
-        get.getUsers(client,obj);
+        get.getWorkers(client,obj);
     },
-    getOneUserLogin: function(client,obj,res){
+    getOneWorkersLogin: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserLogin(client,obj,res);
+        get.getOneWorkersLogin(client,obj,res);
     },
     getOneMailLogin: function(client,obj,res){
         /**to add save seats functionality */
@@ -28,21 +28,21 @@ module.exports={
         /**to add save seats functionality */
         get.getOneCNPLogin(client,obj,res);
     },
-    getOneUserEmail: function(client,obj,res){
+    getOneWorkersEmail: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserEmail(client,obj,res);
+        get.getOneWorkersEmail(client,obj,res);
     },
-    getOneUserCNP: function(client,obj,res){
+    getOneWorkersCNP: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserCNP(client,obj,res);
+        get.getOneWorkersCNP(client,obj,res);
     },
-    getOneUserUsernameOnly: function(client,obj,res){
+    getOneWorkersUsernameOnly: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserUsernameOnly(client,obj,res);
+        get.getOneWorkersUsernameOnly(client,obj,res);
     },
-    getOneUserInfo: function(client,obj,res){
+    getOneWorkersInfo: function(client,obj,res){
         /**to add save seats functionality */
-        get.getOneUserInfo(client,obj,res);
+        get.getOneWorkersInfo(client,obj,res);
     },
    
 }

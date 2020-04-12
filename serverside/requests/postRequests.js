@@ -1,6 +1,6 @@
 module.exports = {
 
-    createUser: function(client,data){
+    createWorkers: function(client,data){
         const collection = client.db("PortDB").collection("Users");	
            
                 collection.insertOne({  
@@ -22,7 +22,7 @@ module.exports = {
 
     },
 
-    updateUser: function(client,data,res){
+    updateWorkers: function(client,data,res){
         const collection = client.db("PortDB").collection("Users");	
         console.log(data);
         var ObjectId = require('mongodb').ObjectId; 
