@@ -1,13 +1,13 @@
 let userAdded = new Array();
-let createUser = new Array();
+let createWorkers = new Array();
 let loginUserInfo = new Array();
 let userData = new Array();
 let itemData = new Array();
-function getUsers() {
+function getWorkers() {
 
     $.ajax({
         type: "GET",
-        url: "/GetUser",
+        url: "/GetWorkers",
         success: function(data) {
             for (i = 0; i < data.length; i++) {
                 console.log(data[i]);
@@ -111,8 +111,8 @@ function birthDay(cNP) {
             } else {
                 sex = "Feminin";
             }
-            createUser[7] = foreign;
-            createUser[8] = sex;
+            createWorkers[7] = foreign;
+            createWorkers[8] = sex;
         } else {
 
             let totalbirthDay = cNP;
@@ -128,8 +128,8 @@ function birthDay(cNP) {
                 totalbirthDaySum = "20" + year + "." + mounth + "." + day;
             }
 
-            createUser[7] = totalbirthDaySum;
-            createUser[8] = sex;
+            createWorkers[7] = totalbirthDaySum;
+            createWorkers[8] = sex;
         }
 
 
@@ -138,8 +138,8 @@ function birthDay(cNP) {
         } else {
             sex = "Feminin";
         }
-        createUser[7] = totalbirthDaySum;
-        createUser[8] = sex;
+        createWorkers[7] = totalbirthDaySum;
+        createWorkers[8] = sex;
     }
 }
 
@@ -147,7 +147,7 @@ async function CheckCNP(createUser) {
     let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserCNP",
+            url: "/GetOneWorkersCNP",
             data: { createUser: createUser },
             success: function(data) {
                 setTimeout(500);
@@ -166,7 +166,7 @@ async function CheckMail(createUser) {
     let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserEmail",
+            url: "/GetOneWorkersEmail",
             data: { createUser: createUser },
             success: function(data) {
                 setTimeout(500);
@@ -180,11 +180,11 @@ async function CheckMail(createUser) {
     return result;
 }
 
-async function getOneUserUsername(createUser) {
+async function getOneWorkersUsername(createUser) {
     let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserUsernameOnly",
+            url: "/GetOneWorkersUsernameOnly",
             data: { createUser: createUser },
             success: function(data) {
                 setTimeout(500);
@@ -197,17 +197,17 @@ async function getOneUserUsername(createUser) {
     result = await promise;
     return result;
 }
-async function firstAsync(createUser) {
+async function firstAsync(createWorkers) {
     let promise1 = new Promise((res) => {
-        res(CheckCNP(createUser));
+        res(CheckCNP(createWorkers));
 
     });
     let promise2 = new Promise((res) => {
-        res(CheckMail(createUser));
+        res(CheckMail(createWorkers));
 
     });
     let promise3 = new Promise((res) => {
-        res(getOneUserUsername(createUser));
+        res(getOneWorkersUsername(createWorkers));
 
     });
     ExistContor = 0;
@@ -233,13 +233,13 @@ async function firstAsync(createUser) {
         alert("The Username alredy exist");
     }
     if (ExistContor != 1) {
-        if (valdiCNP(createUser[2]) != 1) {
-            if (validatePassword(createUser[5], createUser[6]) == 1) {
-                console.log(createUser);
+        if (valdiCNP(createWorkers[2]) != 1) {
+            if (validatePassword(createWorkers[5], createWorkers[6]) == 1) {
+                console.log(createWorkers);
                 $.ajax({
                     type: "POST",
-                    url: "/createUser",
-                    data: { user: createUser },
+                    url: "/createWorkers",
+                    data: { user: createWorkers },
                     success: function(data) {
                         console.log(data);
                     }
@@ -249,11 +249,11 @@ async function firstAsync(createUser) {
     }
 }
 
-function GetOneUserLogin(loginUser) {
+function GetOneWorkersLogin(loginUser) {
     var result;
     $.ajax({
         type: "GET",
-        url: "/GetOneUserLogin",
+        url: "/GetOneWorkersLogin",
         data: { loginUser: loginUser },
         success: function(data) {
             result = data;
@@ -282,12 +282,12 @@ console.log(result);
 
 
 let userFound = false;
-async function GetOneUserInfo(userInfo) {
+async function GetOneWorkersInfo(WorkersInfo) {
     let promise = new Promise((res, rej) => {
         $.ajax({
             type: "GET",
-            url: "/GetOneUserInfo",
-            data: { userInfo: userInfo },
+            url: "/GetOneWorkersInfo",
+            data: { WorkersInfo: WorkersInfo },
             success: function(data) {
                 setTimeout(500);
                 console.log(data);
@@ -307,7 +307,7 @@ async function GetOneUserInfo(userInfo) {
 //lucra doar in functia searchByCnp
 async function searchByCnp(cnp) {
     let promise = new Promise((res) => {
-        res(GetOneUserInfo(cnp));
+        res(GetOneWorkersInfo(cnp));
 
     });
     ExistContor = 0;
@@ -327,12 +327,12 @@ function oldData() {
         document.getElementById("editPassword").value = aux.password;
     }
 }
-function updateUser(editUser){
+function updateWorkers(editWorkers){
     var result;
     $.ajax({
         type: "POST",
-        url: "/updateUser",
-        data: { editUser: editUser },
+        url: "/updateWorkers",
+        data: { editWorkers: editWorkers },
         success: function(data) {
             result = data;
         }
@@ -342,10 +342,10 @@ function updateUser(editUser){
 
 
 
-async function loginUser(loginData) {
+async function loginWorkers(loginData) {
 
     let promise = new Promise((res) => {
-        res(GetOneUserLogin(loginData));
+        res(GetOneWorkersLogin(loginData));
 
     });
     ExistContor = 0;
@@ -370,7 +370,7 @@ function insertItemToBd(itemData) {
 async function addItem(itemData) {
 
     let promise = new Promise((res) => {
-        res(GetOneUserLogin(itemData));
+        res( insertItemToBd(itemData));
 
     });
     ExistContor = 0;
@@ -388,7 +388,7 @@ $("#saveNewData").click(function(e) {
     userData[0].email=document.getElementById("editEmail").value;
     userData[0].password=document.getElementById("editPassword").value;
     aux=userData[0];
-    updateUser(aux);
+    updateWorkers(aux);
 });
 
 $("#editFName").click(function(e) {
@@ -443,14 +443,14 @@ $("#logInButton").click(function(e) {
 
 $("#createUser").click(async function(e) {
     e.preventDefault();
-    createUser[0] = document.getElementById("firstname").value;
-    createUser[1] = document.getElementById("lastname").value;
-    createUser[2] = document.getElementById("cnp").value;
-    createUser[3] = document.getElementById("userName").value;
-    createUser[4] = document.getElementById("inputEmail").value;
-    createUser[5] = document.getElementById("inputPassword").value;
-    createUser[6] = document.getElementById("reenterPass").value;
+    createWorkers[0] = document.getElementById("firstname").value;
+    createWorkers[1] = document.getElementById("lastname").value;
+    createWorkers[2] = document.getElementById("cnp").value;
+    createWorkers[3] = document.getElementById("userName").value;
+    createWorkers[4] = document.getElementById("inputEmail").value;
+    createWorkers[5] = document.getElementById("inputPassword").value;
+    createWorkers[6] = document.getElementById("reenterPass").value;
 
-    firstAsync(createUser);
+    firstAsync(createWorkers);
 
 });

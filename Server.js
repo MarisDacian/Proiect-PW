@@ -36,8 +36,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html');
 });
 
-app.get('/user', (req, res) => {
-    res.sendFile(__dirname + '/userPage/user.html');
+app.get('/Workers', (req, res) => {
+    res.sendFile(__dirname + '/WorkersPage/Workers.html');
 });
 
 app.get('/admin', (req, res) => {
@@ -53,11 +53,11 @@ app.get('/create-user', (req, res) => {
     res.sendFile(__dirname + '/create-user.html');
 });
 
-app.get('/GetUser', (req, res) => {
+app.get('/GetWorkers', (req, res) => {
     api.getWorkers(client, res);
 });
 
-app.get('/GetOneUserLogin', function(req, res) {
+app.get('/GetOneWorkersLogin', function(req, res) {
 
     api.getOneWorkersLogin(client, req.query.loginUser, res);
 
@@ -72,39 +72,39 @@ app.get('/GetOneCNPLogin', function(req, res) {
     api.getOneCNPLogin(client, req.query.loginUser, res);
 
 });
-app.get('/GetOneUserEmail', function(req, res) {
+app.get('/GetOneWorkersEmail', function(req, res) {
 
-    api.getOneUserEmail(client, req.query.createUser, res);
-
-});
-app.get('/GetOneUserCNP', function(req, res) {
-
-    api.getOneUserCNP(client, req.query.createUser, res);
-
+    api.getOneWorkersEmail(client, req.query.createUser, res);
 
 });
-app.get('/GetOneUserUsernameOnly', function(req, res) {
+app.get('/GetOneWorkersCNP', function(req, res) {
 
-    api.getOneUserUsernameOnly(client, req.query.createUser, res);
+    api.getOneWorkersCNP(client, req.query.createUser, res);
 
-});
-app.get('/GetOneUserInfo', function(req, res) {
-
-    api.getOneWorkersInfo(client, req.query.userInfo, res);
 
 });
-app.post('/createUser', function(req, res) {
+app.get('/GetOneWorkersUsernameOnly', function(req, res) {
 
-    api.createUser(client, req.body.itemData, res);
+    api.getOneWorkersUsernameOnly(client, req.query.createUser, res);
+
+});
+app.get('/GetOneWorkersInfo', function(req, res) {
+
+    api.getOneWorkersInfo(client, req.query.WorkersInfo, res);
+
+});
+app.post('/createWorkers', function(req, res) {
+
+    api.createWorkers(client, req.body.user, res);
     res.send("Save was successful!");
 });
 app.post('/createItem', function(req, res) {
 
-    api.createItem(client, req.body.user, res);
+    api.createItem(client, req.body.itemData, res);
     res.send("Save was successful!");
 });
-app.post('/updateUser', function(req, res) {
+app.post('/updateWorkers', function(req, res) {
 
-    api.updateWorkers(client, req.body.editUser, res);
+    api.updateWorkers(client, req.body.editWorkers, res);
     res.send("Update was successful!");
 });
