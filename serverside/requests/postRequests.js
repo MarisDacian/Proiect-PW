@@ -40,7 +40,29 @@ module.exports = {
             }
         });
     },
+    createItem: function(client,data){
+        const collection = client.db("PortDB").collection("Containers");	
+           
+                collection.insertOne({  
+                    //Aici trb specificat ce incarcam
 
+                    // firstName:data[0],
+                    // lastName:data[1],
+                    // cnp:data[2],
+                    // userName:data[3],
+                    // email:data[4],
+                    // password:data[5],
+                    // birthday:data[7],
+                    // sex:data[8],
+                   },function(err,res){
+                    if(err)
+                        throw err;
+                    else
+                        console.log('Item created');
+                });
+
+
+    },
     // insertNewMenu: function(client,data,res){
     //     let collection = client.db("Restaurant").collection("Menus");
     //     let object={

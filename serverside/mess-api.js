@@ -8,6 +8,10 @@ module.exports={
         /**to add save seats functionality */
         post.createWorkers(client,obj);
     },
+    createItem: function(client,obj,res){
+        /**to add save seats functionality */
+        post.createItem(client,obj);
+    },
     updateWorkers: function(client,obj,res){
         /**to add save seats functionality */
         post.updateWorkers(client,obj);
