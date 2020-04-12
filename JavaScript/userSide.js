@@ -280,6 +280,23 @@ console.log(result);
     return result;
 }
 
+function GetOneCNPLogin(loginUser)
+{
+var result;
+    $.ajax({
+        type: "GET",
+        url: "/GetOneCNPLogin",
+        data: { loginUser: loginUser },
+        success: function(data) {
+           
+            console.log(data);
+            result=data;
+        }
+    });
+console.log(result);
+    return result;
+}
+
 
 let userFound = false;
 async function GetOneWorkersInfo(WorkersInfo) {
