@@ -341,7 +341,7 @@ async function loginUser(loginData) {
 function insertItemToBd(itemData) {
     var result;
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/createItem",
         data: { itemData: itemData },
         success: function(data) {
