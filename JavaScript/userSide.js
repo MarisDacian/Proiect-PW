@@ -1,6 +1,6 @@
 let userAdded = new Array();
 let createWorkers = new Array();
-let loginUserInfo = new Array();
+let loginWorkersInfo = new Array();
 let userData = new Array();
 let itemData = new Array();
 function getWorkers() {
@@ -249,16 +249,22 @@ async function firstAsync(createWorkers) {
     }
 }
 
-function GetOneWorkersLogin(loginUser) {
-    var result;
-    $.ajax({
-        type: "GET",
-        url: "/GetOneWorkersLogin",
-        data: { loginUser: loginUser },
-        success: function(data) {
-            result = data;
-        }
+async function GetOneWorkersLogin(workers) {
+    let promise = new Promise((res, rej) => {
+        $.ajax({
+            type: "GET",
+            url: "/GetOneWorkersLogin",
+            data: { workers: workers },
+            success: function(data) {
+                setTimeout(500);
+                console.log(data);
+                res(data);
+            }
+        });
     });
+    let result;
+
+    result = await promise;
     console.log(result);
     return result;
 }
@@ -342,17 +348,18 @@ function updateWorkers(editWorkers){
 
 
 
-async function loginWorkers(loginData) {
+async function loginWorkers(workers) {
 
     let promise = new Promise((res) => {
-        res(GetOneWorkersLogin(loginData));
-
+        res(GetOneWorkersLogin(workers));
+    
     });
     ExistContor = 0;
     let result = await promise;
     console.log(result);
     loginWorkersInfo=result;
-    return result;
+    console.log(loginWorkersInfo);
+   
 }
 function insertItemToBd(itemData) {
     var result;
@@ -434,11 +441,12 @@ $("#searchUserBtn").click(async function(e) {
 });
 $("#logInButton").click(function(e) {
     e.preventDefault();
-    loginUserInfo[0] = document.getElementById("user").value;
-    loginUserInfo[1] = document.getElementById("exampleDropdownFormPassword1").value;
-      aux= loginWorkers(loginUserInfo);
-    console.log(loginUserInfo);
-    console.log(aux);
+    let aux=new Array;
+    aux[0] = document.getElementById("user").value;
+    aux[1] = document.getElementById("exampleDropdownFormPassword1").value;
+    loginWorkers(aux);
+    
+  
 
 });
 

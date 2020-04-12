@@ -59,7 +59,7 @@ app.get('/GetWorkers', (req, res) => {
 
 app.get('/GetOneWorkersLogin', function(req, res) {
 
-    api.getOneWorkersLogin(client, req.query.loginUser, res);
+    api.getOneWorkersLogin(client, req.query.workers, res);
 
 });
 app.get('/GetOneMailLogin', function(req, res) {
