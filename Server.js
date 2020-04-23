@@ -15,7 +15,6 @@ app.listen(3000, () => {
     console.log('listening on 3000');
 });
 
-var dbo;
 client.connect(err => {
     // perform actions on the collection object
     if (err)
@@ -104,6 +103,11 @@ app.post('/createItem', function(req, res) {
     res.send("Save was successful!");
 });
 app.post('/updateWorkers', function(req, res) {
+
+    api.updateWorkers(client, req.body.editWorkers, res);
+    res.send("Update was successful!");
+});
+app.del('/deleteOneWorker', function(req, res) {
 
     api.updateWorkers(client, req.body.editWorkers, res);
     res.send("Update was successful!");

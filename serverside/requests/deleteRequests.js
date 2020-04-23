@@ -28,27 +28,15 @@ module.exports = {
     //       });
     // },
 
-    // clearSpecific : function(obj,client,res){
-    //     console.log(obj);
-    //     const collection = client.db("Restaurant").collection("Tables");
-    //     const collectionOrders = client.db("Restaurant").collection("Orders");
-    //     collection.deleteOne({ x:parseInt(obj[0]) , y:parseInt(obj[1]) , nr:parseInt(obj[2]) },function(err){
-    //         if(err)
-    //             throw err;
-    //         else{
-    //             res.send("Deleted successfully!");
-    //         }    
-    //     });
-
-    //     collectionOrders.deleteOne({ table_id:obj[2] },function(err){
-    //         if(err)
-    //             throw err;
-    //         else{
-    //             console.log("Deleted order!");
-    //         }
-    //     });
-
-    // }
-    
-
+    deleteWorker : function(client,data,res){
+        console.log(obj);
+        const collection = client.db("PortDB").collection("Users");
+        collection.deleteOne({ cnp:data[0]},function(err){
+            if(err)
+                throw err;
+            else{
+                res.send("Deleted successfully!");
+            }    
+        });
+    }
 }
