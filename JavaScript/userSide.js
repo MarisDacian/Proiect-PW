@@ -510,9 +510,6 @@ $("#logInButton").click(function(e) {
         loginWorkers(aux);
 }
 
-    
-    
-  
 
 });
 
