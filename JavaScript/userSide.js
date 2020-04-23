@@ -441,6 +441,20 @@ async function addItem(itemData) {
     loginUserInfo=result;
     
 }
+
+function deleteOneWorker(editWorkers) {
+    var result;
+    $.ajax({
+        type: "DEL",
+        url: "/deleteOneWorker",
+        data: { editWorkers: editWorkers },
+        success: function(data) {
+            result = data;
+        }
+    });
+    console.log(result);
+    return result;
+}
 $("#saveNewData").click(function(e) {
     e.preventDefault();
     let aux;
@@ -509,7 +523,7 @@ $("#logInButton").click(function(e) {
     if(stringRecognition(aux[0])==3){
         loginWorkers(aux);
 }
-
+  
 
 });
 
