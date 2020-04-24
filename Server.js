@@ -107,7 +107,7 @@ app.post('/updateWorkers', function(req, res) {
     api.updateWorkers(client, req.body.editWorkers, res);
     res.send("Update was successful!");
 });
-app.del('/deleteOneWorker', function(req, res) {
+app.delete('/deleteOneWorker', function(req, res) {
 
     api.updateWorkers(client, req.body.editWorkers, res);
     res.send("Update was successful!");
