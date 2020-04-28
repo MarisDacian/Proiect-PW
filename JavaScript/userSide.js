@@ -3,6 +3,7 @@ let createWorkers = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
 let itemData = new Array();
+
 function getWorkers() {
 
     $.ajax({
@@ -356,7 +357,8 @@ function oldData() {
         document.getElementById("editPassword").value = aux.password;
     }
 }
-function updateWorkers(editWorkers){
+
+function updateWorkers(editWorkers) {
     var result;
     $.ajax({
         type: "POST",
@@ -375,14 +377,14 @@ async function loginWorkers(workers) {
 
     let promise = new Promise((res) => {
         res(GetOneWorkersLogin(workers));
-    
+
     });
     ExistContor = 0;
     let result = await promise;
     console.log(result);
-    loginWorkersInfo=result;
+    loginWorkersInfo = result;
     console.log(loginWorkersInfo);
-   
+
 }
 
 
@@ -391,28 +393,28 @@ async function loginWorkersMail(workers) {
 
     let promise = new Promise((res) => {
         res(GetOneMailLogin(workers));
-    
+
     });
     ExistContor = 0;
     let result = await promise;
     console.log(result);
-    loginWorkersInfo=result;
+    loginWorkersInfo = result;
     console.log(loginWorkersInfo);
-   
+
 }
 
 async function loginWorkersCNP(workers) {
 
     let promise = new Promise((res) => {
         res(GetOneCNPLogin(workers));
-    
+
     });
     ExistContor = 0;
     let result = await promise;
     console.log(result);
-    loginWorkersInfo=result;
+    loginWorkersInfo = result;
     console.log(loginWorkersInfo);
-   
+
 }
 
 
@@ -432,14 +434,14 @@ function insertItemToBd(itemData) {
 async function addItem(itemData) {
 
     let promise = new Promise((res) => {
-        res( insertItemToBd(itemData));
+        res(insertItemToBd(itemData));
 
     });
     ExistContor = 0;
     let result = await promise;
     console.log(result);
-    loginUserInfo=result;
-    
+    loginUserInfo = result;
+
 }
 
 function deleteOneWorker(editWorkers) {
@@ -458,12 +460,12 @@ function deleteOneWorker(editWorkers) {
 $("#saveNewData").click(function(e) {
     e.preventDefault();
     let aux;
-    userData[0].firstName=document.getElementById("editFirstName").value;
-    userData[0].lastName=document.getElementById("editLastName").value;
-    userData[0].userName=document.getElementById("editUserName").value;
-    userData[0].email=document.getElementById("editEmail").value;
-    userData[0].password=document.getElementById("editPassword").value;
-    aux=userData[0];
+    userData[0].firstName = document.getElementById("editFirstName").value;
+    userData[0].lastName = document.getElementById("editLastName").value;
+    userData[0].userName = document.getElementById("editUserName").value;
+    userData[0].email = document.getElementById("editEmail").value;
+    userData[0].password = document.getElementById("editPassword").value;
+    aux = userData[0];
     updateWorkers(aux);
 });
 
@@ -497,6 +499,7 @@ $("#searchUserBtn").click(function(e) {
     let v = document.getElementById("searchUserInfo").value;
     if (v != "") {
         document.getElementById("saveNewData").disabled = false;
+        document.getElementById("deleteUser").disabled = false;
     } else {
         document.getElementById("errorBox").style.removeProperty('display');
     }
@@ -510,20 +513,20 @@ $("#searchUserBtn").click(async function(e) {
 });
 $("#logInButton").click(function(e) {
     e.preventDefault();
-    let aux=new Array;
+    let aux = new Array;
     aux[0] = document.getElementById("user").value;
     aux[1] = document.getElementById("exampleDropdownFormPassword1").value;
 
-    if(stringRecognition(aux[0])==1){
+    if (stringRecognition(aux[0]) == 1) {
         loginWorkersMail(aux);
-}
-    if(stringRecognition(aux[0])==2){
+    }
+    if (stringRecognition(aux[0]) == 2) {
         loginWorkersCNP(aux);
-}
-    if(stringRecognition(aux[0])==3){
+    }
+    if (stringRecognition(aux[0]) == 3) {
         loginWorkers(aux);
-}
-  
+    }
+
 
 });
 
