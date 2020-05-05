@@ -20,6 +20,9 @@
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Characteristics of the containers</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" id="boat-tab" data-toggle="tab" href="#boat" role="tab" aria-controls="boat" aria-selected="false">Boat characteristics</a>
+        </li>
     </ul>
 
     <div class="tab-content container" id="myTabContent">
@@ -73,7 +76,7 @@
                 <div class="col-sm-5" id="search">
                     <div class="text-center" id="imgUserSearch">
                         <img class="mt-5 text-justify" id="searchUser" src="img/search.png" alt="Error">
-                        <p class="mt-3">Search a user by CNP</p>
+                        <p class="mt-3">Search a user by CNP/ E-mail / User Name</p>
                     </div>
                     <form class="form ml-5 mr-5">
 
@@ -82,7 +85,7 @@
                         <button id="searchUserBtn" class="mb-5 mt-3 btn btn-primary btn-lg btn-block" type="submit">Search</button>
                     </form>
                 </div>
-                <div class="mt-4 col-sm-7" id="showUser">
+                <div class="col-sm-7" id="showUser">
                     <form class="mt-3 ml-5">
                         <div class="row">
                             <label class="col-md-3" for="firstname">First Name</label>
@@ -97,6 +100,13 @@
                                 <input type="lastname" class="form-control" id="editLastName" placeholder="Last Name" disabled>
                             </div>
                             <img id="editLName" class="editIcon" src="/img/editIcon.png" alt="Error">
+                        </div>
+                        <div class="mt-3 row">
+                            <label class="col-md-3" for="cnp">CNP</label>
+                            <div class="col-md-8">
+                                <input type="cnp" class="form-control" id="eCNP" placeholder="cnp" disabled>
+                            </div>
+                            <img id="editCNP" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <div class="mt-3 row">
                             <label class="col-md-3" for="userName">User Name</label>
@@ -120,7 +130,7 @@
                             <img id="editPass" class="editIcon" src="/img/editIcon.png" alt="Error">
                         </div>
                         <button type="button" id="saveNewData" class="btn btn-primary pr-5 pl-5 mt-4" disabled>Save</button>
-                        <button type="button" id="deleteUser" class="btn btn-primary pr-5 pl-5 mt-4" disabled>Delete</button>
+                        <button type="button" id="deleteUser" class="btn btn-primary pr-5 pl-5 mt-4 ml-4" disabled>Delete</button>
                     </form>
                 </div>
             </div>
@@ -132,18 +142,17 @@
             <div class="row searchUserbyCNP">
                 <div class="col-sm-7" id="showUser">
                     <form class="mt-3">
-                        <!-- Astea trebuie schimbate -->
 
                         <div class="mt-3 row">
                             <label class="col-md-3" for="Containertype">Container type</label>
                             <div class="col-md-9">
-                                <select id="cars">
-                                    <option value="volvo">20ft</option>
-                                    <option value="saab">40ft</option>
-                                    <option value="opel">40 ft high-cube</option>
-                                    <option value="audi">45 ft high-cube</option>
-                                    <option value="audi">48 ft</option>
-                                    <option value="audi">53 ft</option>
+                                <select id="containerType">
+                                    <option value="20ft">20ft</option>
+                                    <option value="40ft">40ft</option>
+                                    <option value="40 ft high-cube">40 ft high-cube</option>
+                                    <option value="45 ft high-cube">45 ft high-cube</option>
+                                    <option value="48ft">48ft</option>
+                                    <option value="53ft">53ft</option>
                                   </select>
                             </div>
                         </div>
@@ -166,58 +175,55 @@
                             </div>
                         </div>
                         <br>
-                        <button type="button" id="logInButton" class="btn btn-primary pr-5 pl-5">Save</button>
+                        <button type="button" id="logInButton" class="btn btn-primary btn-lg btn-block mt-2 pr-5 pl-5">Save</button>
                     </form>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-5 mt-3">
                     <img class="text-justify" id="box" src="img/box.png" alt="Error">
                 </div>
             </div>
         </div>
 
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade ml-2" id="boat" role="tabpanel" aria-labelledby="boat-tab">
             <div class="row searchUserbyCNP">
-                <div class="col-sm-7" id="showUser">
+                <div class="col-sm-7" id="boatCaracteristics">
                     <form class="mt-3">
-                        <!-- Astea trebuie schimbate -->
-
                         <div class="mt-3 row">
-                            <label class="col-md-3" for="Containertype">Container type</label>
+                            <label class="col-md-3" for="boatName">Boat Name</label>
                             <div class="col-md-9">
-                                <select id="cars">
-                                    <option value="volvo">20ft</option>
-                                    <option value="saab">40ft</option>
-                                    <option value="opel">40 ft high-cube</option>
-                                    <option value="audi">45 ft high-cube</option>
-                                    <option value="audi">48 ft</option>
-                                    <option value="audi">53 ft</option>
-                                  </select>
+                                <input type="text" class="form-control" id="boatName" placeholder="Jafar">
                             </div>
                         </div>
                         <div class="mt-3 row">
-                            <label class="col-md-3" for="Weight">Weight</label>
+                            <label class="col-md-3" for="captainName">Captain name</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="Weight" placeholder="Weight">
+                                <input type="text" class="form-control" id="captainName" placeholder="Abraham Lincoln">
                             </div>
                         </div>
                         <div class="mt-3 row">
-                            <label class="col-md-3" for="LocationFrom">Location from</label>
+                            <label class="col-md-3" for="weightBoat">Boat's Weight</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="inputLocationFrom" placeholder="Location from">
+                                <input type="text" class="form-control" id="weightBoat" placeholder="10 T">
                             </div>
                         </div>
                         <div class="mt-3 row">
-                            <label class="col-md-3" for="LocationTo">Location to</label>
+                            <label class="col-md-3" for="teu">Number of Teu</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="LocationTo" placeholder="Location to">
+                                <input type="text" class="form-control" id="teu" placeholder="100">
+                            </div>
+                        </div>
+                        <div class="mt-3 row">
+                            <label class="col-md-3" for="bay">Number of Bay</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="bay" placeholder="100">
                             </div>
                         </div>
                         <br>
-                        <button type="button" id="logInButton" class="btn btn-primary pr-5 pl-5">Save</button>
+                        <button type="button" id="logInButton" class="btn btn-primary btn-lg btn-block mt-2">Save</button>
                     </form>
                 </div>
                 <div class="col-sm-5">
-                    <img class="text-justify" id="box" src="img/box.png" alt="Error">
+                    <img class="text-justify ml-5" id="boatImage" src="img/boat3.png" alt="Error">
                 </div>
             </div>
         </div>

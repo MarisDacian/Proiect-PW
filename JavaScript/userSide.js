@@ -352,6 +352,7 @@ function oldData() {
     if (aux != undefined) {
         document.getElementById("editFirstName").value = aux.firstName;
         document.getElementById("editLastName").value = aux.lastName;
+        document.getElementById("editCNP").value = aux.cnp;
         document.getElementById("editUserName").value = aux.userName;
         document.getElementById("editEmail").value = aux.email;
         document.getElementById("editPassword").value = aux.password;
@@ -463,6 +464,7 @@ $("#saveNewData").click(function(e) {
     let aux;
     userData[0].firstName = document.getElementById("editFirstName").value;
     userData[0].lastName = document.getElementById("editLastName").value;
+    userData[0].cnp = document.getElementById("eCNP").value;
     userData[0].userName = document.getElementById("editUserName").value;
     userData[0].email = document.getElementById("editEmail").value;
     userData[0].password = document.getElementById("editPassword").value;
@@ -478,6 +480,11 @@ $("#editFName").click(function(e) {
 $("#editLName").click(function(e) {
     e.preventDefault();
     document.getElementById("editLastName").disabled = false;
+});
+
+$("#editCNP").click(function(e) {
+    e.preventDefault();
+    document.getElementById("eCNP").disabled = false;
 });
 
 $("#editUName").click(function(e) {
