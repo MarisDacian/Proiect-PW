@@ -48,7 +48,7 @@ module.exports={
         /**to add save seats functionality */
         get.getOneWorkersInfo(client,obj,res);
     },
-    deleteOneWorker: function(client,obj,res){
+    deleteWorker: function(client,obj,res){
         /**to add save seats functionality */
         del.deleteWorker(client,obj,res);
     },

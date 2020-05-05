@@ -431,6 +431,7 @@ function insertItemToBd(itemData) {
     console.log(result);
     return result;
 }
+
 async function addItem(itemData) {
 
     let promise = new Promise((res) => {
@@ -447,9 +448,9 @@ async function addItem(itemData) {
 function deleteOneWorker(editWorkers) {
     var result;
     $.ajax({
-        type: "DEL",
+        type: "DELETE",
         url: "/deleteOneWorker",
-        data: { editWorkers: editWorkers },
+        data: {editWorkers:editWorkers},
         success: function(data) {
             result = data;
         }
@@ -543,3 +544,15 @@ $("#createUser").click(async function(e) {
     firstAsync(createWorkers);
 
 });
+$("#deleteUser").click(function(e) {
+    e.preventDefault();
+
+
+    userData[0] = document.getElementById("editEmail").value;
+    console.log(userData);
+    deleteOneWorker(userData);
+
+   
+
+});
+

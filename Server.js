@@ -109,6 +109,6 @@ app.post('/updateWorkers', function(req, res) {
 });
 app.delete('/deleteOneWorker', function(req, res) {
 
-    api.updateWorkers(client, req.body.editWorkers, res);
+    api.deleteWorker(client, req.body.editWorkers, res);
     res.send("Update was successful!");
 });

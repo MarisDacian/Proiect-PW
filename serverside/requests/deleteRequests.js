@@ -29,9 +29,9 @@ module.exports = {
     // },
 
     deleteWorker : function(client,data,res){
-        console.log(obj);
+        
         const collection = client.db("PortDB").collection("Users");
-        collection.deleteOne({ cnp:data[0]},function(err){
+        collection.deleteOne({ email:data[0]},function(err){
             if(err)
                 throw err;
             else{
