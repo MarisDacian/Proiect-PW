@@ -64,14 +64,11 @@ module.exports = {
                 collection.insertOne({  
                     //Aici trb specificat ce incarcam
 
-                    // firstName:data[0],
-                    // lastName:data[1],
-                    // cnp:data[2],
-                    // userName:data[3],
-                    // email:data[4],
-                    // password:data[5],
-                    // birthday:data[7],
-                    // sex:data[8],
+                    // containerType:data[0],
+                    // Weight:data[1],
+                    // LocationFrom:data[2],
+                    // LocationTo:data[3],  
+                              
                    },function(err,res){
                     if(err)
                         throw err;
