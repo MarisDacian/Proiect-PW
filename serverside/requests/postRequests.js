@@ -46,11 +46,11 @@ module.exports = {
                 collection.insertOne({  
                     //Aici trb specificat ce incarcam
 
-                    // containerType:data[0],
-                    // Weight:data[1],
+                   //  containerType:data[0],
+                   //  Weight:data[1],
                     // LocationFrom:data[2],
                     // LocationTo:data[3],  
-                              
+
                    },function(err,res){
                     if(err)
                         throw err;
