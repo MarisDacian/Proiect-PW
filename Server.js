@@ -35,8 +35,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html');
 });
 
+
 app.get('/Workers', (req, res) => {
-    res.sendFile(__dirname + '/WorkersPage/Workers.html');
+    res.sendFile(__dirname + '/Worker/vesseltest.html');
 });
 
 app.get('/admin', (req, res) => {
