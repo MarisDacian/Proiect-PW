@@ -49,6 +49,10 @@ module.exports = {
                      LocationFrom:data[2],
                      LocationTo:data[3],  
                      id:data[4],   
+                     row:data[5],
+                     column:data[6],
+                     bay:data[7],
+                     
                    },function(err,res){
                     if(err)
                         throw err;
