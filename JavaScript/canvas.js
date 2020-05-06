@@ -21,7 +21,7 @@ function drawContainer(width,height,Tonage){
       function drawShip(width,height){
 
         var img = new Image();
-        img.src = 'Nava8.gif';
+        img.src = '/img/Nava8.gif';
  
         img.onload = function ()
         {
@@ -39,19 +39,19 @@ function randomColor(){
 
 let containerColor='';
 if(x==5){
-containerColor='containerPortocaliu.jpg';
+containerColor='/img/containerPortocaliu.jpg';
 }
 if(x==6){
-containerColor='containerAlbastru.jpg';
+containerColor='/img/containerAlbastru.jpg';
 }
 if(x==7){
-containerColor='containerGri.jpg';
+containerColor='/img/containerGri.jpg';
 }
 if(x==8){
-containerColor='containerRoz.jpg';
+containerColor='/img/containerRoz.jpg';
 }
 if(x==9){
-containerColor='containerVerde.jpg';
+containerColor='/img/containerVerde.jpg';
 }
 
 return containerColor;
