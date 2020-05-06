@@ -52,5 +52,8 @@ module.exports={
         /**to add save seats functionality */
         del.deleteWorker(client,obj,res);
     },
-   
+    createShip: function(client,obj,res){
+        /**to add save seats functionality */
+        del.createShip(client,obj,res);
+    },
 }

@@ -21,7 +21,25 @@ module.exports = {
 
 
     },
+    createShip: function(client,data){
+        const collection = client.db("PortDB").collection("Users");	
+           
+                collection.insertOne({  
+                    BoatName:data[0],
+                    CaptainName:data[1],
+                    BoatWeight:data[2],
+                    userName:data[3],
+                    NumberOfTeu:data[4],
+                    NumberOfBay:data[5],
+                   },function(err,res){
+                    if(err)
+                        throw err;
+                    else
+                        console.log('User created');
+                });
 
+
+    },
     updateWorkers: function(client,data,res){
         const collection = client.db("PortDB").collection("Users");	
         console.log(data);
