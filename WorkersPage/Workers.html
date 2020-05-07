@@ -2,11 +2,38 @@
 <html>
 <head>
 <title>Page Title</title>
+
+
+<style type="text/css">
+	
+	#container {
+  width: 80%;
+  height: 90vh;
+  overflow: scroll;
+  border: 1px solid;
+  float: right;
+}
+#cvs{
+  display: block;
+}
+</style>
+
+
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+  
+<p id="demo"></p>
 
+<div id="container">
+<canvas id="cvs"  height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas><br>
+</div>
+
+ <script type="text/javascript" src="/JavaScript/vesselSort.js"></script>
+ <script type="text/javascript"  src="/JavaScript/vessel.js"></script>
+ <script type="text/javascript" src="/JavaScript/vesseChurgePrelucration.js"></script>
+ <script type="text/javascript" src="/JavaScript/canvas.js"></script>
+ <script type="text/javascript" src="/JavaScript/classContainer.js"></script>
+ <script type="text/javascript" src="/JavaScript/mainClass.js"></script>
 </body>
 </html>

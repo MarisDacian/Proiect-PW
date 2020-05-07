@@ -14,11 +14,7 @@ function random() {
     return x;
 }
 
-for (let i = 0; i < 3; i++) {
 
-    document.getElementById("number" + i).innerHTML = random();
-
-}
 
 function ordonate(arr = []) {
 

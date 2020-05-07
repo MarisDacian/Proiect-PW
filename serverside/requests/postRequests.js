@@ -18,8 +18,6 @@ module.exports = {
                     else
                         console.log('User created');
                 });
-
-
     },
     createShip: function(client,data){
         const collection = client.db("PortDB").collection("Users");	
@@ -64,11 +62,15 @@ module.exports = {
                 collection.insertOne({  
                     //Aici trb specificat ce incarcam
 
-                    // containerType:data[0],
-                    // Weight:data[1],
-                    // LocationFrom:data[2],
-                    // LocationTo:data[3],  
-                              
+                     containerType:data[0],
+                     Weight:data[1],
+                     LocationFrom:data[2],
+                     LocationTo:data[3],  
+                     id:data[4],   
+                     row:data[5],
+                     column:data[6],
+                     bay:data[7],
+                     
                    },function(err,res){
                     if(err)
                         throw err;

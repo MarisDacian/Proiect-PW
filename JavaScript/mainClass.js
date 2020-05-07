@@ -11,7 +11,7 @@ function main(){
 
 		let x = findMaxSubarraySum(arr, n, sum,numar_maximContainer);
 
-		document.getElementById("summa").innerHTML = x;
+		//consomel.log(x); //Suma
 
 	 
 		var matrixarr=[[]];
