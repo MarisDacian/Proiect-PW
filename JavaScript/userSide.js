@@ -1,5 +1,7 @@
 let userAdded = new Array();
 let createWorkers = new Array();
+let createItem = new Array();
+let createShip = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
 let itemData = new Array();
@@ -429,7 +431,6 @@ function insertItemToBd(itemData) {
             result = data;
         }
     });
-    console.log(result);
     return result;
 }
 
@@ -441,8 +442,6 @@ async function addItem(itemData) {
     });
     ExistContor = 0;
     let result = await promise;
-    console.log(result);
-    loginUserInfo = result;
 
 }
 
@@ -549,6 +548,19 @@ $("#createUser").click(async function(e) {
     createWorkers[6] = document.getElementById("reenterPass").value;
 
     firstAsync(createWorkers);
+
+});
+
+
+$("#createItem").click(async function(e) {
+    e.preventDefault();
+    createItem[0] = document.getElementById("containerType").value;
+    createItem[1] = document.getElementById("Weight").value;
+    createItem[2] = document.getElementById("LocationFrom").value;
+    createItem[3] = document.getElementById("LocationTo").value;
+    addItem(createItem);
+
+    
 
 });
 $("#deleteUser").click(function(e) {

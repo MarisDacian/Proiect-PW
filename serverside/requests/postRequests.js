@@ -20,7 +20,7 @@ module.exports = {
                 });
     },
     createShip: function(client,data){
-        const collection = client.db("PortDB").collection("Users");	
+        const collection = client.db("PortDB").collection("Ships");	
            
                 collection.insertOne({  
                     BoatName:data[0],
@@ -57,8 +57,8 @@ module.exports = {
         });
     },
     createItem: function(client,data){
-        const collection = client.db("PortDB").collection("Containers");	
-           
+        const collection = client.db("PortDB").collection("Products");	
+        console.log(data);
                 collection.insertOne({  
                     //Aici trb specificat ce incarcam
 
@@ -66,10 +66,7 @@ module.exports = {
                      Weight:data[1],
                      LocationFrom:data[2],
                      LocationTo:data[3],  
-                     id:data[4],   
-                     row:data[5],
-                     column:data[6],
-                     bay:data[7],
+                    
                      
                    },function(err,res){
                     if(err)
