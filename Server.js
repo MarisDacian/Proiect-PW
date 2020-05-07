@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/Workers', (req, res) => {
-    res.sendFile(__dirname + '/Worker/vesseltest.html');
+    res.sendFile(__dirname + '/WorkersPage/Workers.html');
 });
 
 app.get('/admin', (req, res) => {
