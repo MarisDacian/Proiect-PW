@@ -103,6 +103,11 @@ app.post('/createItem', function(req, res) {
     api.createItem(client, req.body.itemData, res);
     res.send("Save was successful!");
 });
+app.post('/createShip', function(req, res) {
+    console.log( req.body.shipData);
+    api.createShip(client, req.body.shipData, res);
+    res.send("Save was successful!");
+});
 app.post('/updateWorkers', function(req, res) {
 
     api.updateWorkers(client, req.body.editWorkers, res);

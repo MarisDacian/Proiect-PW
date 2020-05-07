@@ -12,6 +12,10 @@ module.exports={
         /**to add save seats functionality */
         post.createItem(client,obj);
     },
+    createShip: function(client,obj,res){
+        /**to add save seats functionality */
+        post.createShip(client,obj);
+    },
     updateWorkers: function(client,obj,res){
         /**to add save seats functionality */
         post.updateWorkers(client,obj);
@@ -52,8 +56,5 @@ module.exports={
         /**to add save seats functionality */
         del.deleteWorker(client,obj,res);
     },
-    createShip: function(client,obj,res){
-        /**to add save seats functionality */
-        del.createShip(client,obj,res);
-    },
+   
 }

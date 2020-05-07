@@ -19,25 +19,7 @@ module.exports = {
                         console.log('User created');
                 });
     },
-    createShip: function(client,data){
-        const collection = client.db("PortDB").collection("Ships");	
-           
-                collection.insertOne({  
-                    BoatName:data[0],
-                    CaptainName:data[1],
-                    BoatWeight:data[2],
-                    userName:data[3],
-                    NumberOfTeu:data[4],
-                    NumberOfBay:data[5],
-                   },function(err,res){
-                    if(err)
-                        throw err;
-                    else
-                        console.log('User created');
-                });
 
-
-    },
     updateWorkers: function(client,data,res){
         const collection = client.db("PortDB").collection("Users");	
         console.log(data);
@@ -56,8 +38,27 @@ module.exports = {
             }
         });
     },
+
+    createShip: function(client,data){
+        const collection = client.db("PortDB").collection("Ships");	
+        console.log(data);
+                collection.insertOne({  
+                    BoatName:data[0],
+                    CaptainName:data[1],
+                    BoatWeight:data[2],
+                    NumberOfTeu:data[3],
+                    NumberOfBay:data[4],
+                   },function(err,res){
+                    if(err)
+                        throw err;
+                    else
+                        console.log('Ship created');
+                });
+
+
+    },
     createItem: function(client,data){
-        const collection = client.db("PortDB").collection("Products");	
+        const collection = client.db("PortDB").collection("Containers");	
         console.log(data);
                 collection.insertOne({  
                     //Aici trb specificat ce incarcam
@@ -77,20 +78,5 @@ module.exports = {
 
 
     },
-    // insertNewMenu: function(client,data,res){
-    //     let collection = client.db("Restaurant").collection("Menus");
-    //     let object={
-    //         description:data.description,
-    //         id_food:parseInt(data.id_food,10),
-    //         id_category:parseInt(data.id_category,10),
-    //         price:parseInt(data.price,10),
-    //     }
-    //     console.log(object);
-    //     collection.insertOne(object,function(err){
-    //         if(err)
-    //             throw err;
-    //         else
-    //             res.send("Menus inserted successfully!");
-    //     });
-    // }
+
 }
