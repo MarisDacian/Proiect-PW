@@ -1,10 +1,7 @@
 let userAdded = new Array();
 let createWorkers = new Array();
-let createItem = new Array();
-let createShip = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
-let itemData = new Array();
 
 function getWorkers() {
 
@@ -334,9 +331,6 @@ async function GetOneWorkersInfo(WorkersInfo) {
     return result;
 }
 
-//**pentru Oana**\\
-//daca vrei sa prelucrezi variabilele din server
-//lucra doar in functia searchByCnp
 async function searchByCnp(cnp) {
     let promise = new Promise((res) => {
         res(GetOneWorkersInfo(cnp));
@@ -421,51 +415,7 @@ async function loginWorkersCNP(workers) {
 }
 
 
-function insertItemToBd(itemData) {
-    var result;
-    $.ajax({
-        type: "POST",
-        url: "/createItem",
-        data: { itemData: itemData },
-        success: function(data) {
-            result = data;
-        }
-    });
-    return result;
-}
-function insertShipToBd(shipData) {
-    var result;
-    console.log(shipData);
-    $.ajax({
-        type: "POST",
-        url: "/createShip",
-        data: { shipData: shipData },
-        success: function(data) {
-            result = data;
-        }
-    });
-    return result;
-}
-async function addItem(itemData) {
 
-    let promise = new Promise((res) => {
-        res(insertItemToBd(itemData));
-
-    });
-    ExistContor = 0;
-    let result = await promise;
-
-}
-async function addShip(shipData) {
-console.log(shipData);
-    let promise = new Promise((res) => {
-        res(insertShipToBd(shipData));
-
-    });
-    ExistContor = 0;
-    let result = await promise;
-
-}
 function deleteOneWorker(editWorkers) {
     var result;
     $.ajax({
@@ -572,30 +522,6 @@ $("#createUser").click(async function(e) {
 
 });
 
-
-$("#createItem").click(async function(e) {
-    e.preventDefault();
-    createItem[0] = document.getElementById("containerType").value;
-    createItem[1] = document.getElementById("Weight").value;
-    createItem[2] = document.getElementById("LocationFrom").value;
-    createItem[3] = document.getElementById("LocationTo").value;
-    addItem(createItem);
-
-    
-
-});
-$("#createShip").click(async function(e) {
-    e.preventDefault();
-    createShip[0] = document.getElementById("boatName").value;
-    createShip[1] = document.getElementById("captainName").value;
-    createShip[2] = document.getElementById("weightBoat").value;
-    createShip[3] = document.getElementById("teu").value;
-    createShip[4] = document.getElementById("bay").value;
-    addShip(createShip);
-
-    
-
-});
 $("#deleteUser").click(function(e) {
     e.preventDefault();
 
