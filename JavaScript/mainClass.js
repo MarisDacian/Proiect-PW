@@ -2,7 +2,8 @@
 function main(){
 
 
-
+	var	Port=portSort(720,24);
+	console.log(Port);
 
 		var arr = [];
 		var numar_containere=356;
@@ -13,10 +14,10 @@ function main(){
 		
 
 		let x = findMaxSubarraySum(arr, n, sum,numar_maximContainer);
-
+	
 		//consomel.log(x); //Suma
-
-	 
+		
+		
 		var matrixarr=[[]];
 		matrixarr=listToMatrix(arrGoodContainer,18);
 	
@@ -34,9 +35,8 @@ function main(){
 
 			}
 
-			arta=portSort(720,24);
-			console.log(arta);
+			
 	
 }
 
-main();
+main();	

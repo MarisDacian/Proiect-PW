@@ -2,12 +2,11 @@
 
 function portSort(numberofContainer,numberofRows){
 
-    arr=[];
-    mat=[[]];
-    suma1=0;
+ var   ArrayPort=[];
+ var   PortMatrix=[[]];
             for(i=0;i<numberofContainer;i++){
                         myContainer =new Container(random(),40,"Brazilia","SUA","432-435",2,3,11);
-                    arr[i]=myContainer;   
+                    ArrayPort[i]=myContainer;   
                     }
  
         function listToMatrixPort(list=[], elementsPerSubArray) {
@@ -29,33 +28,31 @@ function portSort(numberofContainer,numberofRows){
 
         calc=numberofContainer/numberofRows/2;
 
-        mat=listToMatrixPort(arr,Math.floor(calc));
+        PortMatrix=listToMatrixPort(ArrayPort,Math.floor(calc));
 
         group1=[];
         group2=[]
-        contor=0;
+        contorPort=0;
         children=[];
 
         groupconcat=[];
-        for(i=0;i<mat.length/2;i++){
+        for(i=0;i<PortMatrix.length/2;i++){
 
-        group1=mat[i];
-        group2=mat[mat.length-i-1];
-        groupconcat[contor] = group1.concat(group2);
-        contor++;
+        group1=PortMatrix[i];
+        group2=PortMatrix[PortMatrix.length-i-1];
+        groupconcat[contorPort] = group1.concat(group2);
+        contorPort++;
         }
 
         
         var sum=0;
-        for(i=0;i<mat.length/2;i++){
+        for(i=0;i<PortMatrix.length/2;i++){
         sum = groupconcat[0].reduce(function(a, b){
                 return a + b;
             }, 0);
 
 
             }  
-        
-
           
 return groupconcat;
 }

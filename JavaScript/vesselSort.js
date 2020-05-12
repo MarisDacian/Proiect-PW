@@ -23,7 +23,7 @@ function ordonate(arr = []) {
 }
 
 let arrGoodContainer = [];
-let contor=0;
+let contorSort=0;
 function findMaxSubarraySum(arr = [], n, sum,max_cont_number) {
 
     let max_sum = 0;
@@ -37,8 +37,8 @@ function findMaxSubarraySum(arr = [], n, sum,max_cont_number) {
             max_sum = max_sum + arr[i].tonage;
             contor_container++;
           
-             arrGoodContainer[contor]=arr[i];
-             contor++;
+             arrGoodContainer[contorSort]=arr[i];
+             contorSort++;
         }
 
         if (contor_container == max_cont_number) {
