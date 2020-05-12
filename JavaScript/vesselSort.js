@@ -14,8 +14,6 @@ function random() {
     return x;
 }
 
-
-
 function ordonate(arr = []) {
 
     arr.sort(function(a, b) {
@@ -52,6 +50,7 @@ function findMaxSubarraySum(arr = [], n, sum,max_cont_number) {
 
     return max_sum;
 }
+
 
 function arrGenerator(arr = [], m) {
 

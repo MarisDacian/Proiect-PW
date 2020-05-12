@@ -24,7 +24,7 @@ function listToMatrix(list=[], elementsPerSubArray) {
    	 }
 
 
-	console.log(matrix);
+
 	    return matrix;
 	}
 

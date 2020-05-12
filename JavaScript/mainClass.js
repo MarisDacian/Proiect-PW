@@ -1,6 +1,9 @@
 
 function main(){
 
+
+
+
 		var arr = [];
 		var numar_containere=356;
 		let sum = 6000;
@@ -30,6 +33,10 @@ function main(){
 				containerPlacement(arrGoodContainer.length-126,150,670,23);
 
 			}
+
+			arta=portSort(720,24);
+			console.log(arta);
+	
 }
 
 main();
