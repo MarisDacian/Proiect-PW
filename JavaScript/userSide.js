@@ -381,7 +381,8 @@ async function loginWorkers(workers) {
     console.log(result);
     loginWorkersInfo = result;
     console.log(loginWorkersInfo);
-
+    if(loginWorkersInfo[0].userName!=null)
+    window.location= "http://localhost:3000/Workers";
 }
 
 

@@ -10,7 +10,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true }, );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.listen(3000, () => {
     console.log('listening on 3000');
 });
@@ -29,6 +28,7 @@ app.use('/css', express.static('css'));
 
 
 app.use('/JavaScript', express.static('JavaScript'));
+app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 
 app.get('/', (req, res) => {
