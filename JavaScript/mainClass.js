@@ -2,7 +2,7 @@
 function main(){
 
 
-	var	Port=portSort(720,24);
+	var	Port=portSort(356,24);
 	console.log(Port);
 
 		var arr = [];

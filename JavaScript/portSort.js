@@ -28,7 +28,7 @@ function portSort(numberofContainer,numberofRows){
 
         calc=numberofContainer/numberofRows/2;
 
-        PortMatrix=listToMatrixPort(ArrayPort,Math.floor(calc));
+        PortMatrix=listToMatrixPort(ArrayPort,Math.ceil(calc));
 
         group1=[];
         group2=[]
