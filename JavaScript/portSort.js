@@ -13,17 +13,17 @@ function portSort(numberofContainer,numberofRows){
 
             var matrix = [], i, k;
             var n=numberofRows*2;
-             auxdeajutor=0;
+             auxhelp=0;
             for(i=0;i<n;i++){
 
                 matrix[i] = [];
                 for(j=0;j<list.length/n;j++){
                            
-                    if(auxdeajutor>=list.length){
+                    if(auxhelp>=list.length){
 
                     }else{
-                    matrix[i].push(list[auxdeajutor]);
-                    auxdeajutor++;
+                    matrix[i].push(list[auxhelp]);
+                    auxhelp++;
                 }
                 }
          

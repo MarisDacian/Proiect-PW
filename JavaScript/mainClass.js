@@ -2,25 +2,25 @@
 function main(){
 
 
-	var	Port=portSort(260,24);
-	console.log(Port);
+	var	Port=portSort(10000,24);
+	console.log(Port[1]);
 
 		var arr = [];
 		var numar_containere=356;
-		let sum = 6000;
-		let numar_maximContainer=400;
+		let sum = 5000;
+		let numar_maximContainer=15000;
 		arr = arrGenerator(arr, numar_containere);
 		let n = arr.length;
 		
 
-		let x = findMaxSubarraySum(arr, n, sum,numar_maximContainer);
+		let x = findMaxSubarraySum(Port[1], Port[1].length, sum,numar_maximContainer);
 	
 		//consomel.log(x); //Suma
 		
 		
 		var matrixarr=[[]];
 		matrixarr=listToMatrix(arrGoodContainer,18);
-	
+	console.log(arrGoodContainer.length);
 		print(matrixarr);
 
 			if(arrGoodContainer.length<=126){
