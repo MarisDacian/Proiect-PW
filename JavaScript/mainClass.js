@@ -3,7 +3,7 @@ function main(){
 
 
 	var	Port=portSort(20000,48);
-	console.log(Port[0]);
+	//console.log(Port[0]);
 
 		//var arr = [];
 	    //	var numar_containere=356;
@@ -20,21 +20,20 @@ function main(){
 		
 		var matrixarr=[[]];
 		matrixarr=listToMatrix(arrGoodContainer,18);
-	console.log(arrGoodContainer.length);
+	
 		print(matrixarr);
-
+		//console.log(matrixarr);
 			if(arrGoodContainer.length<=126){
 
 				containerPlacement(arrGoodContainer.length,270,1110,18);
 				containerPlacement(0,150,670,23);
-
+				
 			}else{
 
 				containerPlacement(126,270,1110,18);
 				containerPlacement(arrGoodContainer.length-126,150,670,23);
-
 			}
-
+			mousePosition(270,1110);
 			
 	
 }
