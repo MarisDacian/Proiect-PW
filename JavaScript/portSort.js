@@ -5,30 +5,31 @@ function portSort(numberofContainer,numberofRows){
  var   ArrayPort=[];
  var   PortMatrix=[[]];
             for(i=0;i<numberofContainer;i++){
-                        myContainer =new Container(random(),40,"Brazilia","SUA","432-435",2,3,11);
+                        myContainer =new Container(random(),40,"Brazilia","SUA",i,2,3,11);
                     ArrayPort[i]=myContainer;   
                     }
  
-        function listToMatrixPort(list=[], elementsPerSubArray) {
+        function listToMatrixPort(list=[], numberofRows) {
+
             var matrix = [], i, k;
-            for (i = 0, k = -1; i < list.length; i++) {
-                if (i % elementsPerSubArray === 0) {
-                    k++;
-                    matrix[k] = [];
+            var n=numberofRows*2;
+             auxdeajutor=0;
+            for(i=0;i<n;i++){
+
+                matrix[i] = [];
+                for(j=0;j<list.length/n;j++){
+
+                    matrix[i].push(list[auxdeajutor]);
+                    auxdeajutor++;
                 }
-        
-                
-                matrix[k].push(list[i]);
+         
             }
-
-
 
                 return matrix;
             }
 
-        calc=numberofContainer/numberofRows/2;
-
-        PortMatrix=listToMatrixPort(ArrayPort,Math.ceil(calc));
+    
+        PortMatrix=listToMatrixPort(ArrayPort,numberofRows);
 
         group1=[];
         group2=[]
