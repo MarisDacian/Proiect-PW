@@ -18,9 +18,13 @@ function portSort(numberofContainer,numberofRows){
 
                 matrix[i] = [];
                 for(j=0;j<list.length/n;j++){
+                           
+                    if(auxdeajutor>=list.length){
 
+                    }else{
                     matrix[i].push(list[auxdeajutor]);
                     auxdeajutor++;
+                }
                 }
          
             }
