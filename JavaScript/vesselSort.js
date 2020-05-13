@@ -54,7 +54,7 @@ function findMaxSubarraySum(arrProgram = [], n, sum,max_cont_number) {
     return max_sum;
 }
 
-
+/*
 function arrGenerator(arr = [], m) {
 
     for (let i = 0; i < m; i++) {
@@ -63,6 +63,6 @@ function arrGenerator(arr = [], m) {
 
     }
     return arr;
-}
+}*/
 
 

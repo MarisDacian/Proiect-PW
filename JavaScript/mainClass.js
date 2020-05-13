@@ -2,18 +2,18 @@
 function main(){
 
 
-	var	Port=portSort(10000,24);
-	console.log(Port[1]);
+	var	Port=portSort(20000,48);
+	console.log(Port[0]);
 
-		var arr = [];
-		var numar_containere=356;
-		let sum = 5000;
-		let numar_maximContainer=15000;
-		arr = arrGenerator(arr, numar_containere);
-		let n = arr.length;
+		//var arr = [];
+	    //	var numar_containere=356;
+		let sum = 10000;
+		let numar_maximContainer=420;
+	   //	arr = arrGenerator(arr, numar_containere);
+        //let n = arr.length;
 		
 
-		let x = findMaxSubarraySum(Port[1], Port[1].length, sum,numar_maximContainer);
+		let x = findMaxSubarraySum(Port[0], Port[0].length, sum,numar_maximContainer);
 	
 		//consomel.log(x); //Suma
 		
