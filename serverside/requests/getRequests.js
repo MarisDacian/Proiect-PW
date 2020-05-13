@@ -16,7 +16,10 @@ module.exports = {
             email: 1, password: 1,} }).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
-            res.send(result);
+           // if (result) {
+           //     console.log("user exists");
+            //    res.redirect('/Workers');}
+        res.send(result);
     
           });
       
