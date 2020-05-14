@@ -5,7 +5,16 @@ function portSort(numberofContainer,numberofRows){
  var   ArrayPort=[];
  var   PortMatrix=[[]];
             for(i=0;i<numberofContainer;i++){
-                        myContainer =new Container(random(),40,"Brazilia","SUA",i,2,3,11,200,300);
+                    
+                startLocation=randomLocation();
+                DestinationLocation=randomLocation();
+
+                while(startLocation==DestinationLocation){
+
+                    startLocation=randomLocation();
+
+                }
+                        myContainer =new Container(random(),40,startLocation ,DestinationLocation ,i,2,3,11,200,300);
                     ArrayPort[i]=myContainer;   
                     }
  

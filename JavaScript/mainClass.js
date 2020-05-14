@@ -13,7 +13,7 @@ function main(){
         //let n = arr.length;
 		
 
-		let x = findMaxSubarraySum(Port[0], Port[0].length, sum,numar_maximContainer);
+		let x = findMaxSubarraySum(Port[2], Port[2].length, sum,numar_maximContainer);
 	
 		//consomel.log(x); //Suma
 		
@@ -34,7 +34,7 @@ function main(){
 				containerPlacement(126,270,1110,18);
 				containerPlacement(arrGoodContainer.length-126,150,670,23);
 			}
-			mousePosition(270,1110);
+		
 			
 	
 }

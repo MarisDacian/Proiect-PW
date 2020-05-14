@@ -1,18 +1,3 @@
-function getRandomInt(max) {
-    let x;
-    x = Math.floor(Math.random() * Math.floor(max + 1)) + 5;
-
-    return x;
-
-}
-
-function random() {
-
-
-    let x = getRandomInt(20);
-
-    return x;
-}
 
 function ordonate(arr = []) {
 
