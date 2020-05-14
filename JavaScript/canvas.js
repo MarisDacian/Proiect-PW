@@ -101,6 +101,21 @@ function resizeCanvas() {
 
 lastPositionX=0;
 lastPositionY=0;
+
+
+function removeCount(){
+
+
+  context.beginPath();
+  context.lineWidth = "4";
+  context.strokeStyle = "White";
+  context.rect(lastPositionX, lastPositionY, 50, 50);
+  context.stroke();
+
+}
+
+
+
 function mousePosition(startX,startY) {
 
  var canvasX;
@@ -110,41 +125,29 @@ function mousePosition(startX,startY) {
   var cRect = canvas.getBoundingClientRect();
   canvasX = Math.round(e.clientX - cRect.left);
   canvasY = Math.round(e.clientY - cRect.top);
-  console.log(canvasX, canvasY);
-  console.log(arrSortContainer.length);
-
-
-
   
- context.beginPath();
- context.lineWidth = "4";
- context.strokeStyle = "White";
- context.rect(lastPositionX, lastPositionY, 50, 50);
- context.stroke();
-
-
-
+  removeCount();
 
 for(i=0;i<arrSortContainer.length;i++){
 
   if (canvasX > arrSortContainer[i].positionx &&  canvasX< arrSortContainer[i].positionx+50 && canvasY > arrSortContainer[i].positiony && canvasY < arrSortContainer[i].positiony+50) {
    
-
-
               context.beginPath();
               context.lineWidth = "4";
-              context.strokeStyle = "red";
+              context.strokeStyle = "Green";
               context.rect(arrSortContainer[i].positionx, arrSortContainer[i].positiony, 50, 50);
               context.stroke();
-    console.log(arrSortContainer[i].positionx);
-    console.log(arrSortContainer[i].positiony);
+              document.getElementById("ContainerID").innerHTML = arrSortContainer[i].id;
+              document.getElementById("ContainerBay").innerHTML = arrSortContainer[i].BAY;
+              document.getElementById("ContainerRow").innerHTML = arrSortContainer[i].i;
+              document.getElementById("ContainerColumn").innerHTML = arrSortContainer[i].j;
+              document.getElementById("ContainerTonage").innerHTML = arrSortContainer[i].tonage;
+              document.getElementById("ContainerType").innerHTML = arrSortContainer[i].type;
+              document.getElementById("ContainerstartingPoint").innerHTML = arrSortContainer[i].startingPoint;
+              document.getElementById("ContainerDestinationPoint").innerHTML = arrSortContainer[i].destinationPoint;
     lastPositionX=arrSortContainer[i].positionx;
     lastPositionY=arrSortContainer[i].positiony;
   }
-
-
-
-
 
 
 }
@@ -152,7 +155,7 @@ for(i=0;i<arrSortContainer.length;i++){
  });
 
 
-
+ 
 
 }
 
