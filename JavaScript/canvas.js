@@ -99,9 +99,10 @@ function resizeCanvas() {
 }
 
 
-
+lastPositionX=0;
+lastPositionY=0;
 function mousePosition(startX,startY) {
- 
+
  var canvasX;
  var canvasY;
 
@@ -111,9 +112,25 @@ function mousePosition(startX,startY) {
   canvasY = Math.round(e.clientY - cRect.top);
   console.log(canvasX, canvasY);
   console.log(arrSortContainer.length);
+
+
+
+  
+ context.beginPath();
+ context.lineWidth = "4";
+ context.strokeStyle = "White";
+ context.rect(lastPositionX, lastPositionY, 50, 50);
+ context.stroke();
+
+
+
+
 for(i=0;i<arrSortContainer.length;i++){
 
   if (canvasX > arrSortContainer[i].positionx &&  canvasX< arrSortContainer[i].positionx+50 && canvasY > arrSortContainer[i].positiony && canvasY < arrSortContainer[i].positiony+50) {
+   
+
+
               context.beginPath();
               context.lineWidth = "4";
               context.strokeStyle = "red";
@@ -121,9 +138,13 @@ for(i=0;i<arrSortContainer.length;i++){
               context.stroke();
     console.log(arrSortContainer[i].positionx);
     console.log(arrSortContainer[i].positiony);
-  
-   
+    lastPositionX=arrSortContainer[i].positionx;
+    lastPositionY=arrSortContainer[i].positiony;
   }
+
+
+
+
 
 
 }
@@ -131,4 +152,7 @@ for(i=0;i<arrSortContainer.length;i++){
  });
 
 
+
+
 }
+

@@ -23,6 +23,7 @@ function main(){
 	
 		print(matrixarr);
 		//console.log(matrixarr);
+		mousePosition(270,1110);
 			if(arrGoodContainer.length<=126){
 
 				containerPlacement(arrGoodContainer.length,270,1110,18);
