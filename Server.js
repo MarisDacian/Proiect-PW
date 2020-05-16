@@ -37,7 +37,7 @@ app.get('/countdown', function(req, res) {
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive'
     })
-    countdown(res, 10)
+    api.countdownFunc(res, 10)
   })
 
 ////////////////////////

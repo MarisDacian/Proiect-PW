@@ -1,5 +1,10 @@
 module.exports = {
-
+    countdownFunc:function(res, count) {
+        res.write("data: " + count + "\n\n")
+    
+          setTimeout(() => countdownFunc:function(res, count-1), 1000)
+       
+      },
     getWorkers: function(client,res){
         var collection = client.db("PortDB").collection("Users");
         collection.find({}).toArray(function(err,result){

@@ -13,7 +13,6 @@ if (!!window.EventSource) {
     source.addEventListener('open', function(e) {
         console.log("Connected");
     }, false)
-
     source.addEventListener('error', function(e) {
       const id_state = document.getElementById('state')
       if (e.eventPhase == EventSource.CLOSED)
