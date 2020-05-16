@@ -35,15 +35,45 @@ function getWorkers() {
         type: "GET",
         url: "/GetWorkers",
         success: function(data) {
+            const table = document.getElementById("tableBody");
             for (i = 0; i < data.length; i++) {
-                console.log(data[i]);
+                let row = table.insertRow();
+
+                let index = row.insertCell(0);
+                index.innerHTML = i + 1;
+
+                let firstName = row.insertCell(1);
+                firstName.innerHTML = data[i].firstName;
+
+                let lastName = row.insertCell(2);
+                lastName.innerHTML = data[i].lastName;
+
+                let cnp = row.insertCell(3);
+                cnp.innerHTML = data[i].cnp;
+
+                let userName = row.insertCell(4);
+                userName.innerHTML = data[i].userName;
+
+                let email = row.insertCell(5);
+                email.innerHTML = data[i].email;
+
+                let password = row.insertCell(6);
+                password.innerHTML = data[i].password;
+
+                let select = row.insertCell(7);
+                let checkBox = document.createElement("INPUT");
+                checkBox.setAttribute("type", "checkbox");
+                select.appendChild(checkBox);
             }
         }
     });
 
-    //console.log(userAdded);
-
 }
+getWorkers();
+
+$("#checkAll").click(function() {
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
 
 function validatePassword(pass, rePass) {
     let psw = pass.length;
@@ -453,7 +483,7 @@ function deleteOneWorker(editWorkers) {
     $.ajax({
         type: "DELETE",
         url: "/deleteOneWorker",
-        data: {editWorkers:editWorkers},
+        data: { editWorkers: editWorkers },
         success: function(data) {
             result = data;
         }
@@ -510,6 +540,7 @@ $("#searchUserBtn").click(function(e) {
     if (v != "") {
         document.getElementById("saveNewData").disabled = false;
         document.getElementById("deleteUser").disabled = false;
+        document.getElementById("sendMess").disabled = false;
     } else {
         document.getElementById("errorBox").style.removeProperty('display');
     }
@@ -561,8 +592,11 @@ $("#deleteUser").click(function(e) {
     userData[0] = document.getElementById("editEmail").value;
     console.log(userData);
     deleteOneWorker(userData);
-
-   
-
 });
 
+function totalNumberOfWorkers() {
+    var rowCount;
+    rowCount = $('#workersTable tr').length;
+    document.getElementById("totalWorkers").innerHTML = rowCount - 1;
+}
+totalNumberOfWorkers();

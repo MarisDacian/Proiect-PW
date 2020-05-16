@@ -152,4 +152,40 @@ body {
   border-color: rgba(0, 0, 0, 0.15);
   border-radius: 3px;
 }
+
+#cvs {
+  display: block;
+  width: 60vw;
+  height: 47vw;
+  border: 0px white solid;
+  float: right;
+}
+
+#workerIcon {
+  width: 300px;
+  height: 250px;
+}
+
+@media (max-width: 600px) {
+  #cvs {
+    display: block;
+    width: 100%;
+    border: 0px white solid;
+  }
+}
+
+#sendMessage {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+#editUserTab {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.styleHeadTablentotalNumber {
+  font-weight: 600;
+  font-size: 20px;
+}
 /*# sourceMappingURL=style.css.map */
