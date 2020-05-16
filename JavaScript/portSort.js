@@ -1,5 +1,31 @@
 
 
+  function listToMatrixPort(list=[], numberofRows) {
+
+    var matrix = [], i, k;
+    var n=numberofRows*2;
+     auxhelp=0;
+    for(i=0;i<n;i++){
+
+        matrix[i] = [];
+        for(j=0;j<list.length/n;j++){
+                   
+            if(auxhelp>=list.length){
+
+            }else{
+            matrix[i].push(list[auxhelp]);
+            auxhelp++;
+        }
+        }
+ 
+    }
+
+        return matrix;
+    }
+
+
+
+
 function portSort(numberofContainer,numberofRows){
 
  var   ArrayPort=[];
@@ -18,29 +44,7 @@ function portSort(numberofContainer,numberofRows){
                     ArrayPort[i]=myContainer;   
                     }
  
-        function listToMatrixPort(list=[], numberofRows) {
-
-            var matrix = [], i, k;
-            var n=numberofRows*2;
-             auxhelp=0;
-            for(i=0;i<n;i++){
-
-                matrix[i] = [];
-                for(j=0;j<list.length/n;j++){
-                           
-                    if(auxhelp>=list.length){
-
-                    }else{
-                    matrix[i].push(list[auxhelp]);
-                    auxhelp++;
-                }
-                }
-         
-            }
-
-                return matrix;
-            }
-
+      
     
         PortMatrix=listToMatrixPort(ArrayPort,numberofRows);
 
