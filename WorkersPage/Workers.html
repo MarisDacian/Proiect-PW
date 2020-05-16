@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Page Title</title>
-    <script src="bower_components/tether/dist/js/tether.min.js"></script>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<title>Page Title</title>
 
 
-    <style>
+<style type="text/css">
+	
+	#container {
+  width: 80%;
+  height: 90vh;
+  overflow: scroll;
+  border: 1px solid;
+  float: right;
+}
 
 #ContainerData{
 
@@ -20,50 +23,53 @@ border: 1px solid black;
 position: relative;
 top:400px;
 }
-    </style>
-</head>
 
+#cvs{
+  display: block;
+}
+
+</style>
+
+
+</head>
 <body>
 
+  
+<p id="demo"></p>
 
-    <p id="demo"></p>
-
-
-    <div class="row">
-        <div class="col">
-            <img id="workerIcon" class="rounded mx-auto mt-5 d-block" src="/img/worker1.png" alt="Error">
-        </div>
-        <div class="col">
-            <canvas id="cvs" height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas>
-        </div>
-    </div>
+<div id="container">
+<canvas id="cvs"  height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas><br>
+</div>
 
 <div id="ContainerData">
+
   <p>  Container ID:<a id="ContainerID"></a></p>
-
+ 
   <p> Container Bay:<a id="ContainerBay"></a></p>
-
+ 
   <p> Container Row:<a id="ContainerRow"></a></p>
-
+  
   <p>Container Column:<a id="ContainerColumn"></a></p>
-
+  
   <p>Container Tonage:<a id="ContainerTonage"></a></p>
-
+  
   <p>Container Type:<a id="ContainerType"></a></p>
-
+ 
   <p> Container starting Point:<a id="ContainerstartingPoint"></a></p>
-
+ 
   <p> Container Destination Point:<a id="ContainerDestinationPoint"></a></p>
-</div>
-   
-    <script type="text/javascript" src="/JavaScript/RANDOMIZER.js"></script>
-    <script type="text/javascript" src="/JavaScript/vesselSort.js"></script>
-    <script type="text/javascript" src="/JavaScript/vessel.js"></script>
-    <script type="text/javascript" src="/JavaScript/vesseChurgePrelucration.js"></script>
-    <script type="text/javascript" src="/JavaScript/canvas.js"></script>
-    <script type="text/javascript" src="/JavaScript/classContainer.js"></script>
-    <script type="text/javascript" src="/JavaScript/portSort.js"></script>
-    <script type="text/javascript" src="/JavaScript/mainClass.js"></script>
-</body>
 
+</div>
+
+<script type="text/javascript"  src="/JavaScript/RANDOMIZER.js"></script>
+ <script type="text/javascript"  src="/JavaScript/vessel.js"></script>
+ <script type="text/javascript" src="/JavaScript/vesselSort.js"></script>
+ <script type="text/javascript" src="/JavaScript/vesseChurgePrelucration.js"></script>
+ <script type="text/javascript" src="/JavaScript/canvas.js"></script>
+ <script type="text/javascript" src="/JavaScript/classContainer.js"></script>
+ <script type="text/javascript" src="/JavaScript/portSort.js"></script>
+ <script type="text/javascript" src="/JavaScript/mainClass.js"></script>
+ <script type="text/javascript" src="/JavaScript/workerScript.js"></script>
+
+</body>
 </html>

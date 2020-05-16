@@ -24,20 +24,6 @@ async function addItem(itemData) {
     let result = await promise;
 
 }
-const url = 'wss://localhost:8080'
-const connection = new WebSocket(url)
-
-connection.onopen = () => {
-  connection.send('hey') 
-}
-
-connection.onerror = (error) => {
-  console.log(`WebSocket error: ${error}`)
-}
-
-connection.onmessage = (e) => {
-  console.log(e.data)
-}
 $("#createItem").click(async function(e) {
     e.preventDefault();
     createItem[0] = document.getElementById("containerType").value;
