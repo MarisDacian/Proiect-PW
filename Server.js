@@ -30,7 +30,17 @@ app.use('/css', express.static('css'));
 app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
+///////////////////////////
+app.get('/countdown', function(req, res) {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive'
+    })
+    countdown(res, 10)
+  })
 
+////////////////////////
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html');
 });

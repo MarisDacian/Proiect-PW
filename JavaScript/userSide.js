@@ -2,7 +2,33 @@ let userAdded = new Array();
 let createWorkers = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
+//////////////////////////
+if (!!window.EventSource) {
+    var source = new EventSource('/countdown')
 
+    source.addEventListener('message', function(e) {
+     console.log(e.data);
+    }, false)
+
+    source.addEventListener('open', function(e) {
+        console.log("Connected");
+    }, false)
+
+    source.addEventListener('error', function(e) {
+      const id_state = document.getElementById('state')
+      if (e.eventPhase == EventSource.CLOSED)
+        source.close()
+      if (e.target.readyState == EventSource.CLOSED) {
+        console.log("Disconnected");
+      }
+      else if (e.target.readyState == EventSource.CONNECTING) {
+        console.log("Connecting...");
+      }
+    }, false)
+  } else {
+    console.log("Your browser doesn't support SSE")
+  }
+  ///////////////////////
 function getWorkers() {
 
     $.ajax({
