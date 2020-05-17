@@ -13,8 +13,9 @@ function insertItemToBd(itemData) {
     });
     return result;
 }
-
-
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 async function addItem(itemData) {
 
     let promise = new Promise((res) => {
@@ -31,6 +32,7 @@ $("#createItem").click(async function(e) {
     createItem[1] = document.getElementById("Weight").value;
     createItem[2] = document.getElementById("LocationFrom").value;
     createItem[3] = document.getElementById("LocationTo").value;
+    createItem[4] =parseInt(getRandomArbitrary(100000,999999));
     addItem(createItem);
 
     
