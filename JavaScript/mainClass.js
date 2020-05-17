@@ -1,30 +1,47 @@
 
-rownumber=40;
+rownumber=0;
 function rowNumberUp(){
 	
 	rownumber++;
 console.log(rownumber);
 context.clearRect(0, 0, canvas.width, canvas.height);
-main();	
-drawShip(-110, 400);
+
+if(rownumber<=47 && rownumber>=0){
+	main();	
+	drawShip(-110, 400);
+}else{
+
+	rownumber=0;
+	main();	
+	drawShip(-110, 400);
+}
+
 }
 function rowNumberdown(){
 
-	rownumber--;
+rownumber--;
 console.log(rownumber);
 context.clearRect(0, 0, canvas.width, canvas.height);
-main();	
-drawShip(-110, 400);
+
+if(rownumber<=47 && rownumber>=0){
+	main();	
+	drawShip(-110, 400);
+}else{
+
+	rownumber=47;
+	main();	
+	drawShip(-110, 400);
+}
+
 
 }
 function main(){
-	
 
 		var	Port=portSort(20000,48);
 		let sum = 10000;
 		let numar_maximContainer=420;
 		let x = findMaxSubarraySum(Port[rownumber], Port[rownumber].length, sum,numar_maximContainer);
-	
+		document.getElementById("RowNumber").value = rownumber;
 	
 		var matrixarr=[[]];
 		matrixarr=listToMatrix(arrGoodContainer,18);
@@ -49,4 +66,5 @@ function main(){
  contorSort=0;
 }
 
-
+//drawShip(-110, 400);
+//main();	
