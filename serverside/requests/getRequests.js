@@ -2,7 +2,7 @@ module.exports = {
     countdownFunc:function(res, count) {
         res.write("data: " + count + "\n\n")
     
-          setTimeout(() => countdownFunc:function(res, count-1), 1000)
+          setTimeout(() => countdownFunc(res, count-1), 1000)
        
       },
     getWorkers: function(client,res){

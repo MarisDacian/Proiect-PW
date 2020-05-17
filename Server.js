@@ -31,13 +31,19 @@ app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 ///////////////////////////
+function countdown(res, count) {
+    res.write("data: " + count + "\n\n")
+
+      setTimeout(() => countdown(res, count-1), 1000)
+   
+  }
 app.get('/countdown', function(req, res) {
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive'
     })
-    api.countdownFunc(res, 10)
+    countdown(res, 10)
   })
 
 ////////////////////////
