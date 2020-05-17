@@ -38,16 +38,3 @@ function findMaxSubarraySum(arrProgram = [], n, sum,max_cont_number) {
 
     return max_sum;
 }
-
-/*
-function arrGenerator(arr = [], m) {
-
-    for (let i = 0; i < m; i++) {
-      myContainer =new Container(random(),40,"Brazilia","SUA","432-435",2,3,11);
-        arr[i] =myContainer ;
-
-    }
-    return arr;
-}*/
-
-

@@ -1,6 +1,7 @@
 var canvas = document.getElementById("cvs");
 var context = canvas.getContext('2d');
 
+
 function drawContainer(width, height, Tonage) {
 
  var img = new Image();
@@ -62,6 +63,7 @@ function randomColor() {
 var contorTonage = 0;
 
 function containerPlacement(number, startPositionWidth, startPositionHeight, NumberOfColumn) {
+ 
               contor = 0;
               number = number * 50;
 
@@ -87,7 +89,7 @@ function containerPlacement(number, startPositionWidth, startPositionHeight, Num
               }
             
 }
-drawShip(-110, 400);
+
 
 
 
@@ -156,6 +158,5 @@ for(i=0;i<arrSortContainer.length;i++){
 
 
  
-
 }
 

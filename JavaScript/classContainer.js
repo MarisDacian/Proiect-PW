@@ -27,21 +27,3 @@ class Container {
 		  }
 
 }
-
-/*
-function drawContainers(){
-var arrayObject=[];
-for(let i=0;i<15;i++){
-		myContainer =new Container(i+10,i,"Brazilia","SUA","432-435");
-		arrayObject[i]=myContainer;
-		myContainer2 =new Container("20","23","Italia","SUA","432-435");
-		myContainer2=arrayObject[i];
-		myContainer2.display();  
-		//console.log(myContainer2);   
-}
-		
-
-}
-
-drawContainers();
-*/
