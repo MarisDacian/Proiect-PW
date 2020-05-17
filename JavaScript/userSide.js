@@ -471,6 +471,11 @@ async function loginWorkersMail(workers) {
     loginWorkersInfo = result;
     console.log(loginWorkersInfo);
 
+    if(loginWorkersInfo[0].userName!=null){
+        sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
+    window.location= "http://localhost:3000/Workers";
+
+    }
 }
 
 async function loginWorkersCNP(workers) {
@@ -484,7 +489,12 @@ async function loginWorkersCNP(workers) {
     console.log(result);
     loginWorkersInfo = result;
     console.log(loginWorkersInfo);
+    
+    if(loginWorkersInfo[0].userName!=null){
+        sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
+    window.location= "http://localhost:3000/Workers";
 
+    }
 }
 
 
