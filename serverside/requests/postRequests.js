@@ -1,11 +1,5 @@
 module.exports = {
-  
-     countdown:function(res, count) {
-        res.write("data: " + count + "\n\n")
-    
-          setTimeout(() => countdown(res, count), 1000)
-       
-      },
+
     createWorkers: function(client,data){
         const collection = client.db("PortDB").collection("Users");	
            
@@ -25,7 +19,22 @@ module.exports = {
                         console.log('User created');
                 });
     },
-
+    createMessage: function(client,data){
+        const collection = client.db("PortDB").collection("Messages");	
+           
+                collection.insertOne({  
+                    message:data[0],
+                    time:data[1],
+                    data:data[2],
+                    users:data[3]
+                    
+                   },function(err,res){
+                    if(err)
+                        throw err;
+                    else
+                        console.log('Message created');
+                });
+    },
     updateWorkers: function(client,data,res){
         const collection = client.db("PortDB").collection("Users");	
         console.log(data);

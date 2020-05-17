@@ -31,6 +31,12 @@ app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 ///////////////////////////
+function countdown(res, count) {
+    res.write("data: " + count + "\n\n")
+
+      setTimeout(() => countdown(res, count-1), 1000)
+   
+  }
 app.get('/countdown', function(req, res) {
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
@@ -102,6 +108,11 @@ app.get('/GetOneWorkersInfo', function(req, res) {
 
     api.getOneWorkersInfo(client, req.query.WorkersInfo, res);
 
+});
+app.post('/createMessage', function(req, res) {
+
+    api.createMessage(client, req.body.messageData, res);
+    res.send("Save was successful!");
 });
 app.post('/createWorkers', function(req, res) {
 
