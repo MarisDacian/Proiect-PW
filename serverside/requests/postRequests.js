@@ -81,7 +81,8 @@ module.exports = {
                      containerType:data[0],
                      Weight:data[1],
                      LocationFrom:data[2],
-                     LocationTo:data[3],  
+                     LocationTo:data[3],
+                     id:data[4],   
                     
                      
                    },function(err,res){
