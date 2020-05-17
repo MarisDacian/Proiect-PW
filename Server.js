@@ -109,6 +109,11 @@ app.get('/GetOneWorkersInfo', function(req, res) {
     api.getOneWorkersInfo(client, req.query.WorkersInfo, res);
 
 });
+app.post('/createMessage', function(req, res) {
+
+    api.createMessage(client, req.body.messageData, res);
+    res.send("Save was successful!");
+});
 app.post('/createWorkers', function(req, res) {
 
     api.createWorkers(client, req.body.user, res);

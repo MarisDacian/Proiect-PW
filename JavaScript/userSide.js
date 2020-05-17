@@ -2,31 +2,32 @@ let userAdded = new Array();
 let createWorkers = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
-//////////////////////////
-if (!!window.EventSource) {
-    var source = new EventSource('/countdown')
+let messageData = new Array();
+// //////////////////////////
+// if (!!window.EventSource) {
+//     var source = new EventSource('/countdown')
 
-    source.addEventListener('message', function(e) {
-     console.log(e.data);
-    }, false)
+//     source.addEventListener('message', function(e) {
+//      console.log(e.data);
+//     }, false)
 
-    source.addEventListener('open', function(e) {
-        console.log("Connected");
-    }, false)
-    source.addEventListener('error', function(e) {
-      const id_state = document.getElementById('state')
-      if (e.eventPhase == EventSource.CLOSED)
-        source.close()
-      if (e.target.readyState == EventSource.CLOSED) {
-        console.log("Disconnected");
-      }
-      else if (e.target.readyState == EventSource.CONNECTING) {
-        console.log("Connecting...");
-      }
-    }, false)
-  } else {
-    console.log("Your browser doesn't support SSE")
-  }
+//     source.addEventListener('open', function(e) {
+//         console.log("Connected");
+//     }, false)
+//     source.addEventListener('error', function(e) {
+//       const id_state = document.getElementById('state')
+//       if (e.eventPhase == EventSource.CLOSED)
+//         source.close()
+//       if (e.target.readyState == EventSource.CLOSED) {
+//         console.log("Disconnected");
+//       }
+//       else if (e.target.readyState == EventSource.CONNECTING) {
+//         console.log("Connecting...");
+//       }
+//     }, false)
+//   } else {
+//     console.log("Your browser doesn't support SSE")
+//   }
   ///////////////////////
 function getWorkers() {
 
@@ -422,7 +423,18 @@ function updateWorkers(editWorkers) {
     });
     return result;
 }
-
+function createMessage(messageData) {
+    var result;
+    $.ajax({
+        type: "POST",
+        url: "/createMessage",
+        data: { messageData: messageData },
+        success: function(data) {
+            result = data;
+        }
+    });
+    
+}
 
 
 async function loginWorkers(workers) {
@@ -592,7 +604,20 @@ $("#deleteUser").click(function(e) {
     console.log(userData);
     deleteOneWorker(userData);
 });
+$("#sentAMessage").click(async function(e) {
+    e.preventDefault();
+    var d = new Date();
+    messageData[0] = document.getElementById("mess").value;
+    messageData[1] = d.getTime();
+    messageData[2] = d.getHours()+":"+d.getMinutes()+" "+d.getDate()+"."+d.getMonth()+"."+d.getFullYear();
+   /* Pentru Oana
+   Daca Select all workers e bifata messageData[3] va avea "all"
+   altfel va avea o lista de id uri uri separata prin spatiu
+    */
+   console.log(messageData);
+   createMessage(messageData);
 
+});
 function totalNumberOfWorkers() {
     var rowCount;
     rowCount = $('#workersTable tr').length;

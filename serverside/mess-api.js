@@ -3,10 +3,15 @@ const post = require('./requests/postRequests');
 const del = require('./requests/deleteRequests');
 
 module.exports={
-
+    
+    
     countdownFunc: function(client,obj,res){
         /**to add save seats functionality */
         get.countdownFunc(client,obj);
+    },
+    createMessage: function(client,obj,res){
+        /**to add save seats functionality */
+        post.createMessage(client,obj);
     },
     createWorkers: function(client,obj,res){
         /**to add save seats functionality */
