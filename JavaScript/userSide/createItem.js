@@ -14,6 +14,7 @@ function insertItemToBd(itemData) {
     return result;
 }
 
+
 async function addItem(itemData) {
 
     let promise = new Promise((res) => {
