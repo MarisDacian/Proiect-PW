@@ -17,6 +17,9 @@ if(rownumber<=47 && rownumber>=0){
 }
 
 }
+
+
+
 function rowNumberdown(){
 
 rownumber--;
@@ -33,16 +36,41 @@ if(rownumber<=47 && rownumber>=0){
 	drawShip(-110, 400);
 }
 
-
 }
+
+function keyPush(evt) {
+    switch(evt.keyCode) {
+        case 13:
+			rowNumberTextBox();
+        break;
+      
+    }
+}
+
+function rowNumberTextBox(){
+
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	rownumber=document.getElementById("RowNumber").value;
+	if(rownumber<=47 && rownumber>=0){
+		main();	
+		drawShip(-110, 400);
+	}else{
+	
+		rownumber=47;
+		main();	
+		drawShip(-110, 400);
+	}
+	
+	}
 function main(){
 
 		var	Port=portSort(20000,48);
 		let sum = 10000;
 		let numar_maximContainer=420;
-		let x = findMaxSubarraySum(Port[rownumber], Port[rownumber].length, sum,numar_maximContainer);
-		document.getElementById("RowNumber").value = rownumber;
-	
+		document.addEventListener("keydown",keyPush);
+		var y=document.getElementById("RowNumber").value = rownumber;
+		let x = findMaxSubarraySum(Port[y], Port[y].length, sum,numar_maximContainer);
+
 		var matrixarr=[[]];
 		matrixarr=listToMatrix(arrGoodContainer,18);
 	
@@ -66,5 +94,5 @@ function main(){
  contorSort=0;
 }
 
-//drawShip(-110, 400);
-//main();	
+drawShip(-110, 400);
+main();	
