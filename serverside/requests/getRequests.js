@@ -52,6 +52,16 @@ module.exports = {
           });
       
     },
+    getContainerId: function(client,data,res){
+        dbo= client.db("PortDB");
+        dbo.collection("Containers").find({ id:  data[0]} , { projection: { id: 1} }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+    
+          });
+      
+    },
     getOneWorkersEmail: function(client,data,res){
         dbo= client.db("PortDB");
         dbo.collection("Users").find({ email:  data[4]} , { projection: { email: 1} }).toArray(function(err, result) {

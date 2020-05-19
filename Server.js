@@ -83,6 +83,11 @@ app.get('/GetOneMailLogin', function(req, res) {
     api.getOneMailLogin(client, req.query.workers, res);
 
 });
+app.get('/getContainerId', function(req, res) {
+
+    api.getContainerId(client, req.query.itemData, res);
+
+});
 app.get('/GetOneCNPLogin', function(req, res) {
 
     api.getOneCNPLogin(client, req.query.workers, res);
