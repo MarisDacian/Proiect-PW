@@ -1,7 +1,61 @@
 loginWorkersInfo=new Array();
+dateArray=new Array();
+var socket = io();
+window.onload = function(){
+  loginWorkersInfo=JSON.parse(sessionStorage.getItem("loginData"));
+  this.console.log(loginWorkersInfo);
+  fetch('http://worldclockapi.com/api/json/utc/now')
+  .then(function(res){
+    
+  return res.json();
+  })
+  .then(function(json){
+  dateArray=json;
+  console.log(json);
+  
+  })
+  .catch((error) => {
+  console.log('Looks like there was a problem: \n', error);
+ });
+ statusData=new this.Array();
+ statusData[0]=loginWorkersInfo[0]._id;
+ statusData[1]="working";
+ console.log(statusData);
+ socket.emit('setWorkerStatus', statusData);
+ //setWorkerStatus(statusData);
 
-loginWorkersInfo=JSON.parse(sessionStorage.getItem("loginData"));
+};
 
+async function setWorkerStatus(statusData) {
+  let promise = new Promise((res, rej) => {
+      $.ajax({
+          type: "POST",
+          url: "/updateWorkerStatus",
+          data: { statusData: statusData },
+          success: function(data) {
+              setTimeout(500);
+              res(data);
+          }
+      });
+  });
+  let result;
+
+  result = await promise;
+  return result;
+}
+
+ window.beforeunload  = function(){
+  
+  statusData=new this.Array();
+  statusData[0]=loginWorkersInfo[0]._id;
+  statusData[1]="notWorking";
+  console.log(statusData);
+  setWorkerStatus(statusData);
+    return 'Are you sure you want to leave?';
+  };
+  
+  
+ 
 //////////////////////////
 if (!!window.EventSource) {
     var source = new EventSource('/countdown')
@@ -42,3 +96,5 @@ if(loginWorkersInfo!=null){
 //window.location= "http://localhost:3000";
     console.log("Nu se poate");
 }
+
+

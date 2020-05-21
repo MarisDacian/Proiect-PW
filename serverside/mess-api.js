@@ -28,6 +28,10 @@ module.exports={
     updateWorkers: function(client,obj,res){
         /**to add save seats functionality */
         post.updateWorkers(client,obj);
+    },  
+    updateWorkerStatus: function(client,obj,res){
+        /**to add save seats functionality */
+        post.updateWorkerStatus(client,obj);
     },
      getContainerId: function(client,obj,res){
         /**to add save seats functionality */

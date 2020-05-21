@@ -6,13 +6,16 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbAdmin:dbAdmin@cluster0-vaxrd.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true }, );
+
+
+
 //const db = new MongoClient().getDB("PortDB");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-    console.log('listening on 3000');
-});
+// app.listen(3000, () => {
+//     console.log('listening on 3000');
+// });
 
 client.connect(err => {
     // perform actions on the collection object
@@ -21,6 +24,8 @@ client.connect(err => {
     console.log('Connection works!');
 
 });
+
+
 
 
 app.use('/bower_components', express.static('bower_components'));
@@ -45,9 +50,46 @@ app.get('/countdown', function(req, res) {
       'Connection': 'keep-alive'
     })
     countdown(res);
+
   })
 
 ////////////////////////
+
+
+
+
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    let userData;
+    socket.on('setWorkerStatus', (statusData) => {
+        userData=statusData;
+        api.updateWorkerStatus(client, statusData);
+      });
+     
+    socket.on('disconnect', function() {
+        userData[1]="Not Working"
+        api.updateWorkerStatus(client, userData);
+    });
+  });
+
+  
+
+  http.listen(3000, () => {
+    console.log('listening on *:3000');
+  });
+
+
+
+
+
+
+
+
+
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html');
 });
@@ -139,6 +181,11 @@ app.post('/createShip', function(req, res) {
 app.post('/updateWorkers', function(req, res) {
 
     api.updateWorkers(client, req.body.editWorkers, res);
+    res.send("Update was successful!");
+});
+app.post('/updateWorkerStatus', function(req, res) {
+
+    api.updateWorkerStatus(client, req.body.statusData, res);
     res.send("Update was successful!");
 });
 app.delete('/deleteOneWorker', function(req, res) {

@@ -53,7 +53,20 @@ module.exports = {
             }
         });
     },
-
+    updateWorkerStatus: function(client,data,res){
+        const collection = client.db("PortDB").collection("Users");	
+        console.log(data);
+        var ObjectId = require('mongodb').ObjectId; 
+        var whichOne = { _id :new ObjectId(data[0]) };
+         var newdata = { $set: { status:data[1]} };
+         collection.updateOne( whichOne, newdata, function(err){
+            if(err)
+                throw err;
+            else{
+                console.log("User was updated!");
+            }
+        });
+    },
     createShip: function(client,data){
         const collection = client.db("PortDB").collection("Ships");	
         console.log(data);
