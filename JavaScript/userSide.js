@@ -1,5 +1,6 @@
 let userAdded = new Array();
 let createWorkers = new Array();
+let WorkersId = new Array();
 let loginWorkersInfo = new Array();
 let userData = new Array();
 let messageData = new Array();
@@ -59,10 +60,12 @@ function getWorkers() {
 
                 let password = row.insertCell(6);
                 password.innerHTML = data[i].password;
-
+                WorkersId[i]=data[i]._id;
+                console.log(WorkersId[i]);
                 let select = row.insertCell(7);
                 let checkBox = document.createElement("INPUT");
                 checkBox.setAttribute("type", "checkbox");
+                checkBox.setAttribute("id", "checkbox"+i);
                 select.appendChild(checkBox);
             }
         }
@@ -620,6 +623,17 @@ $("#sentAMessage").click(async function(e) {
     messageData[0] = document.getElementById("mess").value;
     messageData[1] = d.getTime();
     messageData[2] = d.getHours()+":"+d.getMinutes()+" "+d.getDate()+"."+d.getMonth()+"."+d.getFullYear();
+    ok = document.getElementById("checkAll").checked ;
+   if(ok)
+   messageData[3] = "all";
+   else{
+    for(let i=0;i<WorkersId.length;i++)
+    {
+        if(document.getElementById("checkbox"+i).checked){
+            messageData[3]+=WorkersId[i]+" ";
+        }
+    }
+   }
    /* Pentru Oana
    Daca Select all workers e bifata messageData[3] va avea "all"
    altfel va avea o lista de id uri uri separata prin spatiu
