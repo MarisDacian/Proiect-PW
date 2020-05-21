@@ -40,7 +40,7 @@ let messageData;
 function countdown(res) {
     res.write("data: " + messageData + "\n\n")
 
-      setTimeout(() => countdown(res), 5000)
+      setTimeout(() => countdown(res), 1000)
       messageData="";
   }
 app.get('/countdown', function(req, res) {

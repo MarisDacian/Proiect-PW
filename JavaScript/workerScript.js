@@ -55,7 +55,20 @@ async function setWorkerStatus(statusData) {
   };
   
   
- 
+ function MessageVerification(varable){
+  const str = "The,quick,brown,fox,jumps,over,the,lazy,dog.";
+  console.log(varable);
+
+ //idtest="5e8e0a5df86a2f348880c019";
+ const words = varable.split(',');
+ console.log(words[3]);
+
+
+
+
+ }
+var testarr=["timp,eveniment,ceas,5e8e0a5df86a2f348780c019,5e8e0a5df86a2f348880c019,5e8e0a5df86a2f348880c009"];
+ MessageVerification(testarr);
 //////////////////////////
 if (!!window.EventSource) {
     var source = new EventSource('/countdown')
