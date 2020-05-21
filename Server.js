@@ -56,7 +56,7 @@ app.get('/countdown', function(req, res) {
 ////////////////////////
 
 
-
+var sockets = [];
 
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
@@ -67,12 +67,17 @@ io.on('connection', (socket) => {
     socket.on('setWorkerStatus', (statusData) => {
         userData=statusData;
         api.updateWorkerStatus(client, statusData);
+        socket.broadcast.emit('updateWorkerStatus', statusData);
       });
      
     socket.on('disconnect', function() {
-        userData[1]="Not Working"
+        if(userData!=null){
+        userData[1]="Not Working";
         api.updateWorkerStatus(client, userData);
+        socket.broadcast.emit('updateWorkerStatus', statusData);
+        }
     });
+    sockets.push(socket);
   });
 
   
