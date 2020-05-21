@@ -31,12 +31,12 @@ app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 ///////////////////////////
-messageData=new Array;
+let messageData;
 function countdown(res) {
     res.write("data: " + messageData + "\n\n")
 
-      setTimeout(() => countdown(res), 1000)
-   
+      setTimeout(() => countdown(res), 5000)
+      messageData="";
   }
 app.get('/countdown', function(req, res) {
     res.writeHead(200, {

@@ -602,6 +602,7 @@ $("#sentAMessage").click(async function(e) {
    if(ok)
    messageData[3] = "all";
    else{
+    messageData[3]="";
     for(let i=0;i<WorkersId.length;i++)
     {
         if(document.getElementById("checkbox"+i).checked){
@@ -609,10 +610,6 @@ $("#sentAMessage").click(async function(e) {
         }
     }
    }
-   /* Pentru Oana
-   Daca Select all workers e bifata messageData[3] va avea "all"
-   altfel va avea o lista de id uri uri separata prin spatiu
-    */
    console.log(messageData);
    createMessage(messageData);
 
