@@ -26,35 +26,6 @@ window.onload = function(){
 
 };
 
-async function setWorkerStatus(statusData) {
-  let promise = new Promise((res, rej) => {
-      $.ajax({
-          type: "POST",
-          url: "/updateWorkerStatus",
-          data: { statusData: statusData },
-          success: function(data) {
-              setTimeout(500);
-              res(data);
-          }
-      });
-  });
-  let result;
-
-  result = await promise;
-  return result;
-}
-
- window.beforeunload  = function(){
-  
-  statusData=new this.Array();
-  statusData[0]=loginWorkersInfo[0]._id;
-  statusData[1]="notWorking";
-  console.log(statusData);
-  setWorkerStatus(statusData);
-    return 'Are you sure you want to leave?';
-  };
-  
-  
  
 //////////////////////////
 if (!!window.EventSource) {

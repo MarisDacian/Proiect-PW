@@ -48,6 +48,7 @@ function getWorkers() {
 
 }
 getWorkers();
+receivedData= new Array();
 
 $("#checkAll").click(function() {
     $('input:checkbox').not(this).prop('checked', this.checked);
