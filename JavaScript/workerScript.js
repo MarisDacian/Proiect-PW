@@ -55,26 +55,31 @@ async function setWorkerStatus(statusData) {
   };
   
   
- function MessageVerification(varable){
-  const str = "The,quick,brown,fox,jumps,over,the,lazy,dog.";
-  console.log(varable);
+ function MessageVerification(varable,idtest){
+ 
+  var newStr = varable.replace(/ /g, ',');
+  var res = newStr.split(",");
+ for(i=0;i<res.length;i++){
+ 
+  if(res[i]==idtest){
 
- //idtest="5e8e0a5df86a2f348880c019";
- const words = varable.split(',');
- console.log(words[3]);
+    console.log("Este pentru mine mesajul");
 
-
-
+  }
 
  }
-var testarr=["timp,eveniment,ceas,5e8e0a5df86a2f348780c019,5e8e0a5df86a2f348880c019,5e8e0a5df86a2f348880c009"];
- MessageVerification(testarr);
+
+ }
+ idtestez="5e8e0a5df86a2f348880c019";
+
 //////////////////////////
 if (!!window.EventSource) {
     var source = new EventSource('/countdown')
 
     source.addEventListener('message', function(e) {
      console.log(e.data);
+     stringVariable=loginWorkersInfo[0]._id;
+     MessageVerification(e.data,stringVariable);
      // TODO PENTRU MATE
     //  aici trebuie verificat daca mesajul primit este pentru userul curent (pe pozitia 3 ai "all" daca e pt toti userii
     //  sau _id urile din baza de date daca e pt anumiti useri, trb sa verifici daca userul curent trebuie sa primeasca
