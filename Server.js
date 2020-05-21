@@ -31,10 +31,11 @@ app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 ///////////////////////////
-function countdown(res, count) {
-    res.write("data: " + count + "\n\n")
+messageData=new Array;
+function countdown(res) {
+    res.write("data: " + messageData + "\n\n")
 
-      setTimeout(() => countdown(res, count-1), 1000)
+      setTimeout(() => countdown(res), 1000)
    
   }
 app.get('/countdown', function(req, res) {
@@ -43,7 +44,7 @@ app.get('/countdown', function(req, res) {
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive'
     })
-    countdown(res, 10)
+    countdown(res);
   })
 
 ////////////////////////
@@ -115,7 +116,8 @@ app.get('/GetOneWorkersInfo', function(req, res) {
 
 });
 app.post('/createMessage', function(req, res) {
-
+    messageData=req.body.messageData;
+    console.log(messageData);
     api.createMessage(client, req.body.messageData, res);
     res.send("Save was successful!");
 });
