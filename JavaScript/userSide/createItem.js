@@ -60,7 +60,7 @@ async function addItem(itemData) {
 }
 $("#createItem").click(async function(e) {
     e.preventDefault();
-    createItem[0] = document.getElementById("containerType").value;
+    createItem[0] =document.getElementById("containerType").value;
     createItem[1] = document.getElementById("Weight").value;
     createItem[2] = document.getElementById("LocationFrom").value;
     createItem[3] = document.getElementById("LocationTo").value;
@@ -70,3 +70,45 @@ $("#createItem").click(async function(e) {
     
 
 });
+//++++++++++++++++++++++ Mate o lucrat a nu se sterge +++++++++++++++++++++++++++
+/*
+function getRandomInt(max) {
+    let x;
+    x = Math.floor(Math.random() * Math.floor(max + 1)) + 5;
+
+    return x;
+
+}
+
+function random() {
+
+
+    let x = getRandomInt(20);
+
+    return x;
+}
+
+
+function randomLocation() {
+
+    x = Math.floor(Math.random() * Math.floor(4 + 1)) + 5;
+
+    let containerLocation = 'New Yorker';
+    if (x == 5) {
+        containerLocation = 'Chicago';
+    }
+    if (x == 6) {
+        containerLocation = 'Constanta';
+    }
+    if (x == 7) {
+        containerLocation = 'Hon Kong';
+    }
+    if (x == 8) {
+        containerLocation = 'Rijeka';
+    }
+    if (x == 9) {
+        containerLocation = 'Monaco';
+    }
+
+return containerLocation;
+}*/

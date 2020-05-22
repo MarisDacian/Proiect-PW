@@ -18,8 +18,6 @@ if(rownumber<=47 && rownumber>=0){
 
 }
 
-
-
 function rowNumberdown(){
 
 rownumber--;
