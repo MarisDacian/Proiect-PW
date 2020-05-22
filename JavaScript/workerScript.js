@@ -60,7 +60,7 @@ async function setWorkerStatus(statusData) {
       
       ids=ids.split(" ");
       for(i=0;i<ids.length;i++){
-      if(loginWorkersInfo[0]._id==ids[i])
+      if(loginWorkersInfo[0]._id==ids[i]||ids[i]=="all")
         {
           console.log(messageData[0]);
           console.log(messageData[1]);
