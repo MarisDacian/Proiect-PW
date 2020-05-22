@@ -61,11 +61,11 @@ async function setWorkerStatus(statusData) {
   var res = newStr.split(",");
  for(i=0;i<res.length;i++){
  
-  if(res[i]==idtest){
+    if(res[i]==idtest || res[i]=="all"){   
 
-    console.log("Este pentru mine mesajul");
-
-  }
+      console.log("Este pentru mine mesajul");
+    
+    }
 
  }
 
