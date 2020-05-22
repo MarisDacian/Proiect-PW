@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const api = require('./serverside/mess-api');
 const bodyParser = require('body-parser');
-
+const fetch = require("node-fetch");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbAdmin:dbAdmin@cluster0-vaxrd.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true }, );
@@ -36,22 +36,22 @@ app.use('/JavaScript', express.static('JavaScript'));
 app.use('/WorkersPage', express.static('JavaScript'));
 app.use('/img', express.static('img'));
 ///////////////////////////
-let messageData;
-function countdown(res) {
-    res.write("data: " + messageData + "\n\n")
+// let messageData;
+// function countdown(res) {
+//     res.write("data: " + messageData + "\n\n")
 
-      setTimeout(() => countdown(res), 1000)
-      messageData="";
-  }
-app.get('/countdown', function(req, res) {
-    res.writeHead(200, {
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      'Connection': 'keep-alive'
-    })
-    countdown(res);
+//       setTimeout(() => countdown(res), 1000)
+//       messageData="";
+//   }
+// app.get('/countdown', function(req, res) {
+//     res.writeHead(200, {
+//       'Content-Type': 'text/event-stream',
+//       'Cache-Control': 'no-cache',
+//       'Connection': 'keep-alive'
+//     })
+//     countdown(res);
 
-  })
+//   })
 
 ////////////////////////
 
@@ -67,14 +67,34 @@ io.on('connection', (socket) => {
     socket.on('setWorkerStatus', (statusData) => {
         userData=statusData;
         api.updateWorkerStatus(client, statusData);
-        socket.broadcast.emit('updateWorkerStatus', statusData);
+        //socket.broadcast.emit('updateWorkerStatus', statusData);
       });
      
     socket.on('disconnect', function() {
+        fetch('http://worldclockapi.com/api/json/utc/now')
+        .then(function(res){
+          
+        return res.json();
+        })
+        .then(function(json){
+        time=json.currentDateTime;
+        var serverTime = time.split("T");
+        var userTime = userData;
+        console.log(userData);
+
+        //userTime=userTime.split("T");
+        console.log(serverTime);
+        console.log(userTime);
+        
+        })
+        .catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+       });
+
         if(userData!=null){
         userData[1]="Not Working";
         api.updateWorkerStatus(client, userData);
-        socket.broadcast.emit('updateWorkerStatus', statusData);
+       // socket.broadcast.emit('updateWorkerStatus', statusData);
         }
     });
     sockets.push(socket);
@@ -165,6 +185,7 @@ app.get('/GetOneWorkersInfo', function(req, res) {
 app.post('/createMessage', function(req, res) {
     messageData=req.body.messageData;
     console.log(messageData);
+    io.emit('message', messageData);
     api.createMessage(client, req.body.messageData, res);
     res.send("Save was successful!");
 });
