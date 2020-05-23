@@ -14,6 +14,15 @@ module.exports = {
                 res.send(result);
         });
     },
+    getContainers: function(client,res){
+        var collection = client.db("PortDB").collection("Containers");
+        collection.find({}).toArray(function(err,result){
+            if(err)
+                throw err;
+            else
+                res.send(result);
+        });
+    },
     getOneWorkersLogin: function(client,data,res){
         dbo= client.db("PortDB");
         dbo.collection("Users").find({ userName:  data[0], password: data[1]} , { projection: { 

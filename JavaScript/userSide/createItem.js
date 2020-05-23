@@ -66,9 +66,6 @@ $("#createItem").click(async function(e) {
     createItem[3] = document.getElementById("LocationTo").value;
     
     itemAsync(createItem);
-
-    
-
 });
 //++++++++++++++++++++++ Mate o lucrat a nu se sterge +++++++++++++++++++++++++++
 /*
@@ -112,3 +109,19 @@ function randomLocation() {
 
 return containerLocation;
 }*/
+
+function getContainers() {
+
+    $.ajax({
+        type: "GET",
+        url: "/GetContainers",
+        success: function(data) {
+           
+            for (i = 0; i < data.length; i++) {
+              console.log(data[i]);
+            }
+        }
+    });
+
+}
+getContainers();

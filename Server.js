@@ -124,6 +124,8 @@ app.get('/Workers', (req, res) => {
     res.sendFile(__dirname + '/WorkersPage/Workers.html');
 });
 
+
+
 app.get('/admin', (req, res) => {
     res.sendFile(__dirname + '/adminPage/admin.html');
 });
@@ -140,6 +142,11 @@ app.get('/create-user', (req, res) => {
 app.get('/GetWorkers', (req, res) => {
     api.getWorkers(client, res);
 });
+
+app.get('/GetContainers', (req, res) => {
+    api.getContainers(client, res);
+});
+
 
 app.get('/GetOneWorkersLogin', function(req, res) {
 
