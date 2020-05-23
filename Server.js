@@ -156,7 +156,9 @@ app.get('/GetContainers', (req, res) => {
 app.get('/GetShips', (req, res) => {
     api.getShips(client, res);
 });
-
+app.get('/getShipData', (req, res) => {
+    api.getShipData(client, req.query.shipData, res);
+});
 
 
 app.get('/GetOneWorkersLogin', function(req, res) {
@@ -218,7 +220,7 @@ app.post('/createItem', function(req, res) {
     res.send("Save was successful!");
 });
 app.post('/createShip', function(req, res) {
-    console.log( req.body.shipData);
+    //console.log( req.body.shipData);
     api.createShip(client, req.body.shipData, res);
     res.send("Save was successful!");
 });

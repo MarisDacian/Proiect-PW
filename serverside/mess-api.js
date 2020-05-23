@@ -45,6 +45,10 @@ module.exports={
         /**to add save seats functionality */
         get.getWorkers(client,obj);
     },
+    getShipData: function(client,obj,res){
+        /**to add save seats functionality */
+        get.getShipData(client,obj,res);
+    },
     getContainers: function(client,obj,res){
         /**to add save seats functionality */
         get.getContainers(client,obj);

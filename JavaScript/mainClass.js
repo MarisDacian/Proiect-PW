@@ -60,6 +60,11 @@ function rowNumberTextBox(){
 	
 	}
 	var Port;
+
+
+
+let ShipDataString="";
+
  async function main(){
 
 	let promise = new Promise((res) => {
@@ -93,11 +98,40 @@ function rowNumberTextBox(){
 			stringOfShipArray[1]=stringofShip;
 			loadContainersToBd(stringOfShipArray);
           
-
-		
+			findShip=new Array();
+			findShip[0]="SS Emil";
+			console.log(findShip);
+			let promise1 = new Promise((res) => {
+				res(getShipData(findShip));
+			
+			});
+			ExistContor = 0;
+			let result1 = await promise1;
+			console.log(result1);
+			ShipDataString=result1;
+			console.log(ShipDataString);
 }
+async function getShipData(shipData) {
+	let promise = new Promise((res, rej) => {
+		$.ajax({
+			type: "GET",
+			url: "/getShipData",
+			data: { shipData: shipData },
+			success: function(data) {
+				setTimeout(500);
+				console.log(data);
+				res(data);
+			}
+		});
+	});
+	let result;
+  
+	result = await promise;
+	return result;
+  }
 async function loadContainersToBd(containerData) {
 	let promise = new Promise((res, rej) => {
+		
 		$.ajax({
 			type: "POST",
 			url: "/updateShip",
@@ -113,7 +147,10 @@ async function loadContainersToBd(containerData) {
 	result = await promise;
 	return result;
   }
-  
+
+
+
+
 
 function drawCalculation(){
 

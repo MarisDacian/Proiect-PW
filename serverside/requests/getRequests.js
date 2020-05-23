@@ -49,6 +49,21 @@ module.exports = {
           });
       
     },
+    getShipData: function(client,data,res){
+        dbo= client.db("PortDB");
+        console.log(data[0]);
+        dbo.collection("Ships").find({ BoatName:  data[0]} , { projection: { 
+            containerData: 1} }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+           // if (result) {
+           //     console.log("user exists");
+            //    res.redirect('/Workers');}
+        res.send(result);
+    
+          });
+      
+    },
     getOneMailLogin: function(client,data,res){
         dbo= client.db("PortDB");
         dbo.collection("Users").find({ email:  data[0], password: data[1]} , { projection: { firstName: 1, lastName: 1, cnp: 1, 
