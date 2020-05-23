@@ -18,7 +18,7 @@ function findMaxSubarraySum(arrProgram = [], n, sum,max_cont_number) {
     for (let i = n-1; i >= 0; i--) {
   
 //console.log(arr[i].tonage);
-        if (arrProgram[i].tonage + max_sum <= sum) {
+        if (arrProgram[i].tonage + max_sum >= 1) {
             max_sum = max_sum + arrProgram[i].tonage;
             contor_container++;
           

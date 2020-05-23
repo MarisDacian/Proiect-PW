@@ -38,8 +38,6 @@ $("#createShip").click(async function(e) {
 });
 
 
-
-
 function getShips() {
 
     $.ajax({
@@ -54,4 +52,4 @@ function getShips() {
     });
 
 }
-getShips();
+//getShips();

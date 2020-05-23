@@ -1,5 +1,6 @@
 
 
+
   function listToMatrixPort(list=[], numberofRows) {
 
     var matrix = [], i, k;
@@ -27,23 +28,58 @@
     }
 
 
+    async function getContainers() {
+     let promise = new Promise((res, rej) =>{
+        $.ajax({
+            type: "GET",
+            url: "/GetContainers",
+            success: function(data) {
+               
+                setTimeout(500);
+                res(data);
+              /*  for (i = 0; i < data.length; i++) {
+                  console.log(data[i].LocationFrom);
+                  PortArray[i]=data[i];
+
+                }*/
+               
+            }
+        });
+    });
+    let result;
+
+    result = await promise;
+    //  console.log(result);
+  return result;
+    }
+   
 
 
-function portSort(numberofContainer,numberofRows){
+    async function portSort(numberofContainer,numberofRows){
 
  var   ArrayPort=[];
  var   PortMatrix=[[]];
-            for(i=0;i<numberofContainer;i++){
+
+
+
+
+let promise = new Promise((res) => {
+    res(getContainers());
+
+});
+ExistContor = 0;
+let result = await promise;
+//console.log(result);
+
+var   databasePort= result;
+//console.log(result);
+
+
+
+            for(i=0;i<databasePort.length;i++){
                     
-                startLocation=randomLocation();
-                DestinationLocation=randomLocation();
-
-                while(startLocation==DestinationLocation){
-
-                    startLocation=randomLocation();
-
-                }
-                        myContainer =new Container(random(),40,startLocation ,DestinationLocation ,i,2,3,21,200,300);
+                
+                        myContainer =new Container(databasePort[i].Weight,databasePort[i].containerType,databasePort[i].LocationFrom ,databasePort[i].LocationTo  ,i,2,3,21,200,300);
                     ArrayPort[i]=myContainer;   
                     }
  
@@ -87,3 +123,4 @@ function portSort(numberofContainer,numberofRows){
           
 return groupconcat;
 }
+

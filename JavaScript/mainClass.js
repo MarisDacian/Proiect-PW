@@ -60,10 +60,24 @@ function rowNumberTextBox(){
 	}
 	
 	}
-function main(){
+ async function main(){
 
-		var	Port=portSort(20000,48);
-		let sum = 10000;
+
+
+	let promise = new Promise((res) => {
+		res(portSort(20000,48));
+	
+	});
+	ExistContor = 0;
+	let result = await promise;
+	//console.log(result);
+	
+	var   Port= result;
+	//console.log(result);
+	
+console.log(Port);
+		
+		let sum = 100000000000;
 		let numar_maximContainer=420;
 		document.addEventListener("keydown",keyPush);
 		var y=document.getElementById("RowNumber").value = rownumber;
@@ -94,3 +108,4 @@ function main(){
 
 drawShip(-110, 400);
 main();	
+
