@@ -10,9 +10,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true }, );
 
 
 //const db = new MongoClient().getDB("PortDB");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 // app.listen(3000, () => {
 //     console.log('listening on 3000');
 // });
@@ -100,7 +99,14 @@ io.on('connection', (socket) => {
     sockets.push(socket);
   });
 
-  
+
+
+
+
+ // app.use(express.json({limit: '50mb'}));
+ // app.use(express.urlencoded({limit: '50mb'}));
+
+
 
   http.listen(3000, () => {
     console.log('listening on *:3000');
@@ -224,6 +230,11 @@ app.post('/updateWorkers', function(req, res) {
 app.post('/updateWorkerStatus', function(req, res) {
 
     api.updateWorkerStatus(client, req.body.statusData, res);
+    res.send("Update was successful!");
+});
+app.post('/updateShip', function(req, res) {
+
+    api.updateShip(client, req.body.containerData, res);
     res.send("Update was successful!");
 });
 app.delete('/deleteOneWorker', function(req, res) {

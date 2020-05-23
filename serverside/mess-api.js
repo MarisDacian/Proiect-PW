@@ -33,6 +33,10 @@ module.exports={
         /**to add save seats functionality */
         post.updateWorkerStatus(client,obj);
     },
+    updateShip: function(client,obj,res){
+        /**to add save seats functionality */
+        post.updateShip(client,obj);
+    },
      getContainerId: function(client,obj,res){
         /**to add save seats functionality */
         get.getContainerId(client,obj,res);

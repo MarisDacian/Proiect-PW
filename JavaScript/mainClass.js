@@ -71,27 +71,49 @@ function rowNumberTextBox(){
 	//console.log(result);
 
 		Port= result;
-		console.log(Port);
+	//	console.log(Port);
 	//console.log(result);
 	drawShip(-110, 400);
 	drawCalculation();
 
 
 
-	stringofShip="";
+	stringofShip=new Array();
 
             for(i=0;i<Port.length;i++){
+				stringofShip[i]="";
                 for(j=0;j<Port[i].length;j++){
-                stringofShip=stringofShip+Port[i][j].tonage+"/"+Port[i][j].type+"/"+Port[i][j].startingPoint+"/"+Port[i][j].destinationPoint+"/"+Port[i][j].id+",";
-            
+                stringofShip+=Port[i][j].tonage+"/"+Port[i][j].type+"/"+Port[i][j].startingPoint+"/"+Port[i][j].destinationPoint+"/"+Port[i][j].id+",";
+					
                 }
-            }
-
-          console.log(stringofShip);
+			}
+			
+			stringOfShipArray=new Array();
+			stringOfShipArray[0]="5ec8eb533a193c4d647f2031";
+			stringOfShipArray[1]=stringofShip;
+			loadContainersToBd(stringOfShipArray);
+          
 
 		
 }
-
+async function loadContainersToBd(containerData) {
+	let promise = new Promise((res, rej) => {
+		$.ajax({
+			type: "POST",
+			url: "/updateShip",
+			data: { containerData: containerData },
+			success: function(data) {
+				setTimeout(500);
+				res(data);
+			}
+		});
+	});
+	let result;
+  
+	result = await promise;
+	return result;
+  }
+  
 
 function drawCalculation(){
 

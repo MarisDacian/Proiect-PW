@@ -85,6 +85,20 @@ module.exports = {
 
 
     },
+    updateShip: function(client,data,res){
+        const collection = client.db("PortDB").collection("Ships");	
+        console.log(data);
+        var ObjectId = require('mongodb').ObjectId; 
+        var whichOne = { _id :new ObjectId(data[0]) };
+         var newdata = { $set: { containerData:data[1]} };
+         collection.updateOne( whichOne, newdata, function(err){
+            if(err)
+                throw err;
+            else{
+                console.log("User was updated!");
+            }
+        });
+    },
     createItem: function(client,data){
         const collection = client.db("PortDB").collection("Containers");	
         console.log(data);
