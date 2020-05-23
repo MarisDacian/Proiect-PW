@@ -71,12 +71,24 @@ function rowNumberTextBox(){
 	//console.log(result);
 
 		Port= result;
-	 
+		console.log(Port);
 	//console.log(result);
-	
+	drawShip(-110, 400);
 	drawCalculation();
 
-console.log(Port);
+
+
+	stringofShip="";
+
+            for(i=0;i<Port.length;i++){
+                for(j=0;j<Port[i].length;j++){
+                stringofShip=stringofShip+Port[i][j].tonage+"/"+Port[i][j].type+"/"+Port[i][j].startingPoint+"/"+Port[i][j].destinationPoint+"/"+Port[i][j].id+",";
+            
+                }
+            }
+
+          console.log(stringofShip);
+
 		
 }
 
@@ -115,6 +127,6 @@ contorSort=0;
 
 }
 
-drawShip(-110, 400);
+
 main();	
 
