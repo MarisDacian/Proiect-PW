@@ -109,7 +109,7 @@ function randomLocation() {
 
 return containerLocation;
 }*/
-
+ 
 function getContainers() {
 
     $.ajax({
@@ -124,4 +124,4 @@ function getContainers() {
     });
 
 }
-getContainers();
+//getContainers();

@@ -147,6 +147,11 @@ app.get('/GetContainers', (req, res) => {
     api.getContainers(client, res);
 });
 
+app.get('/GetShips', (req, res) => {
+    api.getShips(client, res);
+});
+
+
 
 app.get('/GetOneWorkersLogin', function(req, res) {
 

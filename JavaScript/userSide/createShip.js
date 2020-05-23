@@ -36,3 +36,22 @@ $("#createShip").click(async function(e) {
     
 
 });
+
+
+
+
+function getShips() {
+
+    $.ajax({
+        type: "GET",
+        url: "/GetShips",
+        success: function(data) {
+           
+            for (i = 0; i < data.length; i++) {
+              console.log(data[i]);
+            }
+        }
+    });
+
+}
+getShips();
