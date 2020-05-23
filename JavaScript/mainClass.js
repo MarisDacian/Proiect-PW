@@ -97,7 +97,7 @@ let ShipDataString="";
 			stringOfShipArray[0]="5ec8eb533a193c4d647f2031";
 			stringOfShipArray[1]=stringofShip;
 			loadContainersToBd(stringOfShipArray);
-          
+          /*
 			findShip=new Array();
 			findShip[0]="SS Emil";
 			console.log(findShip);
@@ -109,8 +109,10 @@ let ShipDataString="";
 			let result1 = await promise1;
 			console.log(result1);
 			ShipDataString=result1;
-			console.log(ShipDataString);
+			console.log(ShipDataString[0].containerData);*/
 }
+
+/*
 async function getShipData(shipData) {
 	let promise = new Promise((res, rej) => {
 		$.ajax({
@@ -128,7 +130,7 @@ async function getShipData(shipData) {
   
 	result = await promise;
 	return result;
-  }
+  }*/
 async function loadContainersToBd(containerData) {
 	let promise = new Promise((res, rej) => {
 		
