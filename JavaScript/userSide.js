@@ -35,12 +35,12 @@ function getWorkers() {
 
                 let password = row.insertCell(6);
                 password.innerHTML = data[i].password;
-                WorkersId[i]=data[i]._id;
+                WorkersId[i] = data[i]._id;
                 console.log(WorkersId[i]);
                 let select = row.insertCell(7);
                 let checkBox = document.createElement("INPUT");
                 checkBox.setAttribute("type", "checkbox");
-                checkBox.setAttribute("id", "checkbox"+i);
+                checkBox.setAttribute("id", "checkbox" + i);
                 select.appendChild(checkBox);
             }
         }
@@ -48,7 +48,7 @@ function getWorkers() {
 
 }
 getWorkers();
-receivedData= new Array();
+receivedData = new Array();
 
 $("#checkAll").click(function() {
     $('input:checkbox').not(this).prop('checked', this.checked);
@@ -402,6 +402,7 @@ function updateWorkers(editWorkers) {
     });
     return result;
 }
+
 function createMessage(messageData) {
     var result;
     $.ajax({
@@ -412,7 +413,7 @@ function createMessage(messageData) {
             result = data;
         }
     });
-    
+
 }
 
 
@@ -429,9 +430,10 @@ async function loginWorkers(workers) {
     console.log(loginWorkersInfo);
 
     ///////Pentru Mate\\\\\\\\\
-    if(loginWorkersInfo[0].userName!=null){
+    if (loginWorkersInfo[0].userName != null) {
         sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
-    window.location= "http://proiect-pw.herokuapp.com/Workers";
+        //window.location = "http://proiect-pw.herokuapp.com/Workers";
+        window.location = "http://localhost:3000/Workers";
 
     }
 }
@@ -450,9 +452,9 @@ async function loginWorkersMail(workers) {
     loginWorkersInfo = result;
     console.log(loginWorkersInfo);
 
-    if(loginWorkersInfo[0].userName!=null){
+    if (loginWorkersInfo[0].userName != null) {
         sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
-    window.location= "http://localhost:3000/Workers";
+        window.location = "http://localhost:3000/Workers";
 
     }
 }
@@ -468,10 +470,10 @@ async function loginWorkersCNP(workers) {
     console.log(result);
     loginWorkersInfo = result;
     console.log(loginWorkersInfo);
-    
-    if(loginWorkersInfo[0].userName!=null){
+
+    if (loginWorkersInfo[0].userName != null) {
         sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
-    window.location= "http://localhost:3000/Workers";
+        window.location = "http://localhost:3000/Workers";
 
     }
 }
@@ -598,23 +600,23 @@ $("#sentAMessage").click(async function(e) {
     var d = new Date();
     messageData[0] = document.getElementById("mess").value;
     messageData[1] = d.getTime();
-    messageData[2] = d.getHours()+":"+d.getMinutes()+" "+d.getDate()+"."+d.getMonth()+"."+d.getFullYear();
-    ok = document.getElementById("checkAll").checked ;
-   if(ok)
-   messageData[3] = "all";
-   else{
-    messageData[3]="";
-    for(let i=0;i<WorkersId.length;i++)
-    {
-        if(document.getElementById("checkbox"+i).checked){
-            messageData[3]+=WorkersId[i]+" ";
+    messageData[2] = d.getHours() + ":" + d.getMinutes() + " " + d.getDate() + "." + d.getMonth() + "." + d.getFullYear();
+    ok = document.getElementById("checkAll").checked;
+    if (ok)
+        messageData[3] = "all";
+    else {
+        messageData[3] = "";
+        for (let i = 0; i < WorkersId.length; i++) {
+            if (document.getElementById("checkbox" + i).checked) {
+                messageData[3] += WorkersId[i] + " ";
+            }
         }
     }
-   }
-   console.log(messageData);
-   createMessage(messageData);
+    console.log(messageData);
+    createMessage(messageData);
 
 });
+
 function totalNumberOfWorkers() {
     var rowCount;
     rowCount = $('#workersTable tr').length;

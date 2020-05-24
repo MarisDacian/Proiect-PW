@@ -1,70 +1,98 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Page Title</title>
+    <title>Page Title</title>
 
 
-<style type="text/css">
-	
-#container {
-  width: 80%;
-  height: 90vh;
-  overflow: scroll;
-  border: 1px solid;
-  float: right;
-}
+    <style type="text/css">
+        #container {
+            width: 80%;
+            height: 90vh;
+            overflow: scroll;
+            border: 1px solid;
+            float: right;
+        }
+        
+        #ContainerData {
+            width: 19%;
+            height: 440px;
+            border: 1px solid black;
+            position: relative;
+            top: 400px;
+        }
+        
+        #cvs {
+            display: block;
+        }
+    </style>
 
-#ContainerData{
-
-width: 19%;
-height: 440px;
-border: 1px solid black;
-position: relative;
-top:400px;
-}
-
-#cvs{
-  display: block;
-}
-
-</style>
-<script src="/socket.io/socket.io.js"></script>
-<script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript " src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
 
-  
-<p id="demo"></p>
 
-<div id="container">
-<canvas id="cvs"  height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas><br>
-</div>
-<input type="button" value="prev" onclick="rowNumberdown()"><input type="text" id="RowNumber" value="1"><input type="button" value="Next" onclick="rowNumberUp()">
+    <p id="demo"></p>
 
-<div id="ContainerData">
+    <div id="container">
+        <canvas id="cvs" height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas><br>
+    </div>
+    <input type="button" value="prev" onclick="rowNumberdown()"><input type="text" id="RowNumber" value="1"><input type="button" value="Next" onclick="rowNumberUp()">
 
-  <p>  Container ID:<a id="ContainerID"></a></p>
-  <p> Container Bay:<a id="ContainerBay"></a></p>
-  <p> Container Row:<a id="ContainerRow"></a></p>
-  <p>Container Column:<a id="ContainerColumn"></a></p>
-  <p>Container Tonage:<a id="ContainerTonage"></a></p>
-  <p>Container Type:<a id="ContainerType"></a></p>
-  <p> Container starting Point:<a id="ContainerstartingPoint"></a></p>
-  <p> Container Destination Point:<a id="ContainerDestinationPoint"></a></p>
+    <div id="ContainerData">
 
-</div>
-<script type="text/javascript"  src="/JavaScript/userSide/createItem.js"></script>
-<script type="text/javascript"  src="/JavaScript/RANDOMIZER.js"></script>
- <script type="text/javascript"  src="/JavaScript/vessel.js"></script>
- <script type="text/javascript" src="/JavaScript/vesselSort.js"></script>
- <script type="text/javascript" src="/JavaScript/vesseChurgePrelucration.js"></script>
- <script type="text/javascript" src="/JavaScript/canvas.js"></script>
- <script type="text/javascript" src="/JavaScript/classContainer.js"></script>
- <script type="text/javascript" src="/JavaScript/portSort.js"></script>
- <script type="text/javascript" src="/JavaScript/mainClass.js"></script>
- <script type="text/javascript" src="/JavaScript/workerScript.js"></script>
+        <p> Container ID:
+            <a id="ContainerID"></a>
+        </p>
+        <p> Container Bay:
+            <a id="ContainerBay"></a>
+        </p>
+        <p> Container Row:
+            <a id="ContainerRow"></a>
+        </p>
+        <p>Container Column:
+            <a id="ContainerColumn"></a>
+        </p>
+        <p>Container Tonage:
+            <a id="ContainerTonage"></a>
+        </p>
+        <p>Container Type:
+            <a id="ContainerType"></a>
+        </p>
+        <p> Container starting Point:
+            <a id="ContainerstartingPoint"></a>
+        </p>
+        <p> Container Destination Point:
+            <a id="ContainerDestinationPoint"></a>
+        </p>
+
+    </div>
+
+    <div id="notification" style="display:none">
+        <p id="not"></p>
+        <p id="time"></p>
+        <button id="hideMess"><img id="arrowHide" src="/img/close.png" alt=""></button>
+    </div>
+
+    <script type="text/javascript" src="/JavaScript/userSide/createItem.js"></script>
+    <script type="text/javascript" src="/JavaScript/RANDOMIZER.js"></script>
+    <script type="text/javascript" src="/JavaScript/vessel.js"></script>
+    <script type="text/javascript" src="/JavaScript/vesselSort.js"></script>
+    <script type="text/javascript" src="/JavaScript/vesseChurgePrelucration.js"></script>
+    <script type="text/javascript" src="/JavaScript/canvas.js"></script>
+    <script type="text/javascript" src="/JavaScript/classContainer.js"></script>
+    <script type="text/javascript" src="/JavaScript/portSort.js"></script>
+    <script type="text/javascript" src="/JavaScript/mainClass.js"></script>
+    <script type="text/javascript" src="/JavaScript/workerScript.js"></script>
+
+
 
 </body>
+
 </html>

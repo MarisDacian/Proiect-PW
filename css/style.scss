@@ -132,14 +132,6 @@ body {
     border-radius: 3px;
 }
 
-#cvs {
-    display: block;
-    width: 60vw;
-    height: 47vw;
-    border: 0px white solid;
-    float: right;
-}
-
 #workerIcon {
     width: 300px;
     height: 250px;
@@ -166,4 +158,58 @@ body {
 .styleHeadTablentotalNumber {
     font-weight: 600;
     font-size: 20px;
+}
+
+#notification {
+    height: 150px;
+    width: 380px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: white;
+    box-shadow: 5px 5px 5px 5px rgb(209, 205, 205);
+    padding: 25px;
+    border-radius: 5%;
+}
+
+#hideMess {
+    border: none;
+    background: white;
+    position: absolute;
+    right: 22px;
+    top: 25px;
+}
+
+#arrowHide {
+    height: 20px;
+}
+
+#not {
+    color: grey;
+    font-size: 20px;
+}
+
+#time {
+    position: absolute;
+    bottom: 25px;
+    color: grey;
+}
+
+.prev-next {
+    border: none;
+    background: transparent;
+}
+
+#nr {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    font-size: 22px;
+    width: 20px;
+}
+
+#p-n {
+    margin-left: 150px;
+    margin-top: 100px;
+    margin-bottom: 20px;
 }
