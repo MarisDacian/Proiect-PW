@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbAdmin:dbAdmin@cluster0-vaxrd.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true }, );
-
+var PORT=process.env.PORT || 3000;
 
 
 //const db = new MongoClient().getDB("PortDB");
@@ -108,8 +108,8 @@ io.on('connection', (socket) => {
 
 
 
-  http.listen(3000, () => {
-    console.log('listening on *:3000');
+  http.listen(PORT, () => {
+    console.log('listening');
   });
 
 
