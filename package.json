@@ -9,7 +9,8 @@
     "dependencies": {
         "express":"*",
         "body-parser":"*",
-        "node-fetch":"*"
+        "node-fetch":"*",
+        "mongodb-core": "*",
      },
     "scripts": {
         "start": "node Server.js"
