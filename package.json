@@ -3,17 +3,18 @@
     "description": "a really cool app",
     "version": "1.0.0",
     "engines": {
-      "node": "12.13.x",
-      "npm": "6.12.x"
+        "node": "12.13.x",
+        "npm": "6.12.x"
     },
     "dependencies": {
-        "express":"*",
-        "body-parser":"*",
-        "node-fetch":"*",
+        "body-parser": "*",
+        "express": "*",
         "mongodb": "^3.1.10",
-        "mongodb-core": "*"
-     },
+        "mongodb-core": "*",
+        "node-fetch": "*",
+        "socket.io": "^2.3.0"
+    },
     "scripts": {
         "start": "node Server.js"
     }
-  }
+}
