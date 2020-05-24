@@ -10,7 +10,7 @@
         "express":"*",
         "body-parser":"*",
         "node-fetch":"*",
-        "mongodb-core": "*",
+        "mongodb-core": "*"
      },
     "scripts": {
         "start": "node Server.js"
