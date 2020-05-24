@@ -6,6 +6,10 @@
       "node": "12.13.x",
       "npm": "6.12.x"
     },
+    "dependencies": {
+        "express":"*",
+        "body-parser":"*"
+     },
     "scripts": {
         "start": "node Server.js"
     }
