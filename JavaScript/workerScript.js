@@ -120,8 +120,6 @@ if(loginWorkersInfo!=null){
     console.log(loginWorkersInfo);
 }else{
 //++++++++++++++++Comentat pe motiv de lucru A nu se sterge!!!!!!!++++++++++++++++++++++++++++++++++++++++++
-//window.location= "http://localhost:3000";
+window.location= "https://proiect-pw.herokuapp.com";
     console.log("Nu se poate");
 }
-
-
