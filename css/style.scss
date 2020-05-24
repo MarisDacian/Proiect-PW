@@ -198,18 +198,25 @@ body {
 .prev-next {
     border: none;
     background: transparent;
+    color: #0275d8;
+    font-weight: bold;
 }
 
-#nr {
+.nr {
     border: none;
     background: transparent;
     font-weight: bold;
     font-size: 22px;
     width: 20px;
+    color: grey;
 }
 
 #p-n {
     margin-left: 150px;
     margin-top: 100px;
     margin-bottom: 20px;
+}
+
+.arr {
+    height: 30px;
 }

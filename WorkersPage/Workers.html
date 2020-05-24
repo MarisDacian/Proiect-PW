@@ -7,7 +7,7 @@
 
     <style type="text/css">
         #container {
-            width: 80%;
+            width: 70%;
             height: 90vh;
             overflow: scroll;
             border: 1px solid;
@@ -16,14 +16,24 @@
         
         #ContainerData {
             width: 19%;
-            height: 440px;
-            border: 1px solid black;
+            height: 360px;
+            border: 1px solid rgb(204, 203, 203);
+            border-radius: 2%;
             position: relative;
-            top: 400px;
+            padding: 25px;
+            top: 260px;
+            box-shadow: 5px 5px 5px 5px grey;
+            left: 70px;
         }
         
         #cvs {
             display: block;
+        }
+        
+        #p-v {
+            top: 230px;
+            left: 7%;
+            position: relative;
         }
     </style>
 
@@ -43,7 +53,9 @@
     <div id="container">
         <canvas id="cvs" height="1250" width="1550" style="border:1px solid #d3d3d3;"></canvas><br>
     </div>
-    <input type="button" value="prev" onclick="rowNumberdown()"><input type="text" id="RowNumber" value="1"><input type="button" value="Next" onclick="rowNumberUp()">
+    <div id="p-v">
+        <button class="prev-next" type="button" onclick="rowNumberdown()"><img class="arr mr-2" src="/img/arrow-left.png" alt="Error">PREV</button><input class="nr" type="text" id="RowNumber" value="1"><button class="prev-next" type="button" onclick="rowNumberUp()">NEXT<img class="arr ml-2" src="/img/arrow-right.png" alt="Error"></button>
+    </div>
 
     <div id="ContainerData">
 
