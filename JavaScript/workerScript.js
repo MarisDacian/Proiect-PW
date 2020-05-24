@@ -26,7 +26,13 @@ window.onload = function(){
  //setWorkerStatus(statusData);
 
 };
-
+if(loginWorkersInfo!=null){
+  console.log(loginWorkersInfo);
+}else{
+//++++++++++++++++Comentat pe motiv de lucru A nu se sterge!!!!!!!++++++++++++++++++++++++++++++++++++++++++
+window.location= "https://proiect-pw.herokuapp.com/";
+  console.log("Nu se poate");
+}
 async function setWorkerStatus(statusData) {
   let promise = new Promise((res, rej) => {
       $.ajax({
@@ -116,10 +122,4 @@ async function setWorkerStatus(statusData) {
   //   console.log("Your browser doesn't support SSE")
   // }
   /////////////////////
-if(loginWorkersInfo!=null){
-    console.log(loginWorkersInfo);
-}else{
-//++++++++++++++++Comentat pe motiv de lucru A nu se sterge!!!!!!!++++++++++++++++++++++++++++++++++++++++++
-window.location= "https://proiect-pw.herokuapp.com";
-    console.log("Nu se poate");
-}
+
