@@ -5,6 +5,7 @@ var socket = io();
 window.onload = function() {
     //loginWorkersInfo = JSON.parse(sessionStorage.getItem("loginData"));
     aux=document.cookie;
+    console.log(aux);
     aux=aux.split(";");
     loginWorkersInfo=aux[1];
     loginWorkersInfo= JSON.parse(loginWorkersInfo);
