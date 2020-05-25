@@ -431,7 +431,12 @@ async function loginWorkers(workers) {
 
     ///////Pentru Mate\\\\\\\\\
     if (loginWorkersInfo[0].userName != null) {
-        sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
+        // sessionStorage.setItem("loginData", JSON.stringify(loginWorkersInfo));
+        // sessionStore = sessions.NewCookieStore(
+        //     Array(os.Getenv("SESSION_AUTHENTICATION_KEY")),
+        //     loginWorkersInfo,
+        // )
+        document.cookie = JSON.stringify(loginWorkersInfo);
         //window.location = "http://proiect-pw.herokuapp.com/Workers";
         window.location = "http://localhost:3000/Workers";
 

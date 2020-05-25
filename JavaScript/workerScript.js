@@ -3,8 +3,12 @@ dateArray = new Array();
 statusData = new Array();
 var socket = io();
 window.onload = function() {
-    loginWorkersInfo = JSON.parse(sessionStorage.getItem("loginData"));
-    this.console.log(loginWorkersInfo);
+    //loginWorkersInfo = JSON.parse(sessionStorage.getItem("loginData"));
+    aux=document.cookie;
+    aux=aux.split(";");
+    loginWorkersInfo=aux[1];
+    loginWorkersInfo= JSON.parse(loginWorkersInfo);
+    console.log(loginWorkersInfo);
     fetch('http://worldclockapi.com/api/json/utc/now')
         .then(function(res) {
 

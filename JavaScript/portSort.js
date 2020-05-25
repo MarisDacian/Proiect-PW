@@ -76,16 +76,16 @@ var   databasePort= result;
 
 findShip=new Array();
 findShip[0]="SS Emil";
-console.log(findShip);
+//console.log(findShip);
 let promise1 = new Promise((res) => {
     res(getShipData(findShip));
 
 });
 ExistContor = 0;
 let result1 = await promise1;
-console.log(result1);
+//console.log(result1);
 ShipDataString=result1;
-console.log(ShipDataString[0].containerData);
+//console.log(ShipDataString[0].containerData);
 
 
 
