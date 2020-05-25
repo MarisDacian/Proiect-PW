@@ -40,7 +40,7 @@ module.exports = {
             firstName: 1, lastName: 1, cnp: 1, userName: 1,
             email: 1, password: 1,sex:1,} }).toArray(function(err, result) {
             if (err) throw err;
-            console.log(result);
+            //console.log(result);
            // if (result) {
            //     console.log("user exists");
             //    res.redirect('/Workers');}

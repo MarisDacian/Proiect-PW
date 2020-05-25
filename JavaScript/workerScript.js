@@ -26,6 +26,7 @@ window.onload = function() {
     statusData[0] = loginWorkersInfo[0]._id;
     statusData[1] = "working";
     statusData[2] = dateArray;
+    statusData[3] = loginWorkersInfo;
     console.log(statusData);
     socket.emit('setWorkerStatus', statusData);
     //setWorkerStatus(statusData);

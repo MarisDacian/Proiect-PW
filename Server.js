@@ -56,15 +56,51 @@ app.use('/img', express.static('img'));
 
 
 var sockets = [];
+function diff_minutes(dt2, dt1) 
+ {
 
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= 60;
+  return Math.abs(Math.round(diff));
+  
+ }
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-
 io.on('connection', (socket) => {
+    var userLoginTime;
+    var userDisconnectTime;
+    var userLoginDataTime;
+    var userDisconnectDataTime;
+    fetch('http://worldclockapi.com/api/json/utc/now')
+    .then(function(res){
+      
+    return res.json();
+    })
+    .then(function(json){
+    userLoginTime=json.currentDateTime;
+    userLoginTime=userLoginTime.split("T");
+    userLoginTime[0]=userLoginTime[0].split("-");
+    userLoginTime[1]=userLoginTime[1].split(":");
+    userLoginTime[1][1]=userLoginTime[1][1].slice(0,-1);
+    userLoginDataTime=new Date(userLoginTime[0][0],userLoginTime[0][1],userLoginTime[0][2],userLoginTime[1][0],userLoginTime[1][1]);
+
+    console.log(userLoginDataTime);
+
+    })
+    .catch((error) => {
+    console.log('Looks like there was a problem: \n', error);
+   }); 
     console.log('a user connected');
     let userData;
+    let loginWorker;
+    let finalUpload=new Array();
     socket.on('setWorkerStatus', (statusData) => {
+        loginWorker=statusData[3];
         userData=statusData;
+        finalUpload[0]=statusData[0];
+        finalUpload[1]=statusData[1];
+       // console.log(userData);
+        
         api.updateWorkerStatus(client, statusData);
         //socket.broadcast.emit('updateWorkerStatus', statusData);
       });
@@ -76,25 +112,30 @@ io.on('connection', (socket) => {
         return res.json();
         })
         .then(function(json){
-        time=json.currentDateTime;
-        var serverTime = time.split("T");
-        var userTime = userData;
-        //console.log(userData);
-
-        //userTime=userTime.split("T");
-        console.log(serverTime);
-        console.log(userTime);
+        userDisconnectTime=json.currentDateTime;
+        userDisconnectTime=userDisconnectTime.split("T");
+        userDisconnectTime[0]=userDisconnectTime[0].split("-");
+        userDisconnectTime[1]=userDisconnectTime[1].split(":");
+        userDisconnectTime[1][1]=userDisconnectTime[1][1].slice(0,-1);
+        userDisconnectDataTime=new Date(userDisconnectTime[0][0],userDisconnectTime[0][1],userDisconnectTime[0][2],userDisconnectTime[1][0],userDisconnectTime[1][1]);
+        console.log(userDisconnectDataTime);
+       
+         
         
+         finalUpload[2]=diff_minutes(userLoginDataTime, userDisconnectDataTime)+"";
+         if(finalUpload!=null){
+            finalUpload[1]="Not Working";
+            console.log(finalUpload);
+           
+        api.updateWorkerStatusTime(client, finalUpload);
+       // socket.broadcast.emit('updateWorkerStatus', statusData);
+        }
         })
         .catch((error) => {
         console.log('Looks like there was a problem: \n', error);
        });
 
-        if(userData!=null){
-        userData[1]="Not Working";
-        api.updateWorkerStatus(client, userData);
-       // socket.broadcast.emit('updateWorkerStatus', statusData);
-        }
+ 
     });
     sockets.push(socket);
   });

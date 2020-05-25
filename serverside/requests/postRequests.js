@@ -67,6 +67,37 @@ module.exports = {
             }
         });
     },
+    updateWorkerStatusTime: async function(client,data,res){
+        const collection = client.db("PortDB").collection("Users");	
+       
+
+        let totalTime;
+        var ObjectId = require('mongodb').ObjectID;
+        let promise = new Promise((res, rej) => {
+        collection.find({ _id: ObjectId(data[0])} , { projection: {totalWorkedTime:1,} }).toArray(function(err, result) {
+            if (err) throw err;
+            res(result);
+          });
+        });
+       
+        totalTime = await promise;
+        let aux=totalTime[0].totalWorkedTime;
+        
+          if(aux=="NaN")
+          aux=0+parseInt(data[2],10);
+          else
+          aux=parseInt(aux,10)+parseInt(data[2],10);
+          console.log(parseInt(data[2],10));
+          aux+="";
+        var whichOne = { _id :new ObjectId(data[0]) };
+        
+         var newdata = { $set: { status:data[1],sesionWorkedTime:data[2], totalWorkedTime:aux} };
+         collection.updateOne( whichOne, newdata, function(err){
+            if(err)
+                throw err;
+           
+        });
+    },
     createShip: function(client,data){
         const collection = client.db("PortDB").collection("Ships");	
         console.log(data);

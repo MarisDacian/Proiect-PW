@@ -14,7 +14,7 @@ function getWorkers() {
             const table = document.getElementById("tableBody");
             for (i = 0; i < data.length; i++) {
                 let row = table.insertRow();
-
+                console.log(data[i]);
                 let index = row.insertCell(0);
                 index.innerHTML = i + 1;
 
@@ -437,8 +437,8 @@ async function loginWorkers(workers) {
         //     loginWorkersInfo,
         // )
         document.cookie = JSON.stringify(loginWorkersInfo);
-        window.location = "http://proiect-pw.herokuapp.com/Workers";
-        //window.location = "http://localhost:3000/Workers";
+        //window.location = "http://proiect-pw.herokuapp.com/Workers";
+        window.location = "http://localhost:3000/Workers";
 
     }
 }
