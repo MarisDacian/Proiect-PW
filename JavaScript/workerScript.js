@@ -6,8 +6,8 @@ window.onload = function() {
     //loginWorkersInfo = JSON.parse(sessionStorage.getItem("loginData"));
     aux=document.cookie;
     console.log(aux);
-    aux=aux.split(";");
-    loginWorkersInfo=aux[1];
+   // aux=aux.split(";");
+    loginWorkersInfo=aux;
     loginWorkersInfo= JSON.parse(loginWorkersInfo);
     console.log(loginWorkersInfo);
     fetch('http://worldclockapi.com/api/json/utc/now')
