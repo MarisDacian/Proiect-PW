@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
         time=json.currentDateTime;
         var serverTime = time.split("T");
         var userTime = userData;
-        console.log(userData);
+        //console.log(userData);
 
         //userTime=userTime.split("T");
         console.log(serverTime);
@@ -204,7 +204,7 @@ app.get('/GetOneWorkersInfo', function(req, res) {
 });
 app.post('/createMessage', function(req, res) {
     messageData=req.body.messageData;
-    console.log(messageData);
+    //console.log(messageData);
     io.emit('message', messageData);
     api.createMessage(client, req.body.messageData, res);
     res.send("Save was successful!");

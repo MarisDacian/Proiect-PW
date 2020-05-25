@@ -437,8 +437,8 @@ async function loginWorkers(workers) {
         //     loginWorkersInfo,
         // )
         document.cookie = JSON.stringify(loginWorkersInfo);
-        //window.location = "http://proiect-pw.herokuapp.com/Workers";
-        window.location = "http://localhost:3000/Workers";
+        window.location = "http://proiect-pw.herokuapp.com/Workers";
+        //window.location = "http://localhost:3000/Workers";
 
     }
 }

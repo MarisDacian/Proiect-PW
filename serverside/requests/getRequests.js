@@ -55,7 +55,7 @@ module.exports = {
         dbo.collection("Ships").find({ BoatName:  data[0]} , { projection: { 
             containerData: 1} }).toArray(function(err, result) {
             if (err) throw err;
-            console.log(result);
+          //  console.log(result);
            // if (result) {
            //     console.log("user exists");
             //    res.redirect('/Workers');}
