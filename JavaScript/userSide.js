@@ -501,8 +501,8 @@ async function loginWorkers(workers) {
         //     loginWorkersInfo,
         // )
         document.cookie = JSON.stringify(loginWorkersInfo);
-        //window.location = "http://proiect-pw.herokuapp.com/Workers";
-        window.location = "http://localhost:3000/Workers";
+        window.location = "http://proiect-pw.herokuapp.com/Workers";
+        //window.location = "http://localhost:3000/Workers";
 
     }
 }
@@ -655,6 +655,8 @@ $("#createUser").click(async function(e) {
     firstAsync(createWorkers);
 
 });
+
+
 
 $("#deleteUser").click(function(e) {
     e.preventDefault();

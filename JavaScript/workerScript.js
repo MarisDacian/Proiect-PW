@@ -32,7 +32,7 @@ window.onload = function() {
     //setWorkerStatus(statusData);
 
 };
-if (loginWorkersInfo != null) {
+if (!Array.isArray(loginWorkersInfo) && loginWorkersInfo.length) {
     console.log(loginWorkersInfo);
 } else {
     //++++++++++++++++Comentat pe motiv de lucru A nu se sterge!!!!!!!++++++++++++++++++++++++++++++++++++++++++
