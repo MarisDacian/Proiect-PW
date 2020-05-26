@@ -222,6 +222,7 @@ body {
   background: transparent;
   color: #0275d8;
   font-weight: bold;
+  font-size: 12px;
 }
 
 .nr {
@@ -240,6 +241,6 @@ body {
 }
 
 .arr {
-  height: 30px;
+  height: 20px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -13,35 +13,99 @@ function getWorkers() {
         success: function(data) {
             const table = document.getElementById("tableBody");
             for (i = 0; i < data.length; i++) {
-                let row = table.insertRow();
-                console.log(data[i]);
-                let index = row.insertCell(0);
-                index.innerHTML = i + 1;
+                if (data[i].status == "working") {
 
-                let firstName = row.insertCell(1);
-                firstName.innerHTML = data[i].firstName;
+                    let row = table.insertRow();
+                    console.log(data[i]);
+                    let index = row.insertCell(0);
+                    $(index).css("color", "green").css("font-weight", "bold");
+                    index.innerHTML = i + 1;
 
-                let lastName = row.insertCell(2);
-                lastName.innerHTML = data[i].lastName;
+                    let firstName = row.insertCell(1);
+                    $(firstName).css("color", "green").css("font-weight", "bold");
+                    firstName.innerHTML = data[i].firstName;
 
-                let cnp = row.insertCell(3);
-                cnp.innerHTML = data[i].cnp;
+                    let lastName = row.insertCell(2);
+                    $(lastName).css("color", "green").css("font-weight", "bold");
+                    lastName.innerHTML = data[i].lastName;
 
-                let userName = row.insertCell(4);
-                userName.innerHTML = data[i].userName;
+                    let cnp = row.insertCell(3);
+                    $(cnp).css("color", "green").css("font-weight", "bold");
+                    cnp.innerHTML = data[i].cnp;
 
-                let email = row.insertCell(5);
-                email.innerHTML = data[i].email;
+                    let userName = row.insertCell(4);
+                    $(userName).css("color", "green").css("font-weight", "bold");
+                    userName.innerHTML = data[i].userName;
 
-                let password = row.insertCell(6);
-                password.innerHTML = data[i].password;
-                WorkersId[i] = data[i]._id;
-                console.log(WorkersId[i]);
-                let select = row.insertCell(7);
-                let checkBox = document.createElement("INPUT");
-                checkBox.setAttribute("type", "checkbox");
-                checkBox.setAttribute("id", "checkbox" + i);
-                select.appendChild(checkBox);
+                    let email = row.insertCell(5);
+                    $(email).css("color", "green").css("font-weight", "bold");
+                    email.innerHTML = data[i].email;
+
+                    let password = row.insertCell(6);
+                    $(password).css("color", "green").css("font-weight", "bold");
+                    password.innerHTML = data[i].password;
+                    WorkersId[i] = data[i]._id;
+                    console.log(WorkersId[i]);
+
+                    if (data[i].totalWorkedTime == undefined) {
+                        let time = row.insertCell(7);
+                        $(time).css("color", "green").css("font-weight", "bold");
+                        time.innerHTML = 0;
+                    } else {
+                        let time = row.insertCell(7);
+                        $(time).css("color", "green").css("font-weight", "bold");
+                        time.innerHTML = data[i].totalWorkedTime;
+                    }
+
+
+                    let select = row.insertCell(8);
+                    let checkBox = document.createElement("INPUT");
+                    checkBox.setAttribute("type", "checkbox");
+                    checkBox.setAttribute("id", "checkbox" + i);
+                    select.appendChild(checkBox);
+
+                } else {
+
+                    let row = table.insertRow();
+                    console.log(data[i]);
+                    let index = row.insertCell(0);
+                    index.innerHTML = i + 1;
+
+                    let firstName = row.insertCell(1);
+                    firstName.innerHTML = data[i].firstName;
+
+                    let lastName = row.insertCell(2);
+                    lastName.innerHTML = data[i].lastName;
+
+                    let cnp = row.insertCell(3);
+                    cnp.innerHTML = data[i].cnp;
+
+                    let userName = row.insertCell(4);
+                    userName.innerHTML = data[i].userName;
+
+                    let email = row.insertCell(5);
+                    email.innerHTML = data[i].email;
+
+                    let password = row.insertCell(6);
+                    password.innerHTML = data[i].password;
+                    WorkersId[i] = data[i]._id;
+                    console.log(WorkersId[i]);
+
+                    if (data[i].totalWorkedTime == undefined) {
+                        let time = row.insertCell(7);
+                        time.innerHTML = 0;
+                    } else {
+                        let time = row.insertCell(7);
+                        time.innerHTML = data[i].totalWorkedTime;
+                    }
+
+
+                    let select = row.insertCell(8);
+                    let checkBox = document.createElement("INPUT");
+                    checkBox.setAttribute("type", "checkbox");
+                    checkBox.setAttribute("id", "checkbox" + i);
+                    select.appendChild(checkBox);
+                }
             }
         }
     });
